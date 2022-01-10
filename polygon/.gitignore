@@ -3,10 +3,22 @@
 /build
 /cache
 /dist
+/etherscan
+/flatten
+/deployments/localhost*
+/deployments/mumbai*
+/deployments/staging_mainnet/*
+/deployments/production/*
+/deployments/outputs/staging_mainnet_1
+/deployments/outputs/production_1
+/deployments/outputs/50-development.json
+/deploy/*_fake_deployment.ts
 /node_modules
 /transpiled
 /types/generated/*
 /typechain
+coverage.json
+coverage/
 .env
 .npmrc
 

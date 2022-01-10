@@ -1,0 +1,35 @@
+{
+  "scripts": {
+    "create:deployment": "yarn hardhat set:utils:create:deployment",
+    "chain": "yarn hardhat node --no-deploy",
+    "clean": "../scripts/clean.sh",
+    "clean-artifacts": "rm -rf ../contracts ../artifacts ../external",
+    "clean-dev-deployment": "rm -rf deployments/outputs/50* deployments/localhost*",
+    "compile": "yarn hardhat compile",
+    "compile:one": "yarn hardhat set:compile:one",
+    "console": ". ./env/production.sh; yarn hardhat console --no-compile",
+    "copy-contracts": "./scripts/copy_contracts.sh",
+    "deploy:rinkeby": ". ./env/staging_rinkeby.sh; yarn hardhat --network rinkeby deploy",
+    "deploy:staging_mainnet": ". ./env/staging_main.sh; yarn hardhat --network staging_mainnet deploy",
+    "deploy:production": ". ./env/production.sh; yarn hardhat --network production deploy",
+    "deploy:local": ". ./env/local.sh; yarn hardhat --network localhost deploy",
+    "deploy:tools:testing:production": "yarn clean-dev-deployment && TESTING_PRODUCTION=true . ./env/local.sh; yarn hardhat deploy --no-compile",
+    "etherscan:staging_mainnet": ". ./env/staging_main.sh; yarn hardhat set:etherscan:verify --network staging_mainnet",
+    "etherscan:production": ". ./env/production.sh; yarn hardhat set:etherscan:verify --network production",
+    "flatten": "yarn hardhat flatten",
+    "hardhat": "../node_modules/.bin/hardhat",
+    "lint": "cd .. && yarn lint",
+    "lint:nofix": "cd .. && yarn lint:nofix",
+    "test": ". ./env/local.sh; yarn hardhat test --network localhost",
+    "transpile": "../node_modules/.bin/tsc",
+    "tx": ". ./env/production.sh; yarn hardhat set:utils:tx",
+    "tx-dev": "TESTING_PRODUCTION=true yarn hardhat set:utils:tx",
+    "typechain": "yarn hardhat typechain"
+  },
+  "license": "MIT",
+  "_moduleAliases": {
+    "@utils": "../utils",
+    "@set/typechain": "../typechain",
+    "@deployments": "deployments"
+  }
+}

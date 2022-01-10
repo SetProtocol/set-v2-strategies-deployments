@@ -1,0 +1,44 @@
+.DS_Store
+/artifacts
+/build
+/cache
+/dist
+/etherscan
+/flatten
+/deployments/localhost*
+/deployments/kovan*
+/deployments/staging_mainnet/*
+/deployments/production/*
+/deployments/outputs/staging_mainnet_10
+/deployments/outputs/production_10
+/deployments/outputs/420-development.json
+/deployments/outputs/69-development.json
+/deploy/*_fake_deployment.ts
+/node_modules
+/transpiled
+/types/generated/*
+/typechain
+coverage.json
+coverage/
+.env
+.npmrc
+
+/artifacts
+/contracts
+/external
+
+/.coverage_cache
+/.coverage_contracts
+
+### Node ###
+
+# Logs
+*.log
+/logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE Configs
+.vscode/*
+.idea

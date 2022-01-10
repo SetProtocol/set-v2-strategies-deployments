@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "paths": {
+        "@utils/*": ["utils/*"],
+        "@set/typechain/*": ["typechain/*"]
+    }
+  },
+  "include": [
+    "./ethereum/**/*.ts",
+    "./avalanche/**/*.ts",
+    "./polygon/**/*.ts",
+    "./arbitrum/**/*.ts",
+    "./optimism/**/*.ts",
+    "./utils/**/*.ts",
+    "./typechain/**/*.ts",
+    "./types/**/*",
+    "./tasks/**/*.ts"
+  ]
+}

@@ -1,0 +1,176 @@
+version: 2.1
+
+# Steps shared by chain jobs
+
+default_docker_image: &default_docker_image
+  docker:
+    - image: circleci/node:12.21.0
+
+commands:
+  setup_job:
+    steps:
+      - restore_cache:
+          key: compiled-env-{{ .Environment.CIRCLE_SHA1 }}
+  deploy:
+    steps:
+      - run:
+          name: Test RPC
+          command: yarn chain
+          background: true
+      - run:
+          name: Test Deployment
+          command: yarn deploy:local
+  test:
+    steps:
+      - run:
+          name: Test RPC
+          command: yarn chain
+          background: true
+      - run:
+          name: Deploy Contracts to TestRPC
+          command: yarn deploy:local
+      - run:
+          name: Hardhat Test
+          command: yarn test
+
+jobs:
+  checkout_and_compile:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments
+    resource_class: large
+    steps:
+      - checkout
+      - restore_cache:
+          key: module-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: Set Up Environment Variables
+          command: cp .env.default .env
+      - run:
+          name: Test npm token
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_READ_TOKEN"
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_READ_TOKEN" > ~/set-v2-strategies-deployments/.npmrc
+      - run:
+          name: Fetch Dependencies
+          command: yarn install
+      - run:
+          name: TS Lint
+          command: yarn lint-ts
+      - run:
+          name: JSON Lint deployments/outputs
+          command: yarn lint-json
+      - save_cache:
+          key: module-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - save_cache:
+          key: compiled-env-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/set-v2-strategies-deployments
+
+  ethereum_test:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/ethereum
+    steps:
+      - setup_job
+      - test
+
+  ethereum_deployment:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/ethereum
+    steps:
+      - setup_job
+      - deploy
+
+  polygon_test:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/polygon
+    steps:
+      - setup_job
+      - test
+
+  polygon_deployment:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/polygon
+    steps:
+      - setup_job
+      - deploy
+
+  arbitrum_test:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/arbitrum
+    steps:
+      - setup_job
+      - test
+
+  arbitrum_deployment:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/arbitrum
+    steps:
+      - setup_job
+      - deploy
+
+  avalanche_test:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/avalanche
+    steps:
+      - setup_job
+      - test
+
+  avalanche_deployment:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/avalanche
+    steps:
+      - setup_job
+      - deploy
+
+  optimism_deployment:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/optimism
+    steps:
+      - setup_job
+      - deploy
+
+  optimism_test:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments/optimism
+    steps:
+      - setup_job
+      - test
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - checkout_and_compile
+      - ethereum_test:
+          requires:
+            - checkout_and_compile
+      - ethereum_deployment:
+          requires:
+            - checkout_and_compile
+      - polygon_test:
+          requires:
+            - checkout_and_compile
+      - polygon_deployment:
+          requires:
+            - checkout_and_compile
+      - arbitrum_test:
+          requires:
+            - checkout_and_compile
+      - arbitrum_deployment:
+          requires:
+            - checkout_and_compile
+      - avalanche_test:
+          requires:
+            - checkout_and_compile
+      - avalanche_deployment:
+          requires:
+            - checkout_and_compile
+      - optimism_test:
+          requires:
+            - checkout_and_compile
+      - optimism_deployment:
+          requires:
+            - checkout_and_compile
