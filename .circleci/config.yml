@@ -18,6 +18,9 @@ commands:
           command: yarn chain
           background: true
       - run:
+          name: Sleep
+          command: sleep 15
+      - run:
           name: Test Deployment
           command: yarn deploy:local
   test:
@@ -26,6 +29,9 @@ commands:
           name: Test RPC
           command: yarn chain
           background: true
+      - run:
+          name: Sleep
+          command: sleep 15
       - run:
           name: Deploy Contracts to TestRPC
           command: yarn deploy:local
