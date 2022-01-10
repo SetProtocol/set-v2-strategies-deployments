@@ -1,0 +1,177 @@
+{
+  "name": "set-v2-strategies-deployments",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist",
+  "types": "dist/types",
+  "files": [
+    "artifacts",
+    "dist",
+    "contracts",
+    "utils",
+    "scripts",
+    "tasks",
+    "typechain",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "build": "./scripts/build.sh",
+    "clean": "./scripts/clean.sh",
+    "clean-artifacts": "rm -rf contracts artifacts external",
+    "copy-contracts": "./scripts/copy_contracts.sh",
+    "lint": "yarn run lint-ts",
+    "lint-ts": "eslint -c .eslintrc.js --ext .ts",
+    "lint-json": "./scripts/jsonlint.sh",
+    "precommit": "lint-staged",
+    "prepare": "yarn build",
+    "transpile": "tsc",
+    "transpile:ethereum": "cd ethereum && yarn transpile",
+    "transpile:polygon": "cd polygon && yarn transpile",
+    "transpile:arbitrum": "cd arbitrum && yarn transpile",
+    "transpile:optimism": "cd optimism && yarn transpile",
+    "transpile:avalanche": "cd avalanche && yarn transpile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SetProtocol/set-v2-deployments.git"
+  },
+  "author": "felix2feng",
+  "license": "MIT",
+  "homepage": "https://github.com/SetProtocol",
+  "resolutions": {
+    "@ethersproject/abi": "5.5.0",
+    "@ethersproject/bignumber": "5.5.0",
+    "@ethersproject/contracts": "5.5.0",
+    "@ethersproject/providers": "5.5.1"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.6",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^3.1.0",
+    "@truffle/hdwallet-provider": "^1.4.0",
+    "@typechain/ethers-v5": "7.0.1",
+    "@typechain/hardhat": "^2.3.0",
+    "@types/chai": "^4.2.11",
+    "@types/fs-extra": "^5.0.0",
+    "@types/lodash": "^4.14.86",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.5",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/eslint-plugin-tslint": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.1",
+    "diff-match-patch": "^1.0.5",
+    "dotenv": "^8.2.0",
+    "eslint": "7.32.0",
+    "eslint-plugin-jsdoc": "36.1.0",
+    "eslint-plugin-no-null": "1.0.2",
+    "ethereum-waffle": "^3.4.0",
+    "ethereumjs-util": "^7.0.9",
+    "etherscan-api": "^10.0.5",
+    "hardhat": "^2.6.4",
+    "hardhat-deploy": "^0.9.1",
+    "husky": "^4.2.5",
+    "jsonlint": "^1.6.3",
+    "lint-staged": "^10.2.11",
+    "lodash": "^4.17.4",
+    "solc": "^0.6.10",
+    "solhint": "^3.1.0",
+    "ts-generator": "^0.1.1",
+    "ts-node": "^8.10.1",
+    "tslint": "6.1.3",
+    "tslint-eslint-rules": "^5.3.1",
+    "typechain": "5.1.2",
+    "typescript": "4.2.4",
+    "web3": "^1.2.9"
+  },
+  "dependencies": {
+    "@perp/curie-contract": "^0.14.0-staging",
+    "@setprotocol/index-coop-contracts": "0.0.20",
+    "@setprotocol/set-protocol-v2": "^0.1.9",
+    "@setprotocol/set-v2-strategies": "^0.0.1",
+    "ethers": "5.5.2",
+    "fs-extra": "^5.0.0",
+    "module-alias": "^2.2.2",
+    "replace-in-file": "^6.1.0",
+    "shelljs": "^0.8.5"
+  },
+  "_moduleAliases": {
+    "@utils": "utils",
+    "@set/typechain": "typechain"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precommit"
+    }
+  },
+  "lint-staged": {
+    "utils/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "tasks/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "ethereum/test/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "ethereum/deploy/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "ethereum/deployments/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "ethereum/deployments/outputs/*.json": [
+      "yarn lint-json"
+    ],
+    "polygon/test/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "polygon/deploy/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "polygon/deployments/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "polygon/deployments/outputs/*.json": [
+      "yarn lint-json"
+    ],
+    "avalanche/test/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "avalanche/deploy/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "avalanche/deployments/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "avalanche/deployments/outputs/*.json": [
+      "yarn lint-json"
+    ],
+    "arbitrum/test/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "arbitrum/deploy/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "arbitrum/deployments/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "arbitrum/deployments/outputs/*.json": [
+      "yarn lint-json"
+    ],
+    "optimism/test/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "optimism/deploy/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "optimism/deployments/**/*.ts": [
+      "yarn lint-ts --fix"
+    ],
+    "optimism/deployments/outputs/*.json": [
+      "yarn lint-json"
+    ]
+  }
+}
