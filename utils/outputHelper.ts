@@ -195,7 +195,7 @@ export async function writeStateToOutputs(parameter: string, value: any) {
 
 async function returnEmptyNetworkValue(): Promise<any> {
 
-  const networkDependenciesPath = path.join(process.cwd(), "deployments", "utils", "deploys", "dependencies.ts");
+  const networkDependenciesPath = path.join(process.cwd(), "deployments", "utils", "dependencies.ts");
   const dependencies = (await import(networkDependenciesPath)).default;
 
   const networkName = dependencies.HUMAN_FRIENDLY_NAMES[deploymentNetworkId];

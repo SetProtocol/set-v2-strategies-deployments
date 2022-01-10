@@ -3,6 +3,7 @@ import "module-alias/register";
 import { Signer } from "ethers";
 import { BigNumberish } from "@ethersproject/bignumber";
 import { Address } from "../types";
+
 import {
   Controller,
   BasicIssuanceModule,
@@ -12,7 +13,10 @@ import {
   SetTokenCreator,
   SingleIndexModule,
   StandardTokenMock,
-  WETH9,
+  WETH9
+} from "@setprotocol/set-protocol-v2/typechain";
+
+import {
   Controller__factory,
   BasicIssuanceModule__factory,
   GeneralIndexModule__factory,
@@ -24,7 +28,7 @@ import {
   DebtIssuanceModule,
   DebtIssuanceModule__factory,
   WETH9__factory
-} from "@setprotocol/set-protocol-v2/typechain/index";
+} from "@setprotocol/set-protocol-v2/dist/typechain";
 
 import { ether } from "../common";
 

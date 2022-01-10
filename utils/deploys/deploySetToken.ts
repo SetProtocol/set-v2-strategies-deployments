@@ -4,13 +4,17 @@ import { Signer } from "ethers";
 import { JsonRpcProvider } from "@ethersproject/providers";
 import { BigNumber } from "@ethersproject/bignumber";
 import { Address } from "../types";
+
 import {
   DebtIssuanceModule,
   StreamingFeeModule,
+} from "@setprotocol/set-protocol-v2/typechain";
+
+import {
   Controller__factory,
   DebtIssuanceModule__factory,
   StreamingFeeModule__factory,
-} from "@setprotocol/set-protocol-v2/typechain/index";
+} from "@setprotocol/set-protocol-v2/dist/typechain";
 
 import DeploySetV2 from "./deploySetV2";
 

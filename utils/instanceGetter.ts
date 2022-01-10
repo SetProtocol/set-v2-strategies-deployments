@@ -9,16 +9,19 @@ import {
 
 import {
   Controller,
-  Controller__factory,
   DebtIssuanceModule,
-  DebtIssuanceModule__factory,
   GeneralIndexModule,
-  GeneralIndexModule__factory,
   SetTokenCreator,
+  StreamingFeeModule
+} from "@setprotocol/set-protocol-v2/typechain";
+
+import {
+  Controller__factory,
+  DebtIssuanceModule__factory,
+  GeneralIndexModule__factory,
   SetTokenCreator__factory,
-  StreamingFeeModule,
   StreamingFeeModule__factory
-} from "@setprotocol/set-protocol-v2/typechain/index";
+} from "@setprotocol/set-protocol-v2/dist/typechain";
 
 import { Signer } from "ethers";
 

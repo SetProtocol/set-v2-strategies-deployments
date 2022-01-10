@@ -57,7 +57,7 @@ const config: HardhatUserConfig = {
   typechain: {
     outDir: "./typechain",
     target: "ethers-v5",
-    externalArtifacts: ["./external/**/*.json"]
+    externalArtifacts: ["../node_modules/@setprotocol/set-protocol-v2/artifacts/**/*.json"]
   },
   mocha: {
     timeout: 100000,
