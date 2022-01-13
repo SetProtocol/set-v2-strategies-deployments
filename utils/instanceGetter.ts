@@ -3,8 +3,8 @@ import "module-alias/register";
 import {
   BaseExtension,
   BaseExtension__factory,
-  BaseManagerV2,
-  BaseManagerV2__factory
+  BaseManager,
+  BaseManager__factory
 } from "@set/typechain/index";
 
 import {
@@ -34,8 +34,8 @@ export class InstanceGetter {
     this._deployerSigner = deployerSigner;
   }
 
-  public async getBaseManagerV2(icManagerV2Address: Address): Promise<BaseManagerV2> {
-    return await new BaseManagerV2__factory(this._deployerSigner).attach(icManagerV2Address);
+  public async getBaseManager(managerAddress: Address): Promise<BaseManager> {
+    return await new BaseManager__factory(this._deployerSigner).attach(managerAddress);
   }
 
   public async getExtension(extension: Address): Promise<BaseExtension> {
