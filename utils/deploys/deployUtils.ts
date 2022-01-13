@@ -6,7 +6,6 @@ import {
   writeTransactionToOutputs,
   ensureOutputsFile,
 } from "../outputHelper";
-import { MerkleDistributorInfo } from "../../utils/types";
 
 import {
   getAccounts,
@@ -71,44 +70,6 @@ export async function prepareDeployment(hre: HardhatRuntimeEnvironment) {
   };
 }
 
-// Deploys MerkleDistributor contract
-export async function deployMerkleDistributor(
-  indexTokenName: string,
-  merkleDistributorContractName: string,
-  merkleRootObject: MerkleDistributorInfo,
-  distributorRewardsContractName: string,
-  hre: HardhatRuntimeEnvironment
-) {
-  const { deployments, getNamedAccounts, run } = hre;
-  const { deploy } = deployments;
-  const { deployer } = await getNamedAccounts();
-
-  // MerkleDistributor has to be compile by itself to Etherscan verify
-  await run("set:compile:one", { contractName: merkleDistributorContractName });
-
-  // Fetch INDEX token
-  const indexTokenAddress = await getContractAddress(indexTokenName);
-
-  // Deploy Merkle Distributor contract
-  const checkMerkleDistributorAddress = await getContractAddress(distributorRewardsContractName);
-
-  if (checkMerkleDistributorAddress === "") {
-    const constructorArgs = [indexTokenAddress, merkleRootObject.merkleRoot];
-    const merkleDistributorDeploy = await deploy(
-      merkleDistributorContractName,
-      { from: deployer, args: constructorArgs, log: true }
-    );
-    merkleDistributorDeploy.receipt &&
-      await saveContractDeployment({
-        name: distributorRewardsContractName,
-        contractAddress: merkleDistributorDeploy.address,
-        id: merkleDistributorDeploy.receipt.transactionHash,
-        description: `Deployed ${distributorRewardsContractName}`,
-        constructorArgs,
-      });
-  }
-}
-
 export async function deployBaseManager(
   hre: HardhatRuntimeEnvironment,
   managerName: string,
@@ -129,7 +90,7 @@ export async function deployBaseManager(
       methodologist,
     ];
 
-    const baseManagerDeploy = await deploy("BaseManagerV2", {
+    const baseManagerDeploy = await deploy("BaseManager", {
       from: deployer,
       args: constructorArgs,
       log: true,
@@ -318,11 +279,11 @@ export async function addExtension(
   const instanceGetter: InstanceGetter = new InstanceGetter(owner.wallet);
 
   const baseManagerAddress = await getContractAddress(managerName);
-  const baseManagerInstance = await instanceGetter.getBaseManagerV2(baseManagerAddress);
+  const baseManagerInstance = await instanceGetter.getBaseManager(baseManagerAddress);
 
   const extensionAddress = await getContractAddress(extensionName);
-  if (!await baseManagerInstance.isExtension(extensionAddress)) {
-    const addExtensionData = baseManagerInstance.interface.encodeFunctionData("addExtension", [extensionAddress]);
+  if (!await baseManagerInstance.isAdapter(extensionAddress)) {
+    const addExtensionData = baseManagerInstance.interface.encodeFunctionData("addAdapter", [extensionAddress]);
     const description = `Add ${extensionName} on ${managerName}`;
 
     const operator = await baseManagerInstance.operator();
@@ -345,57 +306,6 @@ export async function addExtension(
   }
 }
 
-export async function protectModule(
-  hre: HardhatRuntimeEnvironment,
-  managerName: string,
-  moduleName: string,
-  extensionNames: string[]
-): Promise<void> {
-  const {
-    rawTx,
-    deployer,
-  } = await prepareDeployment(hre);
-
-  const [owner] = await getAccounts();
-  const instanceGetter: InstanceGetter = new InstanceGetter(owner.wallet);
-
-  const baseManagerAddress = await getContractAddress(managerName);
-  const baseManagerInstance = await instanceGetter.getBaseManagerV2(baseManagerAddress);
-
-  const moduleAddress = await findDependency(moduleName);
-
-  const extensionAddresses = [];
-  for (const name of extensionNames) {
-    extensionAddresses.push(await getContractAddress(name));
-  }
-
-  if (!await baseManagerInstance.protectedModules(moduleAddress)) {
-    const protectModuleData = baseManagerInstance
-      .interface
-      .encodeFunctionData("protectModule", [moduleAddress, extensionAddresses]);
-
-    const description = `Protecting module ${moduleName} on ${managerName}`;
-
-    const operator = await baseManagerInstance.operator();
-
-    if (operator != deployer) {
-      await saveDeferredTransactionData({
-        data: protectModuleData,
-        description,
-        contractName: managerName,
-      });
-    } else {
-      const addExtensionTransaction: any = await rawTx({
-        from: deployer,
-        to: baseManagerInstance.address,
-        data: protectModuleData,
-        log: true,
-      });
-      await writeTransactionToOutputs(addExtensionTransaction.transactionHash, description);
-    }
-  }
-}
-
 export async function setOperator(
   hre: HardhatRuntimeEnvironment,
   managerName: string,
@@ -410,7 +320,7 @@ export async function setOperator(
   const instanceGetter: InstanceGetter = new InstanceGetter(owner.wallet);
 
   const baseManagerAddress = await getContractAddress(managerName);
-  const baseManagerInstance = await instanceGetter.getBaseManagerV2(baseManagerAddress);
+  const baseManagerInstance = await instanceGetter.getBaseManager(baseManagerAddress);
   const currentOperator = await baseManagerInstance.operator();
 
   if (currentOperator != newOperator) {
@@ -459,7 +369,7 @@ export async function addApprovedCaller(
   const description = `${extensionName} caller statuses updated.`;
 
   const managerAddress = await extensionInstance.manager();
-  const baseManagerInstance = await instanceGetter.getBaseManagerV2(managerAddress);
+  const baseManagerInstance = await instanceGetter.getBaseManager(managerAddress);
   const operator = await baseManagerInstance.operator();
 
   if (operator != deployer) {

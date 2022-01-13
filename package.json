@@ -90,7 +90,7 @@
     "@perp/curie-contract": "^0.14.0-staging",
     "@setprotocol/index-coop-contracts": "0.0.20",
     "@setprotocol/set-protocol-v2": "^0.1.9",
-    "@setprotocol/set-v2-strategies": "^0.0.1",
+    "@setprotocol/set-v2-strategies": "^0.0.2",
     "ethers": "5.5.2",
     "fs-extra": "^5.0.0",
     "module-alias": "^2.2.2",
