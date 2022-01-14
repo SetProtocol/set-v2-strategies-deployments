@@ -44,8 +44,8 @@ const {
   PERPV2_LEVERAGE_MODULE,
   V_ETH,
   V_USD,
-  ETH_ORACLE_PROXY,
-  USDC_ORACLE_PROXY,
+  ETH_CHAINLINK_ORACLE,
+  USDC_CHAINLINK_ORACLE,
 } = DEPENDENCY;
 const CURRENT_STAGE = getCurrentStage(__filename);
 
@@ -91,12 +91,12 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
       await writeContractAndTransactionToOutputs(V_USD, await getRandomAddress(), EMPTY_BYTES, "Create Mock V_USD");
     }
 
-    if (await findDependency(ETH_ORACLE_PROXY) === "") {
-      await writeContractAndTransactionToOutputs(ETH_ORACLE_PROXY, await getRandomAddress(), EMPTY_BYTES, "Create Mock ETH_ORACLE_PROXY");
+    if (await findDependency(ETH_CHAINLINK_ORACLE) === "") {
+      await writeContractAndTransactionToOutputs(ETH_CHAINLINK_ORACLE, await getRandomAddress(), EMPTY_BYTES, "Create Mock ETH_CHAINLINK_ORACLE");
     }
 
-    if (await findDependency(USDC_ORACLE_PROXY) === "") {
-      await writeContractAndTransactionToOutputs(USDC_ORACLE_PROXY, await getRandomAddress(), EMPTY_BYTES, "Create Mock USDC_ORACLE_PROXY");
+    if (await findDependency(USDC_CHAINLINK_ORACLE) === "") {
+      await writeContractAndTransactionToOutputs(USDC_CHAINLINK_ORACLE, await getRandomAddress(), EMPTY_BYTES, "Create Mock USDC_CHAINLINK_ORACLE");
     }
 
     if (await findDependency(PERPV2_ACCOUNT_BALANCE) === "") {
@@ -117,8 +117,8 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
         setToken: await findDependency(TEST_PERP_TOKEN),
         perpV2LeverageModule: await findDependency(PERPV2_LEVERAGE_MODULE),
         perpV2AccountBalance: await findDependency(PERPV2_ACCOUNT_BALANCE),
-        basePriceOracle: await findDependency(ETH_ORACLE_PROXY),
-        quotePriceOracle: await findDependency(USDC_ORACLE_PROXY),
+        basePriceOracle: await findDependency(ETH_CHAINLINK_ORACLE),
+        quotePriceOracle: await findDependency(USDC_CHAINLINK_ORACLE),
         virtualBaseAddress: await findDependency(V_ETH),
         virtualQuoteAddress: await findDependency(V_USD)
       };
