@@ -14,7 +14,7 @@
       "id": "0xe5d6eed86b5c040b0df06653a04642ed711c930d193c328898b9299e393ee85f",
       "name": "BaseManager",
       "timestamp": 1642190226713,
-      "verified": false,
+      "verified": true,
       "description": "Deployed BaseManager",
       "contractAddress": "0x25337C2cD1147acd3EE99871f2087Af6095B6aF4",
       "constructorArgs": [
@@ -28,7 +28,7 @@
       "id": "0x26d795de95fb6198ed5fdd827e9d907e0980ee5931c565573bf4accd685c260f",
       "name": "PerpV2LeverageStrategyExtension",
       "timestamp": 1642190232314,
-      "verified": false,
+      "verified": true,
       "description": "Deployed PerpV2LeverageStrategyExtension",
       "contractAddress": "0x9C7b251d6Dfb58aA36A332aA2E0624FE50802f87",
       "constructorArgs": [
