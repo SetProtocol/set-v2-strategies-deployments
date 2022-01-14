@@ -4,9 +4,9 @@ import { HardhatRuntimeEnvironment as HRE } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
 
 import {
-  getCurrentStage,
-  getContractAddress,
   findDependency,
+  getContractAddress,
+  getCurrentStage,
   saveContractDeployment,
   writeContractAndTransactionToOutputs
 } from "@utils/outputHelper";
@@ -18,33 +18,34 @@ import {
 import {
   addExtension,
   deployBaseManager,
-  updateSetManager,
+  prepareDeployment,
   stageAlreadyFinished,
   trackFinishedStage,
-  prepareDeployment
+  updateSetManager,
 } from "@utils/deploys/deployUtils";
 
 import {
   DEPENDENCY
 } from "@deployments/utils/dependencies";
+
 import {
   CONTRACT_NAMES,
-  METHODOLOGY_SETTINGS,
   EXCHANGE_SETTINGS,
   EXECUTION_SETTINGS,
-  INCENTIVE_SETTINGS
+  INCENTIVE_SETTINGS,
+  METHODOLOGY_SETTINGS,
 } from "@deployments/constants/001_perpLeverageSystem";
 import { getRandomAddress } from "@utils/accountUtils";
 import { EMPTY_BYTES } from "@utils/constants";
 
 const {
-  V_ETH,
-  V_USD,
+  TEST_PERP_TOKEN,
   PERPV2_ACCOUNT_BALANCE,
   PERPV2_LEVERAGE_MODULE,
+  V_ETH,
+  V_USD,
   ETH_ORACLE_PROXY,
   USDC_ORACLE_PROXY,
-  TEST_PERP_TOKEN
 } = DEPENDENCY;
 const CURRENT_STAGE = getCurrentStage(__filename);
 
@@ -91,11 +92,11 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
     }
 
     if (await findDependency(PERPV2_ACCOUNT_BALANCE) === "") {
-      await writeContractAndTransactionToOutputs(V_USD, await getRandomAddress(), EMPTY_BYTES, "Create Mock PERPV2_ACCOUNT_BALANCE");
+      await writeContractAndTransactionToOutputs(PERPV2_ACCOUNT_BALANCE, await getRandomAddress(), EMPTY_BYTES, "Create Mock PERPV2_ACCOUNT_BALANCE");
     }
 
     if (await findDependency(PERPV2_LEVERAGE_MODULE) === "") {
-      await writeContractAndTransactionToOutputs(V_USD, await getRandomAddress(), EMPTY_BYTES, "Create Mock PERPV2_LEVERAGE_MODULE");
+      await writeContractAndTransactionToOutputs(PERPV2_LEVERAGE_MODULE, await getRandomAddress(), EMPTY_BYTES, "Create Mock PERPV2_LEVERAGE_MODULE");
     }
   }
 

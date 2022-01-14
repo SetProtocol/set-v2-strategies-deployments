@@ -2,6 +2,7 @@ import { BigNumber } from "@ethersproject/bignumber";
 import { ether } from "@utils/index";
 
 import { ONE_DAY_IN_SECONDS } from "@utils/constants";
+
 export const CONTRACT_NAMES = {
   BASE_MANAGER: "BaseManager",
   STANDARD_TOKEN_MOCK: "StandardTokenMock",

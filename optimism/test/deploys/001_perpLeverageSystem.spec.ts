@@ -4,8 +4,8 @@ import { deployments } from "hardhat";
 import { Account } from "@utils/types";
 import {
   BaseManager,
-  PerpV2LeverageStrategyExtension,
   BaseManager__factory,
+  PerpV2LeverageStrategyExtension,
   PerpV2LeverageStrategyExtension__factory,
 } from "@set/typechain/index";
 
@@ -23,9 +23,7 @@ import {
 import {
   ONE_DAY_IN_SECONDS
 } from "@utils/constants";
-import {
 
-} from "@deployments/constants/001_perpLeverageSystem";
 
 const expect = getWaffleExpect();
 
