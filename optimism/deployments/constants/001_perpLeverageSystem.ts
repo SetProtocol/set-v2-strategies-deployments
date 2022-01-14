@@ -6,8 +6,7 @@ import { ONE_DAY_IN_SECONDS } from "@utils/constants";
 export const CONTRACT_NAMES = {
   BASE_MANAGER: "BaseManager",
   STANDARD_TOKEN_MOCK: "StandardTokenMock",
-  LEVERAGE_EXTENSION: "PerpV2LeverageStrategyExtension",
-  PERP_V2_LEVERAGE_MODULE: "PerpV2LeverageModule"
+  LEVERAGE_EXTENSION: "PerpV2LeverageStrategyExtension"
 };
 
 export const METHODOLOGY_SETTINGS = {
