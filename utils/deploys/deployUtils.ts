@@ -485,3 +485,44 @@ export async function deploySetToken(
     await writeContractAndTransactionToOutputs(_symbol, tokenAddr, tx.hash, "Deployed GMI");
   }
 }
+
+export async function updateSetManager(
+  hre: HardhatRuntimeEnvironment,
+  setName: string,
+  baseManagerName: string
+): Promise<void> {
+  const {
+    rawTx,
+    deployer,
+  } = await prepareDeployment(hre);
+
+  const [owner] = await getAccounts();
+  const instanceGetter: InstanceGetter = new InstanceGetter(owner.wallet);
+
+  const setTokenAddress = await findDependency(setName);
+  const setTokenInstance = await instanceGetter.getSetToken(setTokenAddress);
+
+  const setManagerAddress = await setTokenInstance.manager();
+  const newManagerAddress = await getContractAddress(baseManagerName);
+
+  const setManagerData = setTokenInstance.interface.encodeFunctionData("setManager", [
+    newManagerAddress,
+  ]);
+  const description = `Set ${baseManagerName} contract as ${setName} Manager`;
+
+  if (setManagerAddress != deployer) {
+    await saveDeferredTransactionData({
+      data: setManagerData,
+      description,
+      contractName: setName,
+    });
+  } else {
+    const setManagerTransaction: any = await rawTx({
+      from: deployer,
+      to: setTokenInstance.address,
+      data: setManagerData,
+      log: true,
+    });
+    await writeTransactionToOutputs(setManagerTransaction.transactionHash, description);
+  }
+}

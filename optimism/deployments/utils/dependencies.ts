@@ -18,6 +18,25 @@ export default {
     69: "",
   },
 
+  // SetTokens
+  TEST_PERP_TOKEN: {
+    69: "0x6027c4dcFE97fa079D639bBDD018E95dDc1d9c65"
+  },
+
+  // PerpV2 virtual tokens
+  V_ETH: {
+    10: "",
+    69: "0x7cE531e940B24EE760e5dDBF8A2E0E359fA04400"
+  },
+  V_BTC: {
+    10: "",
+    69: "0x362a09eb7d30ecb86de395291f9d26931baabc1d"
+  },
+  V_USD: {
+    10: "",
+    69: "0xd52d4175f937b965de49e6c24e081eee6dae5645"
+  },
+
   // Need sushi analytics...
   WETH_USDC_SUSHI_PAIR: {
     10: "",
@@ -137,6 +156,14 @@ export const DEPENDENCY = {
   WBTC: "WBTC",
   WETH: "WETH",
   USDC: "USDC",
+
+  // SetTokens
+  TEST_PERP_TOKEN: "TEST_PERP_TOKEN",
+
+  // PerpV2 virtual tokens
+  V_ETH: "V_ETH",
+  V_BTC: "V_BTC",
+  V_USD: "V_USD",
 
   // External Protocols
   WETH_USDC_SUSHI_PAIR: "WETH_USDC_SUSHI_PAIR",
