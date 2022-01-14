@@ -13,7 +13,7 @@ import {
 
 import {
   PerpV2ContractSettings
-} from "@deployments/utils/types";
+} from "./../deployments/utils/types";
 
 import {
   addExtension,
@@ -26,7 +26,7 @@ import {
 
 import {
   DEPENDENCY
-} from "@deployments/utils/dependencies";
+} from "./../deployments/utils/dependencies";
 
 import {
   CONTRACT_NAMES,
@@ -34,7 +34,7 @@ import {
   EXECUTION_SETTINGS,
   INCENTIVE_SETTINGS,
   METHODOLOGY_SETTINGS,
-} from "@deployments/constants/001_perpLeverageSystem";
+} from "./../deployments/constants/001_perpLeverageSystem";
 import { getRandomAddress } from "@utils/accountUtils";
 import { EMPTY_BYTES } from "@utils/constants";
 

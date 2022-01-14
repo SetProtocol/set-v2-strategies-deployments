@@ -81,7 +81,7 @@ export async function sortAddresses() {
 }
 
 export async function findDependency(name: string) {
-  const networkDependenciesPath = path.join(process.cwd(), "deployments", "utils", "deploys", "dependencies.ts");
+  const networkDependenciesPath = path.join(process.cwd(), "deployments", "utils", "dependencies.ts");
   const dependencies = (await import(networkDependenciesPath)).default;
 
   if (dependencies[name] && dependencies[name][getNetworkId()]) {

@@ -13,7 +13,6 @@ import {
   GeneralIndexModule,
   SetToken,
   SetTokenCreator,
-  SetToken__factory,
   StreamingFeeModule
 } from "@setprotocol/set-protocol-v2/typechain";
 
@@ -21,6 +20,7 @@ import {
   Controller__factory,
   DebtIssuanceModule__factory,
   GeneralIndexModule__factory,
+  SetToken__factory,
   SetTokenCreator__factory,
   StreamingFeeModule__factory
 } from "@setprotocol/set-protocol-v2/dist/typechain";
