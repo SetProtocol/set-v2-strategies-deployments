@@ -83,7 +83,7 @@ describe("PerpLeverageSystem", () => {
       const strategy = await perpV2LevExtensionInstance.getStrategy();
 
       expect(strategy.setToken).to.eq(await findDependency("TEST_PERP_TOKEN"));
-      expect(strategy.perpV2LeverageModule).to.eq(await findDependency("PERPV2_LEVERAGE_MODULE"));
+      expect(strategy.perpV2LeverageModule).to.eq(await findDependency("PerpV2LeverageModule"));
       expect(strategy.perpV2AccountBalance).to.eq(await findDependency("PERPV2_ACCOUNT_BALANCE"));
       expect(strategy.virtualBaseAddress).to.eq(await findDependency("V_ETH"));
       expect(strategy.virtualQuoteAddress).to.eq(await findDependency("V_USD"));

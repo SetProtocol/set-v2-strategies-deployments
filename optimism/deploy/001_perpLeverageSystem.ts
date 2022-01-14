@@ -91,6 +91,14 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
       await writeContractAndTransactionToOutputs(V_USD, await getRandomAddress(), EMPTY_BYTES, "Create Mock V_USD");
     }
 
+    if (await findDependency(ETH_ORACLE_PROXY) === "") {
+      await writeContractAndTransactionToOutputs(ETH_ORACLE_PROXY, await getRandomAddress(), EMPTY_BYTES, "Create Mock ETH_ORACLE_PROXY");
+    }
+
+    if (await findDependency(USDC_ORACLE_PROXY) === "") {
+      await writeContractAndTransactionToOutputs(USDC_ORACLE_PROXY, await getRandomAddress(), EMPTY_BYTES, "Create Mock USDC_ORACLE_PROXY");
+    }
+
     if (await findDependency(PERPV2_ACCOUNT_BALANCE) === "") {
       await writeContractAndTransactionToOutputs(PERPV2_ACCOUNT_BALANCE, await getRandomAddress(), EMPTY_BYTES, "Create Mock PERPV2_ACCOUNT_BALANCE");
     }
