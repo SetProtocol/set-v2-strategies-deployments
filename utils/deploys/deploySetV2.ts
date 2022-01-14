@@ -12,6 +12,7 @@ import {
   SetToken,
   SetTokenCreator,
   SingleIndexModule,
+  DebtIssuanceModule,
   StandardTokenMock,
   WETH9
 } from "@setprotocol/set-protocol-v2/typechain";
@@ -25,7 +26,6 @@ import {
   SetToken__factory,
   SetTokenCreator__factory,
   StandardTokenMock__factory,
-  DebtIssuanceModule,
   DebtIssuanceModule__factory,
   WETH9__factory
 } from "@setprotocol/set-protocol-v2/dist/typechain";

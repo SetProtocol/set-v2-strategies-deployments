@@ -11,7 +11,9 @@ import {
   Controller,
   DebtIssuanceModule,
   GeneralIndexModule,
+  SetToken,
   SetTokenCreator,
+  SetToken__factory,
   StreamingFeeModule
 } from "@setprotocol/set-protocol-v2/typechain";
 
@@ -32,6 +34,10 @@ export class InstanceGetter {
 
   constructor(deployerSigner: Signer) {
     this._deployerSigner = deployerSigner;
+  }
+
+  public async getSetToken(setTokenAddr: Address): Promise<SetToken> {
+    return await new SetToken__factory(this._deployerSigner).attach(setTokenAddr);
   }
 
   public async getBaseManager(managerAddress: Address): Promise<BaseManager> {
