@@ -1,1 +1,119 @@
-{}
+{
+  "state": {
+    "network_key": "69-kovan",
+    "human_friendly_name": "optimism-kovan",
+    "network_id": 69,
+    "last_deployment_stage": 2
+  },
+  "addresses": {
+    "BaseManager": "0x25337C2cD1147acd3EE99871f2087Af6095B6aF4",
+    "PerpV2LeverageStrategyExtension": "0x9C7b251d6Dfb58aA36A332aA2E0624FE50802f87"
+  },
+  "transactions": {
+    "0": {
+      "id": "0xe5d6eed86b5c040b0df06653a04642ed711c930d193c328898b9299e393ee85f",
+      "name": "BaseManager",
+      "timestamp": 1642190226713,
+      "verified": true,
+      "description": "Deployed BaseManager",
+      "contractAddress": "0x25337C2cD1147acd3EE99871f2087Af6095B6aF4",
+      "constructorArgs": [
+        "0x6027c4dcFE97fa079D639bBDD018E95dDc1d9c65",
+        "0x69Bdb276A17Dd90F9D3A545944CCB20E593ae8E3",
+        "0x69Bdb276A17Dd90F9D3A545944CCB20E593ae8E3"
+      ],
+      "libraries": {}
+    },
+    "1": {
+      "id": "0x26d795de95fb6198ed5fdd827e9d907e0980ee5931c565573bf4accd685c260f",
+      "name": "PerpV2LeverageStrategyExtension",
+      "timestamp": 1642190232314,
+      "verified": true,
+      "description": "Deployed PerpV2LeverageStrategyExtension",
+      "contractAddress": "0x9C7b251d6Dfb58aA36A332aA2E0624FE50802f87",
+      "constructorArgs": [
+        "0x25337C2cD1147acd3EE99871f2087Af6095B6aF4",
+        {
+          "setToken": "0x6027c4dcFE97fa079D639bBDD018E95dDc1d9c65",
+          "perpV2LeverageModule": "0x6169c62e1aaE2D56a2Dc184514e8b515Ff6F1d9e",
+          "perpV2AccountBalance": "0xB35669c4F64faBBF71dc2e4307485Ad74d46f4E8",
+          "basePriceOracle": "0xB928Cd8fb71a54320a4e878743c2d89E7bE19D98",
+          "quotePriceOracle": "0x64E39114ee9F12c15f565ce39A8FC60061e1ED70",
+          "virtualBaseAddress": "0x7cE531e940B24EE760e5dDBF8A2E0E359fA04400",
+          "virtualQuoteAddress": "0xd52d4175f937b965de49e6c24e081eee6dae5645"
+        },
+        {
+          "targetLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "0x1bc16d674ec80000"
+          },
+          "minLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "0x17979cfe362a0000"
+          },
+          "maxLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "0x1feb3dd067660000"
+          },
+          "recenteringSpeed": {
+            "type": "BigNumber",
+            "hex": "0x016345785d8a0000"
+          },
+          "rebalanceInterval": {
+            "type": "BigNumber",
+            "hex": "0x015180"
+          }
+        },
+        {
+          "twapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x1e"
+          },
+          "slippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0x470de4df820000"
+          }
+        },
+        {
+          "incentivizedTwapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x01"
+          },
+          "incentivizedSlippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0xb1a2bc2ec50000"
+          },
+          "etherReward": {
+            "type": "BigNumber",
+            "hex": "0x0de0b6b3a7640000"
+          },
+          "incentivizedLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "0x257853b1dd8e0000"
+          }
+        },
+        {
+          "twapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x8ac7230489e80000"
+          },
+          "incentivizedTwapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x01158e460913d00000"
+          }
+        }
+      ],
+      "libraries": {}
+    },
+    "2": {
+      "id": "0x3b57708465316948bab0959be968a0e227e57f7ed44c14de84805fe488fba8d2",
+      "timestamp": 1642190238756,
+      "description": "Add PerpV2LeverageStrategyExtension on BaseManager"
+    },
+    "3": {
+      "id": "0x69fe740cb6dea7f261dd562cdd8f29e8b236de51b8f52532ff07204b7dceabd9",
+      "timestamp": 1642190245336,
+      "description": "Set BaseManager contract as TEST_PERP_TOKEN Manager"
+    }
+  }
+}

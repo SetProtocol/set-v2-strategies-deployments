@@ -53,7 +53,7 @@ const config: HardhatUserConfig = {
     },
   },
   etherscan: {
-    apiKey: `${process.env.ETHERSCAN_API_KEY}`,
+    apiKey: `${process.env.OPTIMISTIC_API_KEY}`,
   },
   // @ts-ignore
   typechain: {

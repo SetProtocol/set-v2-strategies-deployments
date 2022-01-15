@@ -84,14 +84,18 @@ export default {
   ETH_CHAINLINK_ORACLE: {
     420: "0xF9680D99D6C9589e2a93a78A04A279e509205945",
     10: "0xA969bEB73d918f6100163Cd0fba3C586C269bee1",
-    69: "0xCb7895bDC70A1a1Dce69b689FD7e43A627475A06",
+    // This oracle is manipulatable, it is not reading from an actual data source
+    69: "0xB928Cd8fb71a54320a4e878743c2d89E7bE19D98",
   },
   LINK_CHAINLINK_ORACLE:  {
     420: "0x0A6513e40db6EB1b165753AD52E80663aeA50545",
     10: "0x74d6B50283AC1D651f9Afdc33521e4c1E3332b78",
     69: "0xb37aA79EBc31B93864Bff2d5390b385bE482897b",
   },
-
+  USDC_CHAINLINK_ORACLE: {
+    // This oracle is manipulatable, it is not reading from an actual data source
+    69: "0x64E39114ee9F12c15f565ce39A8FC60061e1ED70"
+  },
   // PerpV2
   // Source: perp-lushan/metadata/<network>.json at commit: 337df9f (v1.0.2)
   // These are OZ upgradeability proxy contracts
@@ -129,6 +133,11 @@ export default {
     420: "",
     10: "0xAD7b4C162707E0B2b5f6fdDbD3f8538A5fbA0d60",
     69: "0x87113069Cd05E819B1F009BEEC70dd41594A9D12",
+  },
+
+  // System Contracts
+  PERPV2_LEVERAGE_MODULE: {
+    69: "0x6169c62e1aaE2D56a2Dc184514e8b515Ff6F1d9e"
   },
 
   // Source: deployment metadata from npm published: @perp/curie-periphery v1.0.2
@@ -190,6 +199,7 @@ export const DEPENDENCY = {
   BTC_CHAINLINK_ORACLE: "BTC_CHAINLINK_ORACLE",
   ETH_CHAINLINK_ORACLE: "ETH_CHAINLINK_ORACLE",
   LINK_CHAINLINK_ORACLE: "LINK_CHAINLINK_ORACLE",
+  USDC_CHAINLINK_ORACLE: "USDC_CHAINLINK_ORACLE",
 
   // Exchanges
   UNISWAP_V3_ROUTER: "UNISWAP_V3_ROUTER",
@@ -200,11 +210,11 @@ export const DEPENDENCY = {
   MULTI_SIG_OWNER: "MULTI_SIG_OWNER",
 
   // System Contracts
-  CONTROLLER: "Controller",
-  BASIC_ISSUANCE_MODULE: "BasicIssuanceModule",
-  SET_TOKEN_CREATOR: "SetTokenCreator",
-  INTEGRATION_REGISTRY: "IntegrationRegistry",
-  SLIPPAGE_ISSUANCE_MODULE: "SlippageIssuanceModule",
-  PERPV2_LIBRARY: "PerpV2",
-  PERPV2_LEVERAGE_MODULE: "PerpV2LeverageModule",
+  CONTROLLER: "CONTROLLER",
+  BASIC_ISSUANCE_MODULE: "BASIC_ISSUANCE_MODULE",
+  SET_TOKEN_CREATOR: "SET_TOKEN_CREATOR",
+  INTEGRATION_REGISTRY: "INTEGRATION_REGISTRY",
+  SLIPPAGE_ISSUANCE_MODULE: "SLIPPAGE_ISSUANCE_MODULE",
+  PERPV2_LIBRARY: "PERPV2_LIBRARY",
+  PERPV2_LEVERAGE_MODULE: "PERPV2_LEVERAGE_MODULE",
 };
