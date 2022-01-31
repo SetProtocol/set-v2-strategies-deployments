@@ -4,7 +4,7 @@ let changedFiles; // tslint:disable-line
 
 import { HardhatUserConfig } from "hardhat/config";
 import { privateKeys } from "../utils/wallets";
-import { validateEnvVars } from "../utils/validateEnvVars";
+import { validateEnvVars, checkForkedProviderEnvironment } from "../utils/validateEnvVars";
 
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-etherscan";
@@ -14,6 +14,7 @@ import "@nomiclabs/hardhat-etherscan";
 import "../tasks";
 
 validateEnvVars();
+checkForkedProviderEnvironment();
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -27,6 +28,9 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
+      forking: {
+        url: `https://opt-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_TOKEN}`,
+      },
       accounts: getHardhatPrivateKeys(),
     },
     localhost: {
@@ -94,5 +98,6 @@ function getHardhatPrivateKeys() {
     };
   });
 }
+
 
 export default config;

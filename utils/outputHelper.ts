@@ -84,10 +84,17 @@ export async function findDependency(name: string) {
   const networkDependenciesPath = path.join(process.cwd(), "deployments", "utils", "dependencies.ts");
   const dependencies = (await import(networkDependenciesPath)).default;
 
+  // Use staging dependency addresses for forked development tests
+  let networkConstant = getNetworkConstant();
+
+  if (networkConstant === "development") {
+    networkConstant = "staging";
+  }
+
   if (dependencies[name] && dependencies[name][getNetworkId()]) {
     return (typeof dependencies[name][getNetworkId()] === "string")
       ? dependencies[name][getNetworkId()]
-      : dependencies[name][getNetworkId()][getNetworkConstant()];
+      : dependencies[name][getNetworkId()][networkConstant];
   }
 
   return await getContractAddress(name);

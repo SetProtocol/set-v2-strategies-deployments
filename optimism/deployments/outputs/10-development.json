@@ -1,0 +1,159 @@
+{
+  "state": {
+    "network_key": "10-development",
+    "human_friendly_name": "optimism-mainnet-development",
+    "network_id": 10,
+    "last_deployment_stage": 2
+  },
+  "addresses": {
+    "TEST_PERP_TOKEN": "0x34222d36D3deCDb239f3837e9880838F22d4B9cD",
+    "BaseManager": "0x34D402F14D58E001D8EfBe6585051BF9706AA064",
+    "PerpV2LeverageStrategyExtension": "0x25B8Fe1DE9dAf8BA351890744FF28cf7dFa8f5e3"
+  },
+  "transactions": {
+    "0": {
+      "id": "0x44f2410f840301552e58d369605efe83aa024ef5844ead115dcb2f30d29c480f",
+      "name": "TEST_PERP_TOKEN",
+      "timestamp": 1643643359399,
+      "verified": false,
+      "description": "Created PerpSetToken",
+      "contractAddress": "0x34222d36D3deCDb239f3837e9880838F22d4B9cD",
+      "constructorArgs": [
+        [
+          "0x7f5c764cbc14f9669b88837ca1490cca17c31607"
+        ],
+        [
+          {
+            "type": "BigNumber",
+            "hex": "0x05f5e100"
+          }
+        ],
+        [
+          "0x2f8FF0546a478DF380f975cA035B95DF82377721",
+          "0xf04ff1487BB27fA6A83F6276a55aE17Eb8B3C581",
+          "0x2f8FF0546a478DF380f975cA035B95DF82377721"
+        ],
+        "",
+        "0x5409ED021D9299bf6814279A6A1411A7e866A631",
+        "PERP_SET_TOKEN",
+        "PST"
+      ],
+      "libraries": {}
+    },
+    "1": {
+      "id": "0x6aa3b5be241fcab7ad57db13d2db26f592f5c7bd9d80134e03a765af01e74fed",
+      "timestamp": 1643643363267,
+      "description": "Initialized TestPerp Set on SlippageIssuanceModule"
+    },
+    "2": {
+      "id": "0x2c55152225cbb016ad30df4a98719da0594788a07075e9123ba7009072b8b7a1",
+      "timestamp": 1643643365865,
+      "description": "Initialized PerpSetToken on StreamingFeeModule"
+    },
+    "3": {
+      "id": "0x0beaf5d1b8de88f8ba2d71a1c603d71f76926ee8c447045dbc6f5b8eb35b0258",
+      "timestamp": 1643643368535,
+      "description": "Issued 1 Perp SetToken via SlippageIssuanceModule"
+    },
+    "4": {
+      "id": "0xf82dcbef7bb75cca8c39d277cc7fea932d936d2e4754414cacdc9a78257aa786",
+      "name": "BaseManager",
+      "timestamp": 1643643369067,
+      "verified": false,
+      "description": "Deployed BaseManager",
+      "contractAddress": "0x34D402F14D58E001D8EfBe6585051BF9706AA064",
+      "constructorArgs": [
+        "0x34222d36D3deCDb239f3837e9880838F22d4B9cD",
+        "0x5409ED021D9299bf6814279A6A1411A7e866A631",
+        "0x5409ED021D9299bf6814279A6A1411A7e866A631"
+      ],
+      "libraries": {}
+    },
+    "5": {
+      "id": "0xdd617c2901722f4edae69e9a6a6e558577317e5f48135c83ffe1738e58b59afd",
+      "name": "PerpV2LeverageStrategyExtension",
+      "timestamp": 1643643369566,
+      "verified": false,
+      "description": "Deployed PerpV2LeverageStrategyExtension",
+      "contractAddress": "0x25B8Fe1DE9dAf8BA351890744FF28cf7dFa8f5e3",
+      "constructorArgs": [
+        "0x34D402F14D58E001D8EfBe6585051BF9706AA064",
+        {
+          "setToken": "0x34222d36D3deCDb239f3837e9880838F22d4B9cD",
+          "perpV2LeverageModule": "0x2f8FF0546a478DF380f975cA035B95DF82377721",
+          "perpV2AccountBalance": "0xA7f3FC32043757039d5e13d790EE43edBcBa8b7c",
+          "basePriceOracle": "0xA969bEB73d918f6100163Cd0fba3C586C269bee1",
+          "quotePriceOracle": "0x16a9FA2FDa030272Ce99B29CF780dFA30361E0f3",
+          "virtualBaseAddress": "0x8C835DFaA34e2AE61775e80EE29E2c724c6AE2BB",
+          "virtualQuoteAddress": "0xC84Da6c8ec7A57cD10B939E79eaF9d2D17834E04"
+        },
+        {
+          "targetLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "0x1bc16d674ec80000"
+          },
+          "minLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "0x17979cfe362a0000"
+          },
+          "maxLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "0x1feb3dd067660000"
+          },
+          "recenteringSpeed": {
+            "type": "BigNumber",
+            "hex": "0x016345785d8a0000"
+          },
+          "rebalanceInterval": {
+            "type": "BigNumber",
+            "hex": "0x015180"
+          }
+        },
+        {
+          "twapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x1e"
+          },
+          "slippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0x470de4df820000"
+          }
+        },
+        {
+          "incentivizedTwapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x01"
+          },
+          "incentivizedSlippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0xb1a2bc2ec50000"
+          },
+          "etherReward": {
+            "type": "BigNumber",
+            "hex": "0x0de0b6b3a7640000"
+          },
+          "incentivizedLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "0x257853b1dd8e0000"
+          }
+        },
+        {
+          "twapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x8ac7230489e80000"
+          },
+          "incentivizedTwapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x01158e460913d00000"
+          }
+        }
+      ],
+      "libraries": {}
+    },
+    "6": {
+      "id": "0xe1fa06aa68750502fa134c1bf53129c5b345317f50c9283db30a9ac738063a56",
+      "timestamp": 1643643369639,
+      "description": "Add PerpV2LeverageStrategyExtension on BaseManager"
+    }
+  }
+}

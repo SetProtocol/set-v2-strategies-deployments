@@ -24,7 +24,6 @@ import {
   ONE_DAY_IN_SECONDS
 } from "@utils/constants";
 
-
 const expect = getWaffleExpect();
 
 describe("PerpLeverageSystem", () => {

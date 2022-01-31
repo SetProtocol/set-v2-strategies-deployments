@@ -13,7 +13,11 @@ import {
   GeneralIndexModule,
   SetToken,
   SetTokenCreator,
-  StreamingFeeModule
+  IntegrationRegistry,
+  StreamingFeeModule,
+  StandardTokenMock,
+  PerpV2LeverageModule,
+  SlippageIssuanceModule
 } from "@setprotocol/set-protocol-v2/typechain";
 
 import {
@@ -22,7 +26,11 @@ import {
   GeneralIndexModule__factory,
   SetToken__factory,
   SetTokenCreator__factory,
-  StreamingFeeModule__factory
+  IntegrationRegistry__factory,
+  StreamingFeeModule__factory,
+  StandardTokenMock__factory,
+  PerpV2LeverageModule__factory,
+  SlippageIssuanceModule__factory
 } from "@setprotocol/set-protocol-v2/dist/typechain";
 
 import { Signer } from "ethers";
@@ -66,5 +74,26 @@ export class InstanceGetter {
 
   public async getSetTokenCreator(setTokenCreatorAddr: Address): Promise<SetTokenCreator> {
     return await new SetTokenCreator__factory(this._deployerSigner).attach(setTokenCreatorAddr);
+  }
+
+  public async getIntegrationRegistry(integrationRegistryAddress: Address): Promise<IntegrationRegistry> {
+    return await new IntegrationRegistry__factory(this._deployerSigner).attach(integrationRegistryAddress);
+  }
+
+  public async getTokenMock(token: Address): Promise<StandardTokenMock> {
+    return await new StandardTokenMock__factory(this._deployerSigner).attach(token);
+  }
+
+  public async getPerpV2LeverageModule(perpV2Library: Address, perpV2LeverageModule: Address): Promise<PerpV2LeverageModule> {
+    return await new PerpV2LeverageModule__factory(
+      {
+        ["contracts/protocol/integration/lib/PerpV2.sol:PerpV2"]: perpV2Library,
+      },
+      this._deployerSigner
+    ).attach(perpV2LeverageModule);
+  }
+
+  public async getSlippageIssuanceModule(slippageIssuanceModuleAddress: Address): Promise<SlippageIssuanceModule> {
+    return await new SlippageIssuanceModule__factory(this._deployerSigner).attach(slippageIssuanceModuleAddress);
   }
 }
