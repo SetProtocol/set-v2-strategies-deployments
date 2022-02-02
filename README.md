@@ -31,12 +31,10 @@ yarn
 cd <chain_folder> // e.g ethereum, polygon, etc
 ```
 
-## Launch test client
-```
-yarn chain
-```
-
 ## Test (deployment)
+
+We use the hardhat network forking feature to simulate and test deployments. You'll need a valid
+[alchemy.com][200] project id to run these.
 ```
 yarn clean-dev-deployment
 yarn deploy:local
@@ -216,3 +214,5 @@ New deployment files at:
 > .../ethereum/deployments/constants/001_my_deployment_name.ts
 > .../ethereum/test/deploys/001_my_deployment_name.spec.ts
 ```
+
+[200]: https://www.alchemy.com/

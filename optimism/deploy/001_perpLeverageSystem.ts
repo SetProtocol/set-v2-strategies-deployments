@@ -7,8 +7,7 @@ import {
   findDependency,
   getContractAddress,
   getCurrentStage,
-  saveContractDeployment,
-  writeContractAndTransactionToOutputs
+  saveContractDeployment
 } from "@utils/outputHelper";
 
 import {
@@ -35,8 +34,6 @@ import {
   INCENTIVE_SETTINGS,
   METHODOLOGY_SETTINGS,
 } from "./../deployments/constants/001_perpLeverageSystem";
-import { getRandomAddress } from "@utils/accountUtils";
-import { EMPTY_BYTES } from "@utils/constants";
 
 const {
   TEST_PERP_TOKEN,
@@ -56,8 +53,6 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
     networkConstant
   } = await prepareDeployment(hre);
 
-  await polyFillForDevelopment();
-
   // Deploy BaseManager
   await deployBaseManager(
     hre,
@@ -76,36 +71,6 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
   // Set manager to BaseManager
   if (networkConstant !== "development") {
     await updateSetManager(hre, TEST_PERP_TOKEN, CONTRACT_NAMES.BASE_MANAGER);
-  }
-
-  async function polyFillForDevelopment(): Promise<void> {
-    if (await findDependency(TEST_PERP_TOKEN) === "") {
-      await writeContractAndTransactionToOutputs(TEST_PERP_TOKEN, await getRandomAddress(), EMPTY_BYTES, "Create Mock TEST PERP TOKEN");
-    }
-
-    if (await findDependency(V_ETH) === "") {
-      await writeContractAndTransactionToOutputs(V_ETH, await getRandomAddress(), EMPTY_BYTES, "Create Mock V_ETH");
-    }
-
-    if (await findDependency(V_USD) === "") {
-      await writeContractAndTransactionToOutputs(V_USD, await getRandomAddress(), EMPTY_BYTES, "Create Mock V_USD");
-    }
-
-    if (await findDependency(ETH_CHAINLINK_ORACLE) === "") {
-      await writeContractAndTransactionToOutputs(ETH_CHAINLINK_ORACLE, await getRandomAddress(), EMPTY_BYTES, "Create Mock ETH_CHAINLINK_ORACLE");
-    }
-
-    if (await findDependency(USDC_CHAINLINK_ORACLE) === "") {
-      await writeContractAndTransactionToOutputs(USDC_CHAINLINK_ORACLE, await getRandomAddress(), EMPTY_BYTES, "Create Mock USDC_CHAINLINK_ORACLE");
-    }
-
-    if (await findDependency(PERPV2_ACCOUNT_BALANCE) === "") {
-      await writeContractAndTransactionToOutputs(PERPV2_ACCOUNT_BALANCE, await getRandomAddress(), EMPTY_BYTES, "Create Mock PERPV2_ACCOUNT_BALANCE");
-    }
-
-    if (await findDependency(PERPV2_LEVERAGE_MODULE) === "") {
-      await writeContractAndTransactionToOutputs(PERPV2_LEVERAGE_MODULE, await getRandomAddress(), EMPTY_BYTES, "Create Mock PERPV2_LEVERAGE_MODULE");
-    }
   }
 
   async function deployPerpLeverageStrategyExtension(): Promise<void> {

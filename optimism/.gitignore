@@ -13,6 +13,7 @@
 /deployments/outputs/production_10
 /deployments/outputs/420-development.json
 /deployments/outputs/69-development.json
+/deployments/outputs/10-development.json
 /deploy/*_fake_deployment.ts
 /node_modules
 /transpiled

@@ -20,20 +20,24 @@ export default {
 
   // SetTokens
   TEST_PERP_TOKEN: {
+    10: {
+      staging: "0x6Fbe275b73b6f4950FEd4791d3983894825E9d45",
+      production: ""
+    },
     69: "0x6027c4dcFE97fa079D639bBDD018E95dDc1d9c65"
   },
 
   // PerpV2 virtual tokens
   V_ETH: {
-    10: "",
+    10: "0x8C835DFaA34e2AE61775e80EE29E2c724c6AE2BB",
     69: "0x7cE531e940B24EE760e5dDBF8A2E0E359fA04400"
   },
   V_BTC: {
-    10: "",
+    10: "0x86f1e0420c26a858fc203A3645dD1A36868F18e5",
     69: "0x362a09eb7d30ecb86de395291f9d26931baabc1d"
   },
   V_USD: {
-    10: "",
+    10: "0xC84Da6c8ec7A57cD10B939E79eaF9d2D17834E04",
     69: "0xd52d4175f937b965de49e6c24e081eee6dae5645"
   },
 
@@ -93,6 +97,7 @@ export default {
     69: "0xb37aA79EBc31B93864Bff2d5390b385bE482897b",
   },
   USDC_CHAINLINK_ORACLE: {
+    10: "0x16a9FA2FDa030272Ce99B29CF780dFA30361E0f3",
     // This oracle is manipulatable, it is not reading from an actual data source
     69: "0x64E39114ee9F12c15f565ce39A8FC60061e1ED70"
   },
@@ -135,8 +140,62 @@ export default {
     69: "0x87113069Cd05E819B1F009BEEC70dd41594A9D12",
   },
 
+  // This address is used for USDC in PerpV2LeverageModule kovan testing. The `69` address is a
+  // Perp issued token mock, available from a faucet at: https://kovan.optifaucet.com/
+  // Address Source: perp-lushan/deployments at commit: 8bb6bf5
+  PERP_TEST_USDC: {
+    69: "0x3e22e37Cb472c872B5dE121134cFD1B57Ef06560",
+  },
+
   // System Contracts
+  // SetProtocol System
+  CONTROLLER: {
+    10: {
+      staging: "0x719E5B865dE407bf38647C1625D193E0CE42111D",
+      production: "0x84D5657347cC2beD0A4D6a82c0A6f3bE1a021cc6"
+    },
+    69: "0xAB514406F9598C3a79fb047478C7DfB6f38f2684",
+  },
+  SET_TOKEN_CREATOR: {
+    10: {
+      staging: "0xCF786472d37f557A80fE6daFF6f2672bfDa728a3",
+      production: "0x0bc84D31f11D90156c30B4f19509Ede969A0B840"
+    },
+    69: "0x1eAF9C71AaDD5339D088eF36bF383f909a0c9780",
+  },
+  INTEGRATION_REGISTRY: {
+    10: {
+      staging: "0x14099863F0B6490759f9D8bC5653CF52b7eF38eb",
+      production: "0xBc587E41ad8F218E49874D5ca62E5debDE59aaB5"
+    },
+    69: "0xf620837d57ed0231194eB7F6776e21c6145c7cC1",
+  },
+  STREAMING_FEE_MODULE: {
+    10: {
+      staging: "0x2f8FF0546a478DF380f975cA035B95DF82377721",
+      production: "0x6a7aE5124677314dc32C5ba3004CbFC9c7Febff0"
+    },
+    69: "0xb2812842C176bAf83EcD8e4534A9F4A93e93017E",
+  },
+  PERPV2_LIBRARY: {
+    10: {
+      staging: "0x2f8FF0546a478DF380f975cA035B95DF82377721",
+      production: "0x4f60F85B512367aCbc23E28a31D1D47a73941D82"
+    },
+    69: "0x0766894369D568da332619A4368f16eF52D4C47B"
+  },
+  SLIPPAGE_ISSUANCE_MODULE: {
+    10: {
+      staging: "0xf04ff1487BB27fA6A83F6276a55aE17Eb8B3C581",
+      production: "0x1db929398958082d2080AA1B501e460503f60467"
+    },
+    69: "0x12951b9Eaa200237f9080C95AD93Cc74c9d9Bd45"
+  },
   PERPV2_LEVERAGE_MODULE: {
+    10: {
+      staging: "0x2f8FF0546a478DF380f975cA035B95DF82377721",
+      production: "0xf860f90E1F55e3528682E18850612cBb45BBF1bC"
+    },
     69: "0x6169c62e1aaE2D56a2Dc184514e8b515Ff6F1d9e"
   },
 
@@ -211,7 +270,7 @@ export const DEPENDENCY = {
 
   // System Contracts
   CONTROLLER: "CONTROLLER",
-  BASIC_ISSUANCE_MODULE: "BASIC_ISSUANCE_MODULE",
+  STREAMING_FEE_MODULE: "STREAMING_FEE_MODULE",
   SET_TOKEN_CREATOR: "SET_TOKEN_CREATOR",
   INTEGRATION_REGISTRY: "INTEGRATION_REGISTRY",
   SLIPPAGE_ISSUANCE_MODULE: "SLIPPAGE_ISSUANCE_MODULE",

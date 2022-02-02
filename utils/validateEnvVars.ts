@@ -1,6 +1,7 @@
 import chalk from "chalk";
 
 const envVars = [
+  "ALCHEMY_TOKEN",
   "INFURA_TOKEN",
   "KOVAN_DEPLOY_PRIVATE_KEY",
   "STAGING_MAINNET_DEPLOY_PRIVATE_KEY",
@@ -35,6 +36,19 @@ export function validateEnvVars() {
   if (missingVars.length > 0) {
     let msg = chalk.red("There are missing environment variables in your `.env` file.\n");
     msg += chalk.red(JSON.stringify(missingVars, undefined, " "));
+    throw new Error(msg);
+  }
+}
+
+export function checkForkedProviderEnvironment() {
+  if (process.env.FORK &&
+      (!process.env.ALCHEMY_TOKEN || process.env.ALCHEMY_TOKEN === "799e620c4b39064f7a8cfd8452976ed1")
+  ) {
+
+    const msg =
+      "You are running forked provider tests with invalid Alchemy credentials.\n" +
+      "Update your ALCHEMY_TOKEN settings in the `.env` file.";
+
     throw new Error(msg);
   }
 }
