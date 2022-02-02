@@ -1,5 +1,4 @@
 import "module-alias/register";
-import { ethers } from "hardhat";
 
 import { HardhatRuntimeEnvironment as HRE } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
@@ -82,11 +81,17 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
   const perpV2LeverageModuleAddress = await findDependency(PERPV2_LEVERAGE_MODULE);
   const slippageIssuanceModuleAddress = await findDependency(SLIPPAGE_ISSUANCE_MODULE);
   const streamingFeeModuleAddress = await findDependency(STREAMING_FEE_MODULE);
-  let perpSetTokenAddress = await getContractAddress(CONTRACT_NAMES.PERP_SET_TOKEN);
+  let perpSetTokenAddress = await findDependency(CONTRACT_NAMES.PERP_SET_TOKEN);
 
   // ===============
   // Deploy SetToken
   // ===============
+  // NOTE: SetToken contracts automatically verify on optimistic.etherscan. If you run
+  // `yarn etherscan:<network> for this deployment, you'll receive an error about being unable to
+  // find the correct bytecode in the project's artifacts. This can be safely ignored - we deploy
+  // this contract from built artifacts in an npm dependency and Hardhat's tooling doesn't accomodate
+  // this use-case. To avoid seeing this error, set the `verified` key in deployments/outputs/<network>
+  // for this SetToken to `true` after deploying.
 
   // Configure: This quantity is the initial cost-to-issue of the SetToken ($100) and
   // establishes a USDC <amount> units default position for the token's initial issuance.
@@ -118,7 +123,10 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
       log: true,
     });
 
-    perpSetTokenAddress = await new ProtocolUtils(ethers.provider).getCreatedSetTokenAddress(
+    // Give optimism some time to index logs
+    await new Promise(resolve => setTimeout(() => resolve(true), 10_000));
+
+    perpSetTokenAddress = await new ProtocolUtils(hre.ethers.provider).getCreatedSetTokenAddress(
       createTransaction.transactionHash,
       createTransaction.blockNumber
     );

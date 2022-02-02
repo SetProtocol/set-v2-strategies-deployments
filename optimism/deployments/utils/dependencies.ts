@@ -20,6 +20,10 @@ export default {
 
   // SetTokens
   TEST_PERP_TOKEN: {
+    10: {
+      staging: "0x6Fbe275b73b6f4950FEd4791d3983894825E9d45",
+      production: ""
+    },
     69: "0x6027c4dcFE97fa079D639bBDD018E95dDc1d9c65"
   },
 
@@ -136,6 +140,13 @@ export default {
     69: "0x87113069Cd05E819B1F009BEEC70dd41594A9D12",
   },
 
+  // This address is used for USDC in PerpV2LeverageModule kovan testing. The `69` address is a
+  // Perp issued token mock, available from a faucet at: https://kovan.optifaucet.com/
+  // Address Source: perp-lushan/deployments at commit: 8bb6bf5
+  PERP_TEST_USDC: {
+    69: "0x3e22e37Cb472c872B5dE121134cFD1B57Ef06560",
+  },
+
   // System Contracts
   // SetProtocol System
   CONTROLLER: {
@@ -171,14 +182,14 @@ export default {
       staging: "0x2f8FF0546a478DF380f975cA035B95DF82377721",
       production: "0x4f60F85B512367aCbc23E28a31D1D47a73941D82"
     },
-    69: "0x6169c62e1aaE2D56a2Dc184514e8b515Ff6F1d9e"
+    69: "0x0766894369D568da332619A4368f16eF52D4C47B"
   },
   SLIPPAGE_ISSUANCE_MODULE: {
     10: {
       staging: "0xf04ff1487BB27fA6A83F6276a55aE17Eb8B3C581",
       production: "0x1db929398958082d2080AA1B501e460503f60467"
     },
-    69: "0x6169c62e1aaE2D56a2Dc184514e8b515Ff6F1d9e"
+    69: "0x12951b9Eaa200237f9080C95AD93Cc74c9d9Bd45"
   },
   PERPV2_LEVERAGE_MODULE: {
     10: {

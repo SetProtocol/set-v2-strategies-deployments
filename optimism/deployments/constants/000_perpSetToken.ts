@@ -4,7 +4,7 @@ export const CONTRACT_NAMES = {
 
   // The name of a specific Perp enabled SetToken instance. If you're re-using this script for
   // multiple deployments you should update this value each time.
-  PERP_SET_TOKEN: "TEST_PERP_TOKEN",
+  PERP_SET_TOKEN: "MY_PERP_TOKEN",
 };
 
 export const SET_TOKEN_CREATOR = "SET_TOKEN_CREATOR";
