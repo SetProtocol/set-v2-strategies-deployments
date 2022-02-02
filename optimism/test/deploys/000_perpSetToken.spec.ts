@@ -33,7 +33,7 @@ describe("Perp Enabled SetToken ", () => {
 
     await deployments.fixture();
 
-    const deployedSetToken = await getContractAddress("TEST_PERP_TOKEN");
+    const deployedSetToken = await getContractAddress("MY_PERP_TOKEN");
     setTokenInstance = new SetToken__factory(deployer.wallet).attach(deployedSetToken);
   });
 

@@ -20,6 +20,10 @@ export default {
 
   // SetTokens
   TEST_PERP_TOKEN: {
+    10: {
+      staging: "0x6Fbe275b73b6f4950FEd4791d3983894825E9d45",
+      production: ""
+    },
     69: "0x6027c4dcFE97fa079D639bBDD018E95dDc1d9c65"
   },
 
