@@ -160,7 +160,7 @@ similar to that used in [deployUtils#addIntegrationToRegistry][28].
 
 ## Etherscan verification
 
-Set `ETHERSCAN_API_KEY=8UC6MJ3E5R2AXIHFZQ6JNU2U5QCV1EZGX5Y` in `.env`
+Set `ETHERSCAN_API_KEY` to a valid Etherscan API key in `.env`
 
 After deploying, run the command for your network:
 ```
