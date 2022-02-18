@@ -140,6 +140,15 @@ export default {
     80001: "0x92C09849638959196E976289418e5973CC96d645",
   },
 
+  // SetProtocol System
+  CONTROLLER: {
+    137: {
+      staging: "0x719E5B865dE407bf38647C1625D193E0CE42111D",
+      production: "0x75FBBDEAfE23a48c0736B2731b956b7a03aDcfB2"
+    },
+    80001: "0x584c1490F98b13B71b4F0f0663e0c82C4Da0b2bf",
+  },
+
   // Admin
 
   MULTI_SIG_OWNER: {
@@ -168,7 +177,7 @@ export const DEPENDENCY = {
   UNI: "UNI",
   WBTC: "WBTC",
   WETH: "WETH",
-  MATIC: "MATIC",
+  WMATIC: "WMATIC",
   USDC: "USDC",
   SUSHI: "SUSHI",
   QUICK: "QUICK",
@@ -206,8 +215,5 @@ export const DEPENDENCY = {
   MULTI_SIG_OWNER: "MULTI_SIG_OWNER",
 
   // System Contracts
-  CONTROLLER: "Controller",
-  BASIC_ISSUANCE_MODULE: "BasicIssuanceModule",
-  NAV_ISSUANCE_MODULE: "NavIssuanceModule",
-  SET_TOKEN_CREATOR: "SetTokenCreator",
+  CONTROLLER: "CONTROLLER"
 };
