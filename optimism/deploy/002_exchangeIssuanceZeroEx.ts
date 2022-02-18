@@ -49,16 +49,16 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
 
     if (checkExchangeIssuanceAddress === "") {
       const constructorArgs = [weth, controllerAddress, zeroExExchangeAddress];
-      const stakingRewardsDeploy = await deploy(contractName, {
+      const exchangeIssuanceDeploy = await deploy(contractName, {
         from: deployer,
         args: constructorArgs,
         log: true,
       });
-      stakingRewardsDeploy.receipt &&
+      exchangeIssuanceDeploy.receipt &&
         (await saveContractDeployment({
           name: contractName,
-          contractAddress: stakingRewardsDeploy.address,
-          id: stakingRewardsDeploy.receipt.transactionHash,
+          contractAddress: exchangeIssuanceDeploy.address,
+          id: exchangeIssuanceDeploy.receipt.transactionHash,
           description: `Deployed ${contractName}`,
           constructorArgs,
         }));
