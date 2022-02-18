@@ -78,7 +78,7 @@ const config: HardhatUserConfig = {
   external: {
     contracts: [
       {
-        artifacts: "./node_modules/@setprotocol/index-coop-contracts/artifacts",
+        artifacts: "./node_modules/@indexcoop/index-coop-smart-contracts/artifacts",
       },
       {
         artifacts: "./node_modules/@perp/curie-contract/artifacts"
