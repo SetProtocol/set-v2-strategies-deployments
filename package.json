@@ -39,6 +39,7 @@
   "license": "MIT",
   "homepage": "https://github.com/SetProtocol",
   "resolutions": {
+    "ethers": "5.5.2",
     "@ethersproject/abi": "5.5.0",
     "@ethersproject/bignumber": "5.5.0",
     "@ethersproject/contracts": "5.5.0",

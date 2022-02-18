@@ -46,8 +46,8 @@ jobs:
     resource_class: large
     steps:
       - checkout
-      #- restore_cache:
-      #    key: module-cache-{{ checksum "yarn.lock" }}
+      - restore_cache:
+          key: module-cache-{{ checksum "yarn.lock" }}
       - run:
           name: Set Up Environment Variables
           command: cp .env.default .env
