@@ -24,7 +24,7 @@
     "hardhat": "../node_modules/.bin/hardhat",
     "lint": "cd .. && yarn lint",
     "lint:nofix": "cd .. && yarn lint:nofix",
-    "test": ". ./env/local.sh; yarn hardhat test --network localhost",
+    "test": ". ./env/local.sh; yarn clean-dev-deployment && yarn hardhat test",
     "transpile": "../node_modules/.bin/tsc",
     "tx": ". ./env/production.sh; yarn hardhat set:utils:tx",
     "tx-dev": "TESTING_PRODUCTION=true yarn hardhat set:utils:tx",

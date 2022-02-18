@@ -11,7 +11,6 @@
 /deployments/production/*
 /deployments/outputs/staging_mainnet_1
 /deployments/outputs/production_1
-/deployments/outputs/production
 /deployments/outputs/137-development.json
 /deploy/*_fake_deployment.ts
 /node_modules
