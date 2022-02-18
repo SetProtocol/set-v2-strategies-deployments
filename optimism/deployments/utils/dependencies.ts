@@ -71,8 +71,8 @@ export default {
 
   // 0x uses duplicate addresses on all platforms
   ZERO_EX_EXCHANGE: {
-    10: "0xDef1C0ded9bec7F1a1670819833240f027b25EfF",  // NOT DEPLOYED
-    69: "0xDef1C0ded9bec7F1a1670819833240f027b25EfF", // NOT DEPLOYED
+    10: "0xDef1C0ded9bec7F1a1670819833240f027b25EfF",
+    69: "0xDef1C0ded9bec7F1a1670819833240f027b25EfF",
   },
 
   // Chainlink Oracles
