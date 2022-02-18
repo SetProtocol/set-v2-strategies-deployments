@@ -46,8 +46,8 @@ describe("ExchangeIssuanceZeroEx", () => {
   });
 
   it("has correct wMATIC address", async () => {
-    const wethAddress = await findDependency(WMATIC);
-    expect(await exchangeIssuanceInstance.WETH()).to.equal(wethAddress);
+    const wMATICAddress = await findDependency(WMATIC);
+    expect(await exchangeIssuanceInstance.WETH()).to.equal(wMATICAddress);
   });
 
   it("has correct zero ex exchange", async () => {

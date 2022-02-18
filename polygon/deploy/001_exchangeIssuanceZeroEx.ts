@@ -28,27 +28,27 @@ const CURRENT_STAGE = getCurrentStage(__filename);
 const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (hre: HRE) {
   const { deploy, deployer } = await prepareDeployment(hre);
 
-  const wethAddress = await findDependency(WMATIC);
+  const wMATICAddress = await findDependency(WMATIC);
   const controllerAddress = await findDependency(CONTROLLER);
   const zeroExExchangeAddress = await findDependency(ZERO_EX_EXCHANGE);
 
   await deployExchangeIssuanceZeroEx(
     CONTRACT_NAMES.EXCHANGE_ISSUANCE_ZEROEX,
-    wethAddress,
+    wMATICAddress,
     controllerAddress,
     zeroExExchangeAddress,
   );
 
   async function deployExchangeIssuanceZeroEx(
     contractName: string,
-    weth: Address,
+    wMATIC: Address,
     controllerAddress: Address,
     zeroExExchangeAddress: Address,
   ): Promise<Address> {
     const checkExchangeIssuanceAddress = await getContractAddress(contractName);
 
     if (checkExchangeIssuanceAddress === "") {
-      const constructorArgs = [weth, controllerAddress, zeroExExchangeAddress];
+      const constructorArgs = [wMATIC, controllerAddress, zeroExExchangeAddress];
       const exchangeIssuanceDeploy = await deploy(contractName, {
         from: deployer,
         args: constructorArgs,
