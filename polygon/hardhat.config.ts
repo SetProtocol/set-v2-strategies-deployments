@@ -80,7 +80,7 @@ const config: HardhatUserConfig = {
   external: {
     contracts: [
       {
-        artifacts: "./node_modules/@setprotocol/index-coop-contracts/artifacts",
+        artifacts: "./node_modules/@indexcoop/index-coop-contracts/artifacts",
       },
     ],
   },

@@ -4,7 +4,7 @@
     "chain": "yarn hardhat node --no-deploy",
     "clean": "../scripts/clean.sh",
     "clean-artifacts": "rm -rf ../contracts ../artifacts ../external",
-    "clean-dev-deployment": "rm -rf deployments/outputs/137* deployments/localhost*",
+    "clean-dev-deployment": "rm -rf deployments/outputs/137-development* deployments/localhost*",
     "compile": "yarn hardhat compile",
     "compile:one": "yarn hardhat set:compile:one",
     "console": ". ./env/production.sh; yarn hardhat console --no-compile",
