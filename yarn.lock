@@ -1247,19 +1247,6 @@
     "@sentry/types" "5.29.2"
     tslib "^1.9.3"
 
-"@setprotocol/index-coop-contracts@0.0.20":
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/@setprotocol/index-coop-contracts/-/index-coop-contracts-0.0.20.tgz#0ce4e9969697bac59df9d702e42571cfc2f1de83"
-  integrity sha512-PKlXUx7ZPSNSMiqXc6AoLniFqB0dl1pnxrbXFO/alM+QzSeZ/J14wVG6mspV55+NBs1Mtr/AQgg5+Ngo9Sdv/w==
-  dependencies:
-    "@uniswap/v2-core" "^1.0.1"
-    "@uniswap/v2-periphery" "^1.1.0-beta.0"
-    ethereumjs-util "^7.0.5"
-    fs-extra "^5.0.0"
-    module-alias "^2.2.2"
-    replace-in-file "^6.1.0"
-    typechain "^4.0.1"
-
 "@setprotocol/set-protocol-v2@^0.1.10-fast.0":
   version "0.1.10-fast.0"
   resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.1.10-fast.0.tgz#05a76002677c5c4ff76b76f657e94e500b764fd3"
