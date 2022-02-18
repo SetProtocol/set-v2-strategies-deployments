@@ -27,7 +27,9 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      hardfork: "istanbul",
+      forking: {
+        url: `https://polygon-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_TOKEN}`,
+      },
       accounts: getHardhatPrivateKeys(),
     },
     localhost: {
