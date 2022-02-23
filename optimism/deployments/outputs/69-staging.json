@@ -3,11 +3,12 @@
     "network_key": "69-kovan",
     "human_friendly_name": "optimism-kovan",
     "network_id": 69,
-    "last_deployment_stage": 2
+    "last_deployment_stage": 3
   },
   "addresses": {
     "BaseManager": "0x25337C2cD1147acd3EE99871f2087Af6095B6aF4",
-    "PerpV2LeverageStrategyExtension": "0x9C7b251d6Dfb58aA36A332aA2E0624FE50802f87"
+    "PerpV2LeverageStrategyExtension": "0x9C7b251d6Dfb58aA36A332aA2E0624FE50802f87",
+    "ExchangeIssuanceZeroEx": "0xfCCcD52248B906DB250705EF887e857Aa88fa36E"
   },
   "transactions": {
     "0": {
@@ -114,6 +115,20 @@
       "id": "0x69fe740cb6dea7f261dd562cdd8f29e8b236de51b8f52532ff07204b7dceabd9",
       "timestamp": 1642190245336,
       "description": "Set BaseManager contract as TEST_PERP_TOKEN Manager"
+    },
+    "4": {
+      "id": "0x2b786deab0ebdf66214c774fa9fb31198b4deaa0bc79a92e18a68e7f207aaf9b",
+      "name": "ExchangeIssuanceZeroEx",
+      "timestamp": 1645160186205,
+      "verified": true,
+      "description": "Deployed ExchangeIssuanceZeroEx",
+      "contractAddress": "0xfCCcD52248B906DB250705EF887e857Aa88fa36E",
+      "constructorArgs": [
+        "0x4200000000000000000000000000000000000006",
+        "0xAB514406F9598C3a79fb047478C7DfB6f38f2684",
+        "0xDef1C0ded9bec7F1a1670819833240f027b25EfF"
+      ],
+      "libraries": {}
     }
   }
 }

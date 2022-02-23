@@ -3,6 +3,9 @@
 This repository manages SetProtocol V2 Strategies contract deployments using the [hardhat-deploy plugin][22].
 Each deployment is tracked and recorded by network in a [deployments/outputs][23] file.
 
+These deployments are peripheral to the core SetProtocol system and include things like
+SetToken strategy contracts, example SetToken instances and other helper contracts.
+
 **All proposed deployments should:**
 + deploy to HardhatEVM
 + have unit tests which check the correctness of state variables set in the constructor
@@ -10,7 +13,7 @@ Each deployment is tracked and recorded by network in a [deployments/outputs][23
 
 #### Chains
 
-SetProtocol deploys to multiple chains and manages each execution environment in its own folder.
+Several networks are supported and each one is managed in its own folder.
 
 There are dedicated environments for:
  + Ethereum (mainnet, kovan)
