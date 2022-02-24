@@ -393,7 +393,6 @@ export default {
   },
 
   // Admin
-
   MULTI_SIG_OWNER: {
     1: "0x9b52465793cBce01DEbd9b3c2B029dc69d19D255",
   },
@@ -402,6 +401,15 @@ export default {
   },
   ONE_INCH_EXCHANGE_ADDRESS: {
     1: "0x11111254369792b2ca5d084ab5eea397ca8fa48b",
+  },
+
+  // Set Protocol System
+  CONTROLLER: {
+    1: {
+      staging: "0xF1B12A7b1f0AF744ED21eEC7d3E891C48Fd3c329",
+      production: "0xa4c8d221d8BB851f83aadd0223a8900A6921A349"
+    },
+    42: "0x9048278cA7e874F9338e4898C436Ab07AA454701",
   },
 
   HUMAN_FRIENDLY_NAMES: {
@@ -510,10 +518,7 @@ export const DEPENDENCY = {
   ONE_INCH_EXCHANGE_ADDRESS: "ONE_INCH_EXCHANGE_ADDRESS",
 
   // System Contracts
-  CONTROLLER: "Controller",
-  BASIC_ISSUANCE_MODULE: "BasicIssuanceModule",
-  NAV_ISSUANCE_MODULE: "NavIssuanceModule",
-  SET_TOKEN_CREATOR: "SetTokenCreator",
+  CONTROLLER: "CONTROLLER",
 
   // CFT Set
   CFT_SET_TOKEN: "CFT_SET_TOKEN",
