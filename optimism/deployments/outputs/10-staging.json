@@ -6,7 +6,8 @@
     "last_deployment_stage": 3
   },
   "addresses": {
-    "ExchangeIssuanceZeroEx": "0xb56DEb6aBC9AB381ACa33ddb7BAa9fCb4C2Db8f5"
+    "ExchangeIssuanceZeroEx - DEPRECATED": "0xb56DEb6aBC9AB381ACa33ddb7BAa9fCb4C2Db8f5",
+    "ExchangeIssuanceZeroEx": "0xF25770EB8Bf44c7D4Bf43aCb72766eB4E97ef852"
   },
   "transactions": {
     "0": {
@@ -20,6 +21,20 @@
         "0x4200000000000000000000000000000000000006",
         "0x719E5B865dE407bf38647C1625D193E0CE42111D",
         "0xDef1C0ded9bec7F1a1670819833240f027b25EfF"
+      ],
+      "libraries": {}
+    },
+    "1": {
+      "id": "0xead6d432ce4a2a0e125173883a1e477ce224a3fd0aa20f4fdb241caef21dcbc2",
+      "name": "ExchangeIssuanceZeroEx",
+      "timestamp": 1645738474978,
+      "verified": true,
+      "description": "Deployed ExchangeIssuanceZeroEx",
+      "contractAddress": "0xF25770EB8Bf44c7D4Bf43aCb72766eB4E97ef852",
+      "constructorArgs": [
+        "0x4200000000000000000000000000000000000006",
+        "0x719E5B865dE407bf38647C1625D193E0CE42111D",
+        "0xdef1abe32c034e558cdd535791643c58a13acc10"
       ],
       "libraries": {}
     }
