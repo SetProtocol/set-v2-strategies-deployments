@@ -69,10 +69,11 @@ export default {
     69: "", // NOT DEPLOYED
   },
 
-  // 0x uses duplicate addresses on all platforms
+  // Source:
+  // https://github.com/0xProject/protocol/blob/development/packages/contract-addresses/addresses.json#L493
   ZERO_EX_EXCHANGE: {
-    10: "0xDef1C0ded9bec7F1a1670819833240f027b25EfF",
-    69: "0xDef1C0ded9bec7F1a1670819833240f027b25EfF",
+    10: "0xdef1abe32c034e558cdd535791643c58a13acc10",
+    69: "0xdef1abe32c034e558cdd535791643c58a13acc10", // Fake
   },
 
   // Chainlink Oracles
