@@ -1,1 +1,27 @@
-{}
+{
+  "state": {
+    "network_key": "42-staging",
+    "human_friendly_name": "kovan-staging",
+    "network_id": 42,
+    "last_deployment_stage": 2
+  },
+  "addresses": {
+    "ExchangeIssuanceZeroEx": "0x30BA25b354Cf1A23Ead0Ad84aa81d3E3eD494234"
+  },
+  "transactions": {
+    "0": {
+      "id": "0x3983fa98145adccdde9ad2a58ce78092069fe0c19481147d5cffecd0cca8f21f",
+      "name": "ExchangeIssuanceZeroEx",
+      "timestamp": 1645804837982,
+      "verified": true,
+      "description": "Deployed ExchangeIssuanceZeroEx",
+      "contractAddress": "0x30BA25b354Cf1A23Ead0Ad84aa81d3E3eD494234",
+      "constructorArgs": [
+        "0xd0A1E359811322d97991E03f863a0C30C2cF029C",
+        "0x9048278cA7e874F9338e4898C436Ab07AA454701",
+        "0xDef1C0ded9bec7F1a1670819833240f027b25EfF"
+      ],
+      "libraries": {}
+    }
+  }
+}

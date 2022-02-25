@@ -27,7 +27,9 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      hardfork: "istanbul",
+      forking: {
+        url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_TOKEN}`,
+      },
       accounts: getHardhatPrivateKeys(),
     },
     localhost: {
@@ -72,8 +74,7 @@ const config: HardhatUserConfig = {
   external: {
     contracts: [
       {
-        // Path is relative to project root
-        artifacts: "./node_modules/set-protocol-oracles/dist/artifacts/ts/",
+        artifacts: "./node_modules/@indexcoop/index-coop-smart-contracts/artifacts",
       },
     ],
   },
