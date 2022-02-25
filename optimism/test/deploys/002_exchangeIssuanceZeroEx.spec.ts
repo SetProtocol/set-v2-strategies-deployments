@@ -51,8 +51,10 @@ describe("ExchangeIssuanceZeroEx", () => {
   });
 
   it("has correct zero ex exchange", async () => {
-    const exchangeProxyAddress = await findDependency(ZERO_EX_EXCHANGE);
-    expect(await exchangeIssuanceInstance.swapTarget()).to.equal(exchangeProxyAddress);
+    const exchangeProxyAddress = await findDependency(ZERO_EX_EXCHANGE),
+      swapTarget = (await exchangeIssuanceInstance.swapTarget()).toLowerCase();
+
+    expect(swapTarget).to.equal(exchangeProxyAddress);
   });
 
   it("has correct set controller", async () => {
