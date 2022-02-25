@@ -72,8 +72,8 @@ export default {
   // Source:
   // https://github.com/0xProject/protocol/blob/development/packages/contract-addresses/addresses.json#L493
   ZERO_EX_EXCHANGE: {
-    10: "0xdef1abe32c034e558cdd535791643c58a13acc10",
-    69: "0xdef1abe32c034e558cdd535791643c58a13acc10", // Fake
+    10: "0xDEF1ABE32c034e558Cdd535791643C58a13aCC10",
+    69: "0xDEF1ABE32c034e558Cdd535791643C58a13aCC10", // Fake
   },
 
   // Chainlink Oracles
