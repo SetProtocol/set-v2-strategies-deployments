@@ -29,13 +29,14 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
 
   const contractName = CONTRACT_NAMES.EXCHANGE_ISSUANCE_ZEROEX;
 
-  const wethAddress = await findDependency(WETH);
-  const controllerAddress = await findDependency(CONTROLLER);
-  const zeroExExchangeAddress = await findDependency(ZERO_EX_EXCHANGE);
-  const checkExchangeIssuanceAddress = await getContractAddress(contractName);
+  const wethAddress = await findDependency(WETH),
+    controllerAddress = await findDependency(CONTROLLER),
+    zeroExExchangeAddress = await findDependency(ZERO_EX_EXCHANGE),
+    checkExchangeIssuanceAddress = await getContractAddress(contractName);
 
   if (checkExchangeIssuanceAddress === "") {
     const constructorArgs = [wethAddress, controllerAddress, zeroExExchangeAddress];
+
     const exchangeIssuanceDeploy = await deploy(contractName, {
       from: deployer,
       args: constructorArgs,
