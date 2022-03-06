@@ -1,1 +1,27 @@
-{}
+{
+  "state": {
+    "network_key": "10-production",
+    "human_friendly_name": "optimism-mainnet-production",
+    "network_id": 10,
+    "last_deployment_stage": 3
+  },
+  "addresses": {
+    "ExchangeIssuanceZeroEx": "0x01ecc782531ADCfB8C5a58A2C7FD544Ada946b81"
+  },
+  "transactions": {
+    "0": {
+      "id": "0xca06b02dc85fd16d222fb4a60d68b0a9590f3f7ef649917df7e9f044ee6b34cb",
+      "name": "ExchangeIssuanceZeroEx",
+      "timestamp": 1646593236838,
+      "verified": true,
+      "description": "Deployed ExchangeIssuanceZeroEx",
+      "contractAddress": "0x01ecc782531ADCfB8C5a58A2C7FD544Ada946b81",
+      "constructorArgs": [
+        "0x4200000000000000000000000000000000000006",
+        "0x84D5657347cC2beD0A4D6a82c0A6f3bE1a021cc6",
+        "0xDEF1ABE32c034e558Cdd535791643C58a13aCC10"
+      ],
+      "libraries": {}
+    }
+  }
+}
