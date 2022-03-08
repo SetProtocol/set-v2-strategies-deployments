@@ -86,8 +86,7 @@ describe("PerpLeverageSystem", () => {
       expect(strategy.perpV2AccountBalance).to.eq(await findDependency("PERPV2_ACCOUNT_BALANCE"));
       expect(strategy.virtualBaseAddress).to.eq(await findDependency("V_ETH"));
       expect(strategy.virtualQuoteAddress).to.eq(await findDependency("V_USD"));
-      expect(strategy.basePriceOracle).to.eq(await findDependency("ETH_CHAINLINK_ORACLE"));
-      expect(strategy.quotePriceOracle).to.eq(await findDependency("USDC_CHAINLINK_ORACLE"));
+      expect(strategy.baseUSDPriceOracle).to.eq(await findDependency("ETH_CHAINLINK_ORACLE"));
     });
 
     it("should set the correct methodology parameters", async () => {

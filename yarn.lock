@@ -1247,10 +1247,10 @@
     "@sentry/types" "5.29.2"
     tslib "^1.9.3"
 
-"@setprotocol/set-protocol-v2@^0.1.10-fast.0":
-  version "0.1.10-fast.0"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.1.10-fast.0.tgz#05a76002677c5c4ff76b76f657e94e500b764fd3"
-  integrity sha512-2xjtxBK4yUvAjQkUA3kb3NjShr8FnKhwHZEaUvj7Z59a6EPqfyPqdO9i2+RB/x5K1/vUneiDrKBcWWTR4trMug==
+"@setprotocol/set-protocol-v2@^0.1.11-hardhat.0", "@setprotocol/set-protocol-v2@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.1.12.tgz#4ff67d0d2935148908ddada79bc51fda17c97afa"
+  integrity sha512-0zHRCTgASXR4P8ya0lafF4WSjnVsc6N7QMLiOGymVfuoSJDpDD+jGOn57FnVmgeknmt60frxJYMxxn5XQN9lyw==
   dependencies:
     "@uniswap/v3-sdk" "^3.5.1"
     ethers "^5.5.2"
@@ -1259,24 +1259,12 @@
     module-alias "^2.2.2"
     replace-in-file "^6.1.0"
 
-"@setprotocol/set-protocol-v2@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.1.9.tgz#1b0eef8667d01405f0b259bc5129986e5db7b53b"
-  integrity sha512-sPbCD6ngw4yIosXyOT+ytFZbFeMyHNOgDA6hdhrXkllsSKoJ2thc9Y6SqzF5kCPkK+bKmVhNF+cMTDMX0lemZg==
+"@setprotocol/set-v2-strategies@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.4.tgz#e71d4a6da3fbb05d64755afe1c1646f0024c78c2"
+  integrity sha512-0TbLst3lBeN9J2fsWJUyTCJq/5TBHZWVVvNZZy6WJtIaAU7eZeXl7RFYuIenERIxrOyKUEdiRbznBlwo9l/6tg==
   dependencies:
-    "@uniswap/v3-sdk" "^3.5.1"
-    ethers "^5.5.2"
-    fs-extra "^5.0.0"
-    jsbi "^3.2.5"
-    module-alias "^2.2.2"
-    replace-in-file "^6.1.0"
-
-"@setprotocol/set-v2-strategies@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.2.tgz#98c4e29a6a60d17c7228569b3a82d66a09a9aed5"
-  integrity sha512-JcR3kt6P3Ej8k/IBarMxlwCJdyFGMGMre3wblJDcAmOWdmQTAwNtKPqBAlSHts6QfmI2IbOluOU7pF/PVDSBTg==
-  dependencies:
-    "@setprotocol/set-protocol-v2" "^0.1.10-fast.0"
+    "@setprotocol/set-protocol-v2" "^0.1.11-hardhat.0"
     "@uniswap/v3-sdk" "^3.5.1"
     ethers "5.5.2"
     fs-extra "^5.0.0"
