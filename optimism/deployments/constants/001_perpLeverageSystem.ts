@@ -33,3 +33,6 @@ export const EXCHANGE_SETTINGS = {
   twapMaxTradeSize: ether(10),
   incentivizedTwapMaxTradeSize: ether(20)
 };
+
+export const ETH_DECIMALS = 18;
+export const ETH_USDC_PRICE_FEED_DECIMALS = 8;
