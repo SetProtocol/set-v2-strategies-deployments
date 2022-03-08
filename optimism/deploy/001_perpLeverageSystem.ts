@@ -2,6 +2,8 @@ import "module-alias/register";
 
 import { HardhatRuntimeEnvironment as HRE } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
+import { ZERO } from "@utils/constants";
+import { BigNumber } from "ethers";
 
 import {
   findDependency,
@@ -33,6 +35,8 @@ import {
   EXECUTION_SETTINGS,
   INCENTIVE_SETTINGS,
   METHODOLOGY_SETTINGS,
+  ETH_DECIMALS,
+  ETH_USDC_PRICE_FEED_DECIMALS,
 } from "./../deployments/constants/001_perpLeverageSystem";
 
 const {
@@ -42,9 +46,9 @@ const {
   V_ETH,
   V_USD,
   ETH_CHAINLINK_ORACLE,
-  USDC_CHAINLINK_ORACLE,
 } = DEPENDENCY;
 const CURRENT_STAGE = getCurrentStage(__filename);
+
 
 const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (hre: HRE) {
   const {
@@ -82,8 +86,9 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
         setToken: await findDependency(TEST_PERP_TOKEN),
         perpV2LeverageModule: await findDependency(PERPV2_LEVERAGE_MODULE),
         perpV2AccountBalance: await findDependency(PERPV2_ACCOUNT_BALANCE),
-        basePriceOracle: await findDependency(ETH_CHAINLINK_ORACLE),
-        quotePriceOracle: await findDependency(USDC_CHAINLINK_ORACLE),
+        baseUSDPriceOracle: await findDependency(ETH_CHAINLINK_ORACLE),
+        twapInterval: ZERO,
+        basePriceDecimalAdjustment: BigNumber.from(ETH_DECIMALS).sub(ETH_USDC_PRICE_FEED_DECIMALS),
         virtualBaseAddress: await findDependency(V_ETH),
         virtualQuoteAddress: await findDependency(V_USD)
       };
