@@ -3,6 +3,25 @@
     "network_key": "137-production",
     "human_friendly_name": "polygon-mainnet-production",
     "network_id": 137,
-    "last_deployment_stage": 0
+    "last_deployment_stage": 2
+  },
+  "addresses": {
+    "ExchangeIssuanceZeroEx": "0x1c0c05a2aA31692e5dc9511b04F651db9E4d8320"
+  },
+  "transactions": {
+    "0": {
+      "id": "0xa5d293ff330ec556195bbe04ae1af7479023cfaae95af5ff69a637f4bd62ded6",
+      "name": "ExchangeIssuanceZeroEx",
+      "timestamp": 1645219728816,
+      "verified": true,
+      "description": "Deployed ExchangeIssuanceZeroEx",
+      "contractAddress": "0x1c0c05a2aA31692e5dc9511b04F651db9E4d8320",
+      "constructorArgs": [
+        "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "0x75FBBDEAfE23a48c0736B2731b956b7a03aDcfB2",
+        "0xDef1C0ded9bec7F1a1670819833240f027b25EfF"
+      ],
+      "libraries": {}
+    }
   }
 }
