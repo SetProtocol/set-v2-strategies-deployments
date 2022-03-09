@@ -1,1 +1,27 @@
-{}
+{
+  "state": {
+    "network_key": "1-staging",
+    "human_friendly_name": "main-net-staging",
+    "network_id": 1,
+    "last_deployment_stage": 2
+  },
+  "addresses": {
+    "ExchangeIssuanceZeroEx": "0x939eD0665f6CC78882C0ef451d2636110FEA87fe"
+  },
+  "transactions": {
+    "0": {
+      "id": "0x29195da310a9f6f056c0287079abb11d843ca517c47b23e04d3554ec2ecfd4f0",
+      "name": "ExchangeIssuanceZeroEx",
+      "timestamp": 1645807392819,
+      "verified": true,
+      "description": "Deployed ExchangeIssuanceZeroEx",
+      "contractAddress": "0x939eD0665f6CC78882C0ef451d2636110FEA87fe",
+      "constructorArgs": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xF1B12A7b1f0AF744ED21eEC7d3E891C48Fd3c329",
+        "0xDef1C0ded9bec7F1a1670819833240f027b25EfF"
+      ],
+      "libraries": {}
+    }
+  }
+}
