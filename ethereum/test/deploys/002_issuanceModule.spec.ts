@@ -3,8 +3,8 @@ import { deployments } from "hardhat";
 
 import { Account } from "@utils/types";
 
-import { DebtIssuanceModuleV2 } from "@setprotocol/set-protocol-v2/typechain/DebtIssuanceModuleV2";
-import { DebtIssuanceModuleV2__factory } from "@setprotocol/set-protocol-v2/typechain/factories/DebtIssuanceModuleV2__factory";
+import { DebtIssuanceModuleV2 } from "@setprotocol/set-protocol-v2/typechain";
+import { DebtIssuanceModuleV2__factory } from "@setprotocol/set-protocol-v2/dist/typechain";
 
 import {
   addSnapshotBeforeRestoreAfterEach,
@@ -41,7 +41,7 @@ describe("IssuanceModule", () => {
   });
 
   it("should have the correct Controller address", async () => {
-    const setController = await issuanceModuleInstance.setController();
+    const setController = await issuanceModuleInstance.controller();
     expect(setController).to.eq(await findDependency(CONTROLLER));
   });
 });

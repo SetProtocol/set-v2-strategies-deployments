@@ -8,7 +8,6 @@ import {
   findDependency,
   getContractAddress,
   getCurrentStage,
-  enableModuleOnSetController,
   saveContractDeployment,
   stageAlreadyFinished,
   trackFinishedStage
@@ -29,8 +28,6 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
   const contractName = CONTRACT_NAMES.ISSUANCE_MODULE;
 
   await deployIssuanceModule();
-
-  await enableModuleOnSetController(contractName, bre);
 
   //
   // Helper Functions
