@@ -23,12 +23,6 @@ import { BigNumber } from "ethers";
 import { ether, ProtocolUtils } from "@utils/common";
 import { JsonRpcProvider } from "@ethersproject/providers";
 
-import { DEPENDENCY } from "../../ethereum/deployments/utils/dependencies";
-
-const {
-  CONTROLLER
-} = DEPENDENCY;
-
 /* eslint-disable */
 export function trackFinishedStage(
   currentStage: number,
@@ -530,61 +524,5 @@ export async function updateSetManager(
       log: true,
     });
     await writeTransactionToOutputs(setManagerTransaction.transactionHash, description);
-  }
-}
-
-async function getEnvironment(hre: HardhatRuntimeEnvironment) {
-  const [owner] = await getAccounts();
-  const instanceGetter = new InstanceGetter(owner.wallet);
-  const { rawTx } = hre.deployments;
-  const { deployer } = await hre.getNamedAccounts();
-  const networkConstant = await getNetworkConstant();
-
-  return {
-    instanceGetter,
-    rawTx,
-    deployer,
-    networkConstant,
-  };
-}
-
-export async function enableModuleOnSetController(
-  moduleName: string,
-  hre: HardhatRuntimeEnvironment,
-  skipProductionCheck: boolean = false,
-): Promise<void> {
-  const {
-    instanceGetter,
-    rawTx,
-    deployer,
-    networkConstant,
-  } = await getEnvironment(hre);
-
-  const moduleAddress = await getContractAddress(moduleName);
-  const controllerAddress = await findDependency(CONTROLLER);
-  const controllerInstance = await instanceGetter.getController(controllerAddress);
-
-  if (!await controllerInstance.isSystemContract(moduleAddress)) {
-    const data = controllerInstance.interface.encodeFunctionData(
-      "addModule",
-      [moduleAddress]
-    );
-    const description = `Add ${moduleName} to Controller`;
-
-    if ((networkConstant === "production" || process.env.TESTING_PRODUCTION) && !skipProductionCheck) {
-      await saveDeferredTransactionData({
-        data,
-        description,
-        contractName: CONTROLLER,
-      });
-    } else {
-      const addModuleTransaction: any = await rawTx({
-        from: deployer,
-        to: controllerAddress,
-        data,
-        log: true,
-      });
-      await writeTransactionToOutputs(addModuleTransaction.transactionHash, description);
-    }
   }
 }
