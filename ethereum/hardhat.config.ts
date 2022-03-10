@@ -76,6 +76,9 @@ const config: HardhatUserConfig = {
       {
         artifacts: "./node_modules/@indexcoop/index-coop-smart-contracts/artifacts",
       },
+      {
+        artifacts: "./node_modules/@setprotocol/set-protocol-v2/artifacts"
+      }
     ],
   },
   // @ts-ignore
