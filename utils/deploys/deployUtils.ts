@@ -23,6 +23,12 @@ import { BigNumber } from "ethers";
 import { ether, ProtocolUtils } from "@utils/common";
 import { JsonRpcProvider } from "@ethersproject/providers";
 
+import { CONTRACT_NAMES } from "../../ethereum/deployments/constants/002_delegated_manager_system";
+
+const {
+  MANAGER_CORE,
+} = CONTRACT_NAMES;
+
 /* eslint-disable */
 export function trackFinishedStage(
   currentStage: number,
@@ -524,5 +530,91 @@ export async function updateSetManager(
       log: true,
     });
     await writeTransactionToOutputs(setManagerTransaction.transactionHash, description);
+  }
+}
+
+export async function initializeManagerCore(
+  factoryName: string,
+  hre: HardhatRuntimeEnvironment,
+  skipProductionCheck: boolean = false,
+): Promise<void> {
+  const {
+    rawTx,
+    deployer,
+    networkConstant,
+  } = await prepareDeployment(hre);
+
+  const [owner] = await getAccounts();
+  const instanceGetter: InstanceGetter = new InstanceGetter(owner.wallet);
+
+  const factoryAddress = await getContractAddress(factoryName);
+  const managerCoreAddress = await getContractAddress(MANAGER_CORE);
+  const managerCoreInstance = await instanceGetter.getManagerCore(managerCoreAddress);
+
+  if (!await managerCoreInstance.isInitialized()) {
+    const data = managerCoreInstance.interface.encodeFunctionData(
+      "initialize",
+      [[factoryAddress]]
+    );
+    const description = `Initialized ManagerCore with ${factoryName}`;
+
+    if ((networkConstant === "production" || process.env.TESTING_PRODUCTION) && !skipProductionCheck) {
+      await saveDeferredTransactionData({
+        data,
+        description,
+        contractName: MANAGER_CORE,
+      });
+    } else {
+      const addModuleTransaction: any = await rawTx({
+        from: deployer,
+        to: managerCoreAddress,
+        data,
+        log: true,
+      });
+      await writeTransactionToOutputs(addModuleTransaction.transactionHash, description);
+    }
+  }
+}
+
+export async function enableFactoryOnManagerCore(
+  factoryName: string,
+  hre: HardhatRuntimeEnvironment,
+  skipProductionCheck: boolean = false,
+): Promise<void> {
+  const {
+    rawTx,
+    deployer,
+    networkConstant,
+  } = await prepareDeployment(hre);
+
+  const [owner] = await getAccounts();
+  const instanceGetter: InstanceGetter = new InstanceGetter(owner.wallet);
+
+  const factoryAddress = await getContractAddress(factoryName);
+  const managerCoreAddress = await getContractAddress(MANAGER_CORE);
+  const managerCoreInstance = await instanceGetter.getManagerCore(managerCoreAddress);
+
+  if (!await managerCoreInstance.isFactory(factoryAddress)) {
+    const data = managerCoreInstance.interface.encodeFunctionData(
+      "addFactory",
+      [factoryAddress]
+    );
+    const description = `Add ${factoryName} to ManagerCore`;
+
+    if ((networkConstant === "production" || process.env.TESTING_PRODUCTION) && !skipProductionCheck) {
+      await saveDeferredTransactionData({
+        data,
+        description,
+        contractName: MANAGER_CORE,
+      });
+    } else {
+      const addModuleTransaction: any = await rawTx({
+        from: deployer,
+        to: managerCoreAddress,
+        data,
+        log: true,
+      });
+      await writeTransactionToOutputs(addModuleTransaction.transactionHash, description);
+    }
   }
 }
