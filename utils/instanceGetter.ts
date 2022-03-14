@@ -4,7 +4,9 @@ import {
   BaseExtension,
   BaseExtension__factory,
   BaseManager,
-  BaseManager__factory
+  BaseManager__factory,
+  ManagerCore,
+  ManagerCore__factory,
 } from "@set/typechain/index";
 
 import {
@@ -95,5 +97,9 @@ export class InstanceGetter {
 
   public async getSlippageIssuanceModule(slippageIssuanceModuleAddress: Address): Promise<SlippageIssuanceModule> {
     return await new SlippageIssuanceModule__factory(this._deployerSigner).attach(slippageIssuanceModuleAddress);
+  }
+
+  public async getManagerCore(managerCoreAddress: Address): Promise<ManagerCore> {
+    return await new ManagerCore__factory(this._deployerSigner).attach(managerCoreAddress);
   }
 }
