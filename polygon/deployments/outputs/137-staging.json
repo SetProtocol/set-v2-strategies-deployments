@@ -3,7 +3,7 @@
     "network_key": "137-staging",
     "human_friendly_name": "polygon-mainnet-staging",
     "network_id": 137,
-    "last_deployment_stage": 3
+    "last_deployment_stage": 4
   },
   "addresses": {
     "ExchangeIssuanceZeroEx": "0xF22075FFEB9bCFa7e54d68Cd2f0FbFA17D1bCE35",
@@ -16,7 +16,8 @@
     "DelegatedManagerFactory": "0xa5351d5F6fE586A7A2eE0A5B7f797F5Fb686082B",
     "IssuanceExtension": "0x802569a5AC139650956f79bB0129C767cC491DE4",
     "StreamingFeeSplitExtension": "0x171Bf119b7Da5E24Ea1f41c81e0DAD41E57FeE48",
-    "TradeExtension": "0x34548881b83dC247Ca11ed4cfbe2cbeB5a2Bf0D1"
+    "TradeExtension": "0x34548881b83dC247Ca11ed4cfbe2cbeB5a2Bf0D1",
+    "DelegatedManager": "0x1f786c6535c2b445879919BfE9105A3DBaf56400"
   },
   "transactions": {
     "0": {
@@ -100,6 +101,24 @@
       "id": "0x793fc731ab030e1c4a333061fe13cc29ba907bc37ee65efb41c319de3243eb43",
       "timestamp": 1648492713859,
       "description": "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension"
+    },
+    "7": {
+      "id": "0x93b787e754b712bd78293b91cbccb73288238c1fc1a4772e0605f6af30a75030",
+      "name": "DelegatedManager",
+      "timestamp": 1647477439179,
+      "verified": true,
+      "description": "Deployed DelegatedManager",
+      "contractAddress": "0x1f786c6535c2b445879919BfE9105A3DBaf56400",
+      "constructorArgs": [
+        "0x1A22553224CDD2849E00193433888C6f74604396",
+        "0x304cb210BAa594F62da4A6799af8F4Ba8E751fe9",
+        "0x47aCfaB211c58b561d3286c0715C57f25d8f9c98",
+        [],
+        [],
+        [],
+        false
+      ],
+      "libraries": {}
     }
   }
 }
