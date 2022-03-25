@@ -10,20 +10,28 @@ import {
   getCurrentStage,
   saveContractDeployment,
   stageAlreadyFinished,
-  trackFinishedStage
+  trackFinishedStage,
+  saveDeferredTransactionData,
+  writeTransactionToOutputs,
+  getAccounts,
 } from "@utils/index";
 
-import { initializeManagerCore } from "@utils/deploys/deployUtils";
+import { Account } from "@utils/types";
+import { InstanceGetter } from "@utils/instanceGetter";
 
 import { DEPENDENCY } from "../deployments/utils/dependencies";
 import { CONTRACT_NAMES } from "../deployments/constants/002_delegated_manager_system";
 
 const {
+  CONTROLLER,
   SET_TOKEN_CREATOR,
   ISSUANCE_MODULE,
   STREAMING_FEE_MODULE,
   TRADE_MODULE,
 } = DEPENDENCY;
+
+let owner: Account;
+let instanceGetter: InstanceGetter;
 
 const CURRENT_STAGE = getCurrentStage(__filename);
 
@@ -31,24 +39,34 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
   const {
     deploy,
     deployer,
+    rawTx,
+    networkConstant
   } = await prepareDeployment(bre);
+
+  [owner] = await getAccounts();
+  instanceGetter = new InstanceGetter(owner.wallet);
 
   await deployManagerCore();
   const managerCoreAddress = await getContractAddress(CONTRACT_NAMES.MANAGER_CORE);
 
+  const controllerAddress = await findDependency(CONTROLLER);
   const setTokenCreatorAddress = await findDependency(SET_TOKEN_CREATOR);
   await deployDelegatedManagerFactory();
-
-  await initializeManagerCore(CONTRACT_NAMES.DELEGATED_MANAGER_FACTORY, bre);
+  const delegatedManagerFactoryAddress = await getContractAddress(CONTRACT_NAMES.DELEGATED_MANAGER_FACTORY);
 
   const issuanceModuleAddress = await findDependency(ISSUANCE_MODULE);
   await deployIssuanceExtension();
+  const issuanceExtensionAddress = await getContractAddress(CONTRACT_NAMES.ISSUANCE_EXTENSION);
 
   const streamingFeeModuleAddress = await findDependency(STREAMING_FEE_MODULE);
   await deployStreamingFeeSplitExtension();
+  const streamingFeeSplitExtensionAddress = await getContractAddress(CONTRACT_NAMES.STREAMING_FEE_SPLIT_EXTENSION);
 
   const tradeModuleAddress = await findDependency(TRADE_MODULE);
   await deployTradeExtension();
+  const tradeExtensionAddress = await getContractAddress(CONTRACT_NAMES.TRADE_EXTENSION);
+
+  await initializeManagerCore();
 
   //
   // Helper Functions
@@ -73,7 +91,7 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
   async function deployDelegatedManagerFactory(): Promise<void> {
     const checkDelegatedManagerFactoryAddress = await getContractAddress(CONTRACT_NAMES.DELEGATED_MANAGER_FACTORY);
     if (checkDelegatedManagerFactoryAddress === "") {
-      const constructorArgs = [managerCoreAddress, setTokenCreatorAddress];
+      const constructorArgs = [managerCoreAddress, controllerAddress, setTokenCreatorAddress];
       const delegatedManagerFactoryDeploy = await deploy(
         CONTRACT_NAMES.DELEGATED_MANAGER_FACTORY,
         { from: deployer, args: constructorArgs, log: true }
@@ -139,6 +157,33 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
         description: `Deployed ${CONTRACT_NAMES.TRADE_EXTENSION}`,
         constructorArgs,
       });
+    }
+  }
+
+  async function initializeManagerCore(): Promise<void> {
+    const managerCoreInstance = await instanceGetter.getManagerCore(managerCoreAddress);
+    if (!await managerCoreInstance.isInitialized()) {
+      const data = managerCoreInstance.interface.encodeFunctionData(
+        "initialize",
+        [[issuanceExtensionAddress, streamingFeeSplitExtensionAddress, tradeExtensionAddress], [delegatedManagerFactoryAddress]]
+      );
+      const description = "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension";
+
+      if ((networkConstant === "production" || process.env.TESTING_PRODUCTION)) {
+        await saveDeferredTransactionData({
+          data,
+          description,
+          contractName: "ManagerCore",
+        });
+      } else {
+        const initializeTransaction: any = await rawTx({
+          from: deployer,
+          to: managerCoreAddress,
+          data,
+          log: true,
+        });
+        await writeTransactionToOutputs(initializeTransaction.transactionHash, description);
+      }
     }
   }
 });

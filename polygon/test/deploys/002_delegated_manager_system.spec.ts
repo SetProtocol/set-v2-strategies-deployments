@@ -27,6 +27,7 @@ import { DEPENDENCY } from "../../deployments/utils/dependencies";
 import { CONTRACT_NAMES } from "../../deployments/constants/002_delegated_manager_system";
 
 const {
+  CONTROLLER,
   SET_TOKEN_CREATOR,
   ISSUANCE_MODULE,
   STREAMING_FEE_MODULE,
@@ -87,12 +88,37 @@ describe("Delegated Manager System", () => {
       const validFactory = await managerCoreInstance.isFactory(delegatedManagerFactoryInstance.address);
       expect(validFactory).to.eq(true);
     });
+
+    it("should have three enabled extensions", async () => {
+      const extensions = await managerCoreInstance.getExtensions();
+      expect(extensions.length).to.eq(3);
+    });
+
+    it("should have IssuanceExtension as valid extension", async () => {
+      const validIssuanceExtension = await managerCoreInstance.isExtension(issuanceExtensionInstance.address);
+      expect(validIssuanceExtension).to.eq(true);
+    });
+
+    it("should have StreamingFeeSplitExtension as valid extension", async () => {
+      const validStreamingFeeSplitExtension = await managerCoreInstance.isExtension(streamingFeeSplitExtensionInstance.address);
+      expect(validStreamingFeeSplitExtension).to.eq(true);
+    });
+
+    it("should have TradeExtension as valid extension", async () => {
+      const validTradeExtension = await managerCoreInstance.isExtension(tradeExtensionInstance.address);
+      expect(validTradeExtension).to.eq(true);
+    });
   });
 
   describe("DelegatedManagerFactory", async () => {
     it("should have the correct ManagerCore address", async () => {
       const managerCore = await delegatedManagerFactoryInstance.managerCore();
       expect(managerCore).to.eq(managerCoreInstance.address);
+    });
+
+    it("should have the correct Controller address", async () => {
+      const controller = await delegatedManagerFactoryInstance.controller();
+      expect(controller).to.eq(await findDependency(CONTROLLER));
     });
 
     it("should have the correct SetTokenFactory address", async () => {
