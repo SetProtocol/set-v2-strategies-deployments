@@ -176,6 +176,7 @@ export default {
       staging: "0xeCdCc6181f17418efE422D5218D4cc63ad8c5c73",
       production: "0x9BBfCA4D9ECdc53F56290442d85c8e55131dAf00"
     },
+    69: "0x7853dD7De469638CA26bC9b6f343820be97E5faE",
   },
   TRADE_MODULE: {
     10: {
