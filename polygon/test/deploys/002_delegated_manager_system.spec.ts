@@ -29,7 +29,7 @@ import { CONTRACT_NAMES } from "../../deployments/constants/002_delegated_manage
 const {
   CONTROLLER,
   SET_TOKEN_CREATOR,
-  ISSUANCE_MODULE,
+  DEBT_ISSUANCE_MODULE_V2,
   STREAMING_FEE_MODULE,
   TRADE_MODULE,
 } = DEPENDENCY;
@@ -135,7 +135,7 @@ describe("Delegated Manager System", () => {
 
     it("should have the correct IssuanceModule address", async () => {
       const issuanceModule = await issuanceExtensionInstance.issuanceModule();
-      expect(issuanceModule).to.eq(await findDependency(ISSUANCE_MODULE));
+      expect(issuanceModule).to.eq(await findDependency(DEBT_ISSUANCE_MODULE_V2));
     });
   });
 

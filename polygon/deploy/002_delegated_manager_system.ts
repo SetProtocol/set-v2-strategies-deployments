@@ -25,7 +25,7 @@ const {
   MULTI_SIG_OWNER,
   CONTROLLER,
   SET_TOKEN_CREATOR,
-  ISSUANCE_MODULE,
+  DEBT_ISSUANCE_MODULE_V2,
   STREAMING_FEE_MODULE,
   TRADE_MODULE,
 } = DEPENDENCY;
@@ -54,7 +54,7 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
   await deployDelegatedManagerFactory();
   const delegatedManagerFactoryAddress = await getContractAddress(CONTRACT_NAMES.DELEGATED_MANAGER_FACTORY);
 
-  const issuanceModuleAddress = await findDependency(ISSUANCE_MODULE);
+  const issuanceModuleAddress = await findDependency(DEBT_ISSUANCE_MODULE_V2);
   await deployIssuanceExtension();
   const issuanceExtensionAddress = await getContractAddress(CONTRACT_NAMES.ISSUANCE_EXTENSION);
 
