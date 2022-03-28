@@ -151,21 +151,25 @@ export default {
   SET_TOKEN_CREATOR: {
     137: {
       staging: "0x2907206B253665EEF4776b8e684D61AFD957B974",
+      production: "0x14f0321be5e581abF9d5BC76260bf015Dc04C53d"
     },
   },
   ISSUANCE_MODULE: {
     137: {
       staging: "0x9e4ACB5737884719B8407F58F0c8cd3F97d2e130",
+      production: "0x3E7f7F520e4e52a0c139d77a5487586012C90F07"
     },
   },
   STREAMING_FEE_MODULE: {
     137: {
       staging: "0x2f8FF0546a478DF380f975cA035B95DF82377721",
+      production: "0x8440f6a2c42118bed0D6E6A89Bf170ffd13e21c0"
     },
   },
   TRADE_MODULE: {
     137: {
       staging: "0x4F70287526ea9Ba7e799D616ea86635CdAf0de4F",
+      production: "0xd04AabadEd11e92Fefcd92eEdbBC81b184CdAc82"
     },
   },
 
