@@ -17,7 +17,8 @@
     "IssuanceExtension": "0x802569a5AC139650956f79bB0129C767cC491DE4",
     "StreamingFeeSplitExtension": "0x171Bf119b7Da5E24Ea1f41c81e0DAD41E57FeE48",
     "TradeExtension": "0x34548881b83dC247Ca11ed4cfbe2cbeB5a2Bf0D1",
-    "DelegatedManager": "0x1f786c6535c2b445879919BfE9105A3DBaf56400"
+    "DelegatedManager--DEPRECATED": "0x1f786c6535c2b445879919BfE9105A3DBaf56400",
+    "DelegatedManager": "0x53d026AE6897Dd0eF2A3d6Dbe56d6eb2326426ce"
   },
   "transactions": {
     "0": {
@@ -113,6 +114,24 @@
         "0x1A22553224CDD2849E00193433888C6f74604396",
         "0x304cb210BAa594F62da4A6799af8F4Ba8E751fe9",
         "0x47aCfaB211c58b561d3286c0715C57f25d8f9c98",
+        [],
+        [],
+        [],
+        false
+      ],
+      "libraries": {}
+    },
+    "8": {
+      "id": "0xda03a2b7a24368afa85d1849f7f6c8e13ac48f23effb50f6586b7e53a846b7f3",
+      "name": "DelegatedManager",
+      "timestamp": 1648497299142,
+      "verified": true,
+      "description": "Deployed DelegatedManager",
+      "contractAddress": "0x53d026AE6897Dd0eF2A3d6Dbe56d6eb2326426ce",
+      "constructorArgs": [
+        "0xf11DD51CcDc48C4A6cB8391eD0bfdec80d61eAF1",
+        "0x59882275DEf31A556288023d9c3409EEcc560Ad4",
+        "0xb5898a1399B510adFA467330cc8dc297154f3b98",
         [],
         [],
         [],
