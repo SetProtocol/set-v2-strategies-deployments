@@ -1,1 +1,10 @@
-{}
+{
+  "state": {
+    "network_key": "1-production",
+    "human_friendly_name": "main-net-production",
+    "network_id": 1,
+    "last_deployment_stage": 0
+  },
+  "addresses": {},
+  "transactions": {}
+}
