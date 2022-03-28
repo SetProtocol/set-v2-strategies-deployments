@@ -11,7 +11,6 @@ import {
   saveContractDeployment,
   stageAlreadyFinished,
   trackFinishedStage,
-  saveDeferredTransactionData,
   writeTransactionToOutputs,
   getAccounts,
 } from "@utils/index";
@@ -23,6 +22,7 @@ import { DEPENDENCY } from "../deployments/utils/dependencies";
 import { CONTRACT_NAMES } from "../deployments/constants/003_delegated_manager_system";
 
 const {
+  MULTI_SIG_OWNER,
   CONTROLLER,
   SET_TOKEN_CREATOR,
   ISSUANCE_MODULE,
@@ -67,6 +67,8 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
   const tradeExtensionAddress = await getContractAddress(CONTRACT_NAMES.TRADE_EXTENSION);
 
   await initializeManagerCore();
+
+  await transferManagerCoreOwnershipToMultisig();
 
   //
   // Helper Functions
@@ -163,26 +165,45 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
   async function initializeManagerCore(): Promise<void> {
     const managerCoreInstance = await instanceGetter.getManagerCore(managerCoreAddress);
     if (!await managerCoreInstance.isInitialized()) {
-      const data = managerCoreInstance.interface.encodeFunctionData(
+      const initializeData = managerCoreInstance.interface.encodeFunctionData(
         "initialize",
         [[issuanceExtensionAddress, streamingFeeSplitExtensionAddress, tradeExtensionAddress], [delegatedManagerFactoryAddress]]
       );
       const description = "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension";
 
-      if ((networkConstant === "production" || process.env.TESTING_PRODUCTION)) {
-        await saveDeferredTransactionData({
-          data,
-          description,
-          contractName: "ManagerCore",
-        });
-      } else {
-        const initializeTransaction: any = await rawTx({
+      const initializeTransaction: any = await rawTx({
+        from: deployer,
+        to: managerCoreAddress,
+        data: initializeData,
+        log: true,
+      });
+      await writeTransactionToOutputs(initializeTransaction.transactionHash, description);
+    }
+  }
+
+  async function transferManagerCoreOwnershipToMultisig(): Promise<void> {
+    if (networkConstant === "production") {
+      const multisig = await findDependency(MULTI_SIG_OWNER);
+      const managerCoreInstance = await instanceGetter.getManagerCore(managerCoreAddress);
+
+      const managerCoreOwner = await managerCoreInstance.owner();
+      if (multisig !== "" && managerCoreOwner === deployer) {
+        const transferOwnershipData = managerCoreInstance.interface.encodeFunctionData(
+          "transferOwnership",
+          [multisig]
+        );
+
+        const transferOwnershipTransaction: any = await rawTx({
           from: deployer,
           to: managerCoreAddress,
-          data,
+          data: transferOwnershipData,
           log: true,
         });
-        await writeTransactionToOutputs(initializeTransaction.transactionHash, description);
+
+        await writeTransactionToOutputs(
+          transferOwnershipTransaction.transactionHash,
+          "Transfer ManagerCore ownership to Multisig"
+        );
       }
     }
   }
