@@ -231,7 +231,7 @@ export default {
 
   // Admin
   MULTI_SIG_OWNER: {
-    1: "",
+    10: "0x6765852659B204275B359Fe462F11840bcBF263d",
   },
   HUMAN_FRIENDLY_NAMES: {
     420: "test-rpc",

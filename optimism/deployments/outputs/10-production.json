@@ -95,6 +95,11 @@
       "id": "0x5ec01ae807f9f87de536390d02504532b509c93672509e48c67894e7591720f7",
       "timestamp": 1648699837981,
       "description": "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension"
+    },
+    "7": {
+      "id": "0x10cdd964906e50492e746f6902da124a9a68050b5d3cfc26f4fd37c363cad0b9",
+      "timestamp": 1648700574747,
+      "description": "Transfer ManagerCore ownership to Multisig"
     }
   }
 }
