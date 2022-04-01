@@ -17,7 +17,8 @@
     "DeltaNeutralBasisTradingStrategyExtension-DEPRECATED": "0xdBBD0295eF049515A5eD1803995bA7296B866565",
     "DeltaNeutralBasisTradingStrategyExtension-DEPRECATED-2": "0x9EC0f9187e579b0142Bd0ED2968dc3A720e3F9f2",
     "PerpV2BaseManager": "0xddA86C5Ab04F8d671E3EC0e79F396b3f745bA2Ae",
-    "DeltaNeutralBasisTradingStrategyExtension": "0x2ab4Ae1EaE439BF2a3320eE337d72Fc067b326E5"
+    "DeltaNeutralBasisTradingStrategyExtension": "0x2ab4Ae1EaE439BF2a3320eE337d72Fc067b326E5",
+    "DelegatedManager": "0xf640aec9141c14D3FEF5F0514712d23e1436E033"
   },
   "transactions": {
     "0": {
@@ -460,6 +461,24 @@
       "id": "0xad2c0407fe34c64487a3635494083cf1fc74b1ec9346eca592430e39acea032b",
       "timestamp": 1650452564570,
       "description": "Set PerpV2BaseManager contract as TEST_BASIS_TOKEN Manager"
+    },
+    "18": {
+      "id": "0x551a34b422115625804e43e9c9d016b196626e1e23589b11a92abe00ee694445",
+      "name": "DelegatedManager",
+      "timestamp": 1648853761399,
+      "verified": true,
+      "description": "Deployed DelegatedManager",
+      "contractAddress": "0xf640aec9141c14D3FEF5F0514712d23e1436E033",
+      "constructorArgs": [
+        "0x1F8F0F14584841B581351c3a34ED2bd8E7cb3483",
+        "0x8B05c85A3c5C7aE1C129aD0a6E62Cb8cCAc1d94F",
+        "0xAa460a7582A26429D011df4857251C6BC1A461Ef",
+        [],
+        [],
+        [],
+        false
+      ],
+      "libraries": {}
     }
   }
 }
