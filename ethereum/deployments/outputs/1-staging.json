@@ -3,7 +3,7 @@
     "network_key": "1-staging",
     "human_friendly_name": "main-net-staging",
     "network_id": 1,
-    "last_deployment_stage": 3
+    "last_deployment_stage": 4
   },
   "addresses": {
     "ExchangeIssuanceZeroEx": "0x939eD0665f6CC78882C0ef451d2636110FEA87fe",
@@ -11,7 +11,8 @@
     "DelegatedManagerFactory": "0x55cC794247Ec45db9A1D5B0F26055B7B729F19D2",
     "IssuanceExtension": "0xFc4E27bDb739A6e2AAdA6c8764860bec6F4288Ee",
     "StreamingFeeSplitExtension": "0x946735c0B0C47dd74a38eAe96E75E0eFF5BFB93E",
-    "TradeExtension": "0xEa2F360529dFB5A3423ec84D44482673C28960e5"
+    "TradeExtension": "0xEa2F360529dFB5A3423ec84D44482673C28960e5",
+    "DelegatedManager": "0x6fC29CD2C19c5b29C2bD4dd2EFcFFB5Ec9691855"
   },
   "transactions": {
     "0": {
@@ -95,6 +96,24 @@
       "id": "0xf1dc847c5ca60e8dbc170ca8672ffb5d30cbd4d42c37a573c7cae9a1e3fe1fcb",
       "timestamp": 1648694500282,
       "description": "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension"
+    },
+    "7": {
+      "id": "0x29a72e6ee710eb356d074294bbefe794fb1434a16f4f4bbea94b9e85625d6d98",
+      "name": "DelegatedManager",
+      "timestamp": 1648855357544,
+      "verified": true,
+      "description": "Deployed DelegatedManager",
+      "contractAddress": "0x6fC29CD2C19c5b29C2bD4dd2EFcFFB5Ec9691855",
+      "constructorArgs": [
+        "0x02f04dD09a9074ba25C5fddDA8998ddF8994f1F0",
+        "0x2899384007FC7eFF519745140e8c05bc5FF5f0C5",
+        "0xaE5Ef86DaCaa88668c640cD59e99580ECbA35f3b",
+        [],
+        [],
+        [],
+        false
+      ],
+      "libraries": {}
     }
   }
 }
