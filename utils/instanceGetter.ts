@@ -7,6 +7,12 @@ import {
   BaseManager__factory,
   ManagerCore,
   ManagerCore__factory,
+  DelegatedManager,
+  DelegatedManager__factory,
+  DelegatedManagerFactory,
+  DelegatedManagerFactory__factory,
+  TradeExtension,
+  TradeExtension__factory
 } from "@set/typechain/index";
 
 import {
@@ -34,6 +40,9 @@ import {
   PerpV2LeverageModule__factory,
   SlippageIssuanceModule__factory
 } from "@setprotocol/set-protocol-v2/dist/typechain";
+
+import { StreamingFeeSplitExtension } from "@indexcoop/index-coop-smart-contracts/typechain";
+import { StreamingFeeSplitExtension__factory } from "@indexcoop/index-coop-smart-contracts/dist/typechain";
 
 import { Signer } from "ethers";
 
@@ -101,5 +110,21 @@ export class InstanceGetter {
 
   public async getManagerCore(managerCoreAddress: Address): Promise<ManagerCore> {
     return await new ManagerCore__factory(this._deployerSigner).attach(managerCoreAddress);
+  }
+
+  public async getDelegatedManagerFactory(factoryAddress: Address): Promise<DelegatedManagerFactory> {
+    return await new DelegatedManagerFactory__factory(this._deployerSigner).attach(factoryAddress);
+  }
+
+  public async getDelegatedManager(managerAddress: Address): Promise<DelegatedManager> {
+    return await new DelegatedManager__factory(this._deployerSigner).attach(managerAddress);
+  }
+
+  public async getStreamingFeeSplitExtension(extensionAddress: Address): Promise<StreamingFeeSplitExtension> {
+    return await new StreamingFeeSplitExtension__factory(this._deployerSigner).attach(extensionAddress);
+  }
+
+  public async getTradeExtension(extensionAddress: Address): Promise<TradeExtension> {
+    return await new TradeExtension__factory(this._deployerSigner).attach(extensionAddress);
   }
 }

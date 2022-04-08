@@ -30,6 +30,7 @@ export type DeferredTransactionData = {
   data: string;
   description: string;
   contractName: string;
+  params?: any;
 };
 
 export function getCurrentStage(fileName: string): number {
@@ -121,6 +122,7 @@ export async function saveDeferredTransactionData(tx: DeferredTransactionData) {
     data: tx.data,
     description: tx.description,
     contractName: tx.contractName,
+    params: tx.params
   };
   await fs.outputFile(OUTPUTS_PATH, JSON.stringify(outputs, undefined, 2));
 }
