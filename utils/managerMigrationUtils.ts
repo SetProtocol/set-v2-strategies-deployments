@@ -342,6 +342,8 @@ export class ManagerMigrator {
 
     await saveDeferredTransactionData({
       data,
+      to,
+      from,
       params,
       description,
       contractName
