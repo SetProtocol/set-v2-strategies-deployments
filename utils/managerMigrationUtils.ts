@@ -219,7 +219,7 @@ export class ManagerMigrator {
       .instanceGetter
       .getStreamingFeeSplitExtension(legacyFeeExtension);
 
-    const ownerFeeRecipient = await this.getOwnerFeeRecipient(legacyFeeExtensionInstance);
+    const ownerFeeRecipient = await this.getOwnerFeeRecipient(legacyFeeExtensionInstance, transitionalManager);
     const ownerFeeSplit = await legacyFeeExtensionInstance.operatorFeeSplit();
     const symbol = await setTokenInstance.symbol();
 
@@ -286,12 +286,13 @@ export class ManagerMigrator {
     return this.delegatedManagerAddressPlaceholder;
   }
 
-  // Not all managers expose an `operatorFeeRecipient`
-  private async getOwnerFeeRecipient(feeExtensionInstance: any) {
+  // Not all managers expose an `operatorFeeRecipient`. We assume transitionalManager is the `operator`
+  // of the BaseManager.
+  private async getOwnerFeeRecipient(feeExtensionInstance: any, transitionalManager: Address) {
     try {
       return await feeExtensionInstance.operatorFeeRecipient();
     } catch (e) {
-      return await feeExtensionInstance.owner();
+      return transitionalManager;
     }
   }
 

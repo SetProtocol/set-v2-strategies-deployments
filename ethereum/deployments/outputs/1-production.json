@@ -139,7 +139,7 @@
           "type": "BigNumber",
           "hex": "0x06f05b59d3b20000"
         },
-        "ownerFeeRecipient": "0x69Bdb276A17Dd90F9D3A545944CCB20E593ae8E3",
+        "ownerFeeRecipient": "0x186b0a2b5028916fa237bb5b11a9841dbd8567b5",
         "extensions": [
           "0x05C5c57E5E75FC8EaD83FE06ebe4aCc471Fb2948",
           "0x00DD1D0A8acF768700c009CB5E54BBb5b6920071",
