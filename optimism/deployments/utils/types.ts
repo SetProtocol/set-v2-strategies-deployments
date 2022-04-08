@@ -38,3 +38,17 @@ export interface PerpV2IncentiveSettings {
   incentivizedSlippageTolerance: BigNumber;
   incentivizedTwapCooldownPeriod: BigNumber;
 }
+
+export interface PerpV2BasisContractSettings {
+  setToken: Address;
+  basisTradingModule: Address;
+  tradeModule: Address;
+  quoter: Address;
+  perpV2AccountBalance: Address;
+  baseUSDPriceOracle: Address;
+  twapInterval: BigNumber;
+  basePriceDecimalAdjustment: BigNumber;
+  virtualBaseAddress: Address;
+  virtualQuoteAddress: Address;
+  spotAssetAddress: Address;
+}

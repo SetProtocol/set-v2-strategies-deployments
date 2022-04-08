@@ -26,11 +26,18 @@ export default {
     },
     69: "0x6027c4dcFE97fa079D639bBDD018E95dDc1d9c65"
   },
+  TEST_BASIS_TOKEN: {
+    10: {
+      staging: "0x337Ee7DD69bE412763306e167A155c97F0fBE645",
+      production: ""
+    },
+    69: "0xfA60d10BD76E4Ad2d4A88271f6cd0CA88eDBd08f"
+  },
 
   // PerpV2 virtual tokens
   V_ETH: {
     10: "0x8C835DFaA34e2AE61775e80EE29E2c724c6AE2BB",
-    69: "0x7cE531e940B24EE760e5dDBF8A2E0E359fA04400"
+    69: "0x099FaDE6D13401c4f9742db09ae827E434FB4C30"
   },
   V_BTC: {
     10: "0x86f1e0420c26a858fc203A3645dD1A36868F18e5",
@@ -56,6 +63,10 @@ export default {
   UNISWAP_V3_ROUTER: {
     10: "0xe592427a0aece92de3edee1f18e0157c05861564",
     69: "0xe592427a0aece92de3edee1f18e0157c05861564",
+  },
+  UNISWAP_V3_QUOTER: {
+    10: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+    69: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6"
   },
 
   // Source: https://github.com/sushiswap/sushiswap/tree/canary/deployments/optimism
@@ -141,6 +152,13 @@ export default {
     69: "0x87113069Cd05E819B1F009BEEC70dd41594A9D12",
   },
 
+  // PerpV2 uses both Chainlink oracles and Band oracles. All thier oracles have the same interface
+  // which is different from Chainlink oracles.
+  ETHUSD_PERP_CHAINLINK_ORACLE: {
+    10: "0xA36fAF16f31c12285467b1973ee8Fa144ED4d846",
+    69: "0xfAb3Bc6674a38cA766083838E0eba7bB3Ef96177",
+  },
+
   // This address is used for USDC in PerpV2LeverageModule kovan testing. The `69` address is a
   // Perp issued token mock, available from a faucet at: https://kovan.optifaucet.com/
   // Address Source: perp-lushan/deployments at commit: 8bb6bf5
@@ -220,6 +238,13 @@ export default {
     },
     69: "0x6169c62e1aaE2D56a2Dc184514e8b515Ff6F1d9e"
   },
+  PERPV2_BASIS_TRADING_MODULE: {
+    10: {
+      staging: "0xB618CB0Da4586246F61d1418E684218068a89937",
+      production: ""
+    },
+    69: "0xE9a31AD381ee2509B6689C449bBDDFBCEd35ea08"
+  },
 
   // Source: deployment metadata from npm published: @perp/curie-periphery v1.0.2
   // Repo is not public or privately shared with Set
@@ -246,9 +271,11 @@ export const DEPENDENCY = {
   WBTC: "WBTC",
   WETH: "WETH",
   USDC: "USDC",
+  PERP_TEST_USDC: "PERP_TEST_USDC",
 
   // SetTokens
   TEST_PERP_TOKEN: "TEST_PERP_TOKEN",
+  TEST_BASIS_TOKEN: "TEST_BASIS_TOKEN",
 
   // PerpV2 virtual tokens
   V_ETH: "V_ETH",
@@ -276,6 +303,9 @@ export const DEPENDENCY = {
   BTC_ORACLE_PROXY: "BTC_ORACLE_PROXY",
   USDC_ORACLE_PROXY: "USDC_ORACLE_PROXY",
 
+  // Oracles used by PerpV2
+  ETHUSD_PERP_CHAINLINK_ORACLE: "ETHUSD_PERP_CHAINLINK_ORACLE",
+
   // Chainlink Oracles
   BTC_CHAINLINK_ORACLE: "BTC_CHAINLINK_ORACLE",
   ETH_CHAINLINK_ORACLE: "ETH_CHAINLINK_ORACLE",
@@ -284,6 +314,7 @@ export const DEPENDENCY = {
 
   // Exchanges
   UNISWAP_V3_ROUTER: "UNISWAP_V3_ROUTER",
+  UNISWAP_V3_QUOTER: "UNISWAP_V3_QUOTER",
   SUSHISWAP_ROUTER: "SUSHISWAP_ROUTER",
   SUSHISWAP_FACTORY: "SUSHISWAP_FACTORY",
 
@@ -301,4 +332,5 @@ export const DEPENDENCY = {
   SLIPPAGE_ISSUANCE_MODULE: "SLIPPAGE_ISSUANCE_MODULE",
   PERPV2_LIBRARY: "PERPV2_LIBRARY",
   PERPV2_LEVERAGE_MODULE: "PERPV2_LEVERAGE_MODULE",
+  PERPV2_BASIS_TRADING_MODULE: "PERPV2_BASIS_TRADING_MODULE",
 };
