@@ -23,7 +23,9 @@ import {
   CONTRACT_NAMES,
   SET_TOKEN_CREATOR,
   STREAMING_FEE_MODULE,
-  PERPV2_LIBRARY,
+  PERPV2_LIBRARY_V2,
+  POSITION_V2,
+  PERP_V2_POSITIONS,
   PERPV2_LEVERAGE_MODULE,
   SLIPPAGE_ISSUANCE_MODULE,
   USDC,
@@ -77,7 +79,9 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
     await usdcTokenInstance.connect(uniSigner).transfer(deployer, usdc(500));
   }
 
-  const perpV2LibAddress = await findDependency(PERPV2_LIBRARY);
+  const perpV2LibraryV2Address = await findDependency(PERPV2_LIBRARY_V2);
+  const positionV2LibAddress = await findDependency(POSITION_V2);
+  const perpV2PositionsLibAddress = await findDependency(PERP_V2_POSITIONS);
   const perpV2LeverageModuleAddress = await findDependency(PERPV2_LEVERAGE_MODULE);
   const slippageIssuanceModuleAddress = await findDependency(SLIPPAGE_ISSUANCE_MODULE);
   const streamingFeeModuleAddress = await findDependency(STREAMING_FEE_MODULE);
@@ -216,7 +220,12 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
     // Initialize SetToken on PerpLeverageModule
     // =========================================
     const perpV2LeverageModuleInstance = await instanceGetter
-      .getPerpV2LeverageModule(perpV2LibAddress, perpV2LeverageModuleAddress);
+      .getPerpV2LeverageModuleV2(
+        positionV2LibAddress,
+        perpV2LibraryV2Address,
+        perpV2PositionsLibAddress,
+        perpV2LeverageModuleAddress
+      );
 
     const isPerpLeveragModuleInitialized = await perpSetTokenInstance.
       isInitializedModule(perpV2LeverageModuleAddress);

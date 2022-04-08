@@ -18,8 +18,9 @@ import {
   IntegrationRegistry,
   StreamingFeeModule,
   StandardTokenMock,
-  PerpV2LeverageModule,
-  SlippageIssuanceModule
+  PerpV2LeverageModuleV2,
+  PerpV2BasisTradingModule,
+  SlippageIssuanceModule,
 } from "@setprotocol/set-protocol-v2/typechain";
 
 import {
@@ -31,7 +32,8 @@ import {
   IntegrationRegistry__factory,
   StreamingFeeModule__factory,
   StandardTokenMock__factory,
-  PerpV2LeverageModule__factory,
+  PerpV2LeverageModuleV2__factory,
+  PerpV2BasisTradingModule__factory,
   SlippageIssuanceModule__factory
 } from "@setprotocol/set-protocol-v2/dist/typechain";
 
@@ -86,13 +88,36 @@ export class InstanceGetter {
     return await new StandardTokenMock__factory(this._deployerSigner).attach(token);
   }
 
-  public async getPerpV2LeverageModule(perpV2Library: Address, perpV2LeverageModule: Address): Promise<PerpV2LeverageModule> {
-    return await new PerpV2LeverageModule__factory(
+  public async getPerpV2LeverageModuleV2(
+    positionV2Library: Address,
+    perpV2LibraryV2: Address,
+    perpV2PositionsLibrary: Address,
+    perpV2LeverageModuleV2: Address
+  ): Promise<PerpV2LeverageModuleV2> {
+    return await new PerpV2LeverageModuleV2__factory(
       {
-        ["contracts/protocol/integration/lib/PerpV2.sol:PerpV2"]: perpV2Library,
+        ["contracts/protocol/lib/PositionV2.sol:PositionV2"]: positionV2Library,
+        ["contracts/protocol/integration/lib/PerpV2LibraryV2.sol:PerpV2LibraryV2"]: perpV2LibraryV2,
+        ["contracts/protocol/integration/lib/PerpV2Positions.sol:PerpV2Positions"]: perpV2PositionsLibrary
       },
       this._deployerSigner
-    ).attach(perpV2LeverageModule);
+    ).attach(perpV2LeverageModuleV2);
+  }
+
+  public async getPerpV2BasisTradingModule(
+    positionV2Library: Address,
+    perpV2LibraryV2: Address,
+    perpV2PositionsLibrary: Address,
+    perpV2BasisTradingModule: Address
+  ): Promise<PerpV2BasisTradingModule> {
+    return await new PerpV2BasisTradingModule__factory(
+      {
+        ["contracts/protocol/lib/PositionV2.sol:PositionV2"]: positionV2Library,
+        ["contracts/protocol/integration/lib/PerpV2LibraryV2.sol:PerpV2LibraryV2"]: perpV2LibraryV2,
+        ["contracts/protocol/integration/lib/PerpV2Positions.sol:PerpV2Positions"]: perpV2PositionsLibrary
+      },
+      this._deployerSigner
+    ).attach(perpV2BasisTradingModule);
   }
 
   public async getSlippageIssuanceModule(slippageIssuanceModuleAddress: Address): Promise<SlippageIssuanceModule> {
