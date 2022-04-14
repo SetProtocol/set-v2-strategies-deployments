@@ -28,10 +28,10 @@ export default {
   },
   TEST_BASIS_TOKEN: {
     10: {
-      staging: "0x337Ee7DD69bE412763306e167A155c97F0fBE645",
+      staging: "0xeB47c638Ca85D4D81b7C0524EA580C5C3c223D8E",
       production: ""
     },
-    69: "0xfA60d10BD76E4Ad2d4A88271f6cd0CA88eDBd08f"
+    69: "0x901D880b6d5694749De9B2f6b0821aE0510661c4"
   },
 
   // PerpV2 virtual tokens
@@ -240,10 +240,10 @@ export default {
   },
   PERPV2_BASIS_TRADING_MODULE: {
     10: {
-      staging: "0xB618CB0Da4586246F61d1418E684218068a89937",
+      staging: "0xA56DF50d6ec63c5e6A3f2E03D665D07338A71FeA",
       production: ""
     },
-    69: "0xE9a31AD381ee2509B6689C449bBDDFBCEd35ea08"
+    69: "0x4E93d5708267c8961F21Af6ee63236CacDf17d65"
   },
 
   // Source: deployment metadata from npm published: @perp/curie-periphery v1.0.2

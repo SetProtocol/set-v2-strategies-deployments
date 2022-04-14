@@ -14,8 +14,8 @@
     "IssuanceExtension": "0x96956b695177C8C33Db01635378E008aC5E5EEC0",
     "StreamingFeeSplitExtension": "0x06Ed895C81d252FFe693f4A15ce7292b4cAb5612",
     "TradeExtension": "0xC4300E01c37020bcF471aefA16Ca8eFE1618E939",
-    "PerpV2BaseManager": "0x0df58926e1c8A236B3b41f07a94Df77C90c6638F",
-    "DeltaNeutralBasisTradingStrategyExtension": "0xBDae9e6897E08f7ceEc538c4cb0B7f413EEc3497"
+    "PerpV2BaseManager": "0x1687eF971F48620bBbD098cBB9D3E32B60D5b1e7",
+    "DeltaNeutralBasisTradingStrategyExtension": "0xEBC56f18000BeB0a1f3E8DED86ABf383515694CB"
   },
   "transactions": {
     "0": {
@@ -206,31 +206,31 @@
       "description": "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension"
     },
     "11": {
-      "id": "0x44dc53e13f411281e99fd3bdcc800e2672f345d4fb8f5c6ba108ab4bc394b4e8",
+      "id": "0xaf2c168bb5890847483fac9015671e6427ad07dc2d11f0b53e6d0b60701fd2c9",
       "name": "PerpV2BaseManager",
-      "timestamp": 1649417148695,
+      "timestamp": 1649935319695,
       "verified": true,
       "description": "Deployed PerpV2BaseManager",
-      "contractAddress": "0x0df58926e1c8A236B3b41f07a94Df77C90c6638F",
+      "contractAddress": "0x1687eF971F48620bBbD098cBB9D3E32B60D5b1e7",
       "constructorArgs": [
-        "0xfA60d10BD76E4Ad2d4A88271f6cd0CA88eDBd08f",
+        "0x901D880b6d5694749De9B2f6b0821aE0510661c4",
         "0x69Bdb276A17Dd90F9D3A545944CCB20E593ae8E3",
         "0x69Bdb276A17Dd90F9D3A545944CCB20E593ae8E3"
       ],
       "libraries": {}
     },
     "12": {
-      "id": "0x3e90f61304b5207be9ff1e070c9c0bf9c06245dd0baf80fdb411ad5a8407449d",
+      "id": "0x2353123cafb053100dc852e24ffb956f15eb1f24446358689725a1eb5c901173",
       "name": "DeltaNeutralBasisTradingStrategyExtension",
-      "timestamp": 1649417159967,
+      "timestamp": 1649935327384,
       "verified": true,
       "description": "Deployed DeltaNeutralBasisTradingStrategyExtension",
-      "contractAddress": "0xBDae9e6897E08f7ceEc538c4cb0B7f413EEc3497",
+      "contractAddress": "0xEBC56f18000BeB0a1f3E8DED86ABf383515694CB",
       "constructorArgs": [
-        "0x0df58926e1c8A236B3b41f07a94Df77C90c6638F",
+        "0x1687eF971F48620bBbD098cBB9D3E32B60D5b1e7",
         {
-          "setToken": "0xfA60d10BD76E4Ad2d4A88271f6cd0CA88eDBd08f",
-          "basisTradingModule": "0xE9a31AD381ee2509B6689C449bBDDFBCEd35ea08",
+          "setToken": "0x901D880b6d5694749De9B2f6b0821aE0510661c4",
+          "basisTradingModule": "0x4E93d5708267c8961F21Af6ee63236CacDf17d65",
           "tradeModule": "0x0a18Ad43a9dc991dB9401ee7aC5AAD0A3b219159",
           "quoter": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
           "perpV2AccountBalance": "0xB35669c4F64faBBF71dc2e4307485Ad74d46f4E8",
@@ -319,16 +319,14 @@
       "libraries": {}
     },
     "13": {
-      "id": "0x2e4a09ed0e7679ea6a66f710dd1e286cf31330594e6021e0463fb9ca4d8a35ca",
-      "timestamp": 1649417174466,
+      "id": "0xa040803012d55a4c5bcdcd53ec82960afcf584dcd764d11ee14fc6645dfcb82d",
+      "timestamp": 1649935335919,
       "description": "Add DeltaNeutralBasisTradingStrategyExtension on PerpV2BaseManager"
     },
     "14": {
-      "id": null,
-      "timestamp": null,
-      "data": "0xd0ebdbe70000000000000000000000000df58926e1c8a236b3b41f07a94df77c90c6638f",
-      "description": "Set PerpV2BaseManager contract as TEST_BASIS_TOKEN Manager",
-      "contractName": "TEST_BASIS_TOKEN"
+      "id": "0x84dc0bbce07374b2f5fda66e676fce092c3674c6fd102a6842c2a74a6501af3a",
+      "timestamp": 1649935343595,
+      "description": "Set PerpV2BaseManager contract as TEST_BASIS_TOKEN Manager"
     }
   }
 }
