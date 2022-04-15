@@ -1,7 +1,7 @@
 {
   "branches": [
     { "name": "master" },
-    { "name": "chris/publish-outputs", "channel": "test", "prerelease": "t1" }
+    { "name": "chris/test-publish", "channel": "test", "prerelease": "t1" }
   ],
   "plugins": [
     ["@semantic-release/commit-analyzer", {

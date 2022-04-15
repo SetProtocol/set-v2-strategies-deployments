@@ -17,7 +17,7 @@
     "IssuanceExtension": "0x802569a5AC139650956f79bB0129C767cC491DE4",
     "StreamingFeeSplitExtension": "0x171Bf119b7Da5E24Ea1f41c81e0DAD41E57FeE48",
     "TradeExtension": "0x34548881b83dC247Ca11ed4cfbe2cbeB5a2Bf0D1",
-    "TEST": "0x34548881b83dC247Ca11ed4cfbe2cbeB5a2Bf0D1"
+    "TEST": "0x34548881b83dC247Ca11ed4cfbe2cbeB5a2Bf0D2"
   },
   "transactions": {
     "0": {
