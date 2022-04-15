@@ -17,6 +17,10 @@
 /.coverage_cache
 /.coverage_contracts
 
+/deployments
+github.README.md
+github.package.json
+
 ### Node ###
 
 # Logs

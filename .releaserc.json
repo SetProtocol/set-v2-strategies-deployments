@@ -1,0 +1,22 @@
+{
+  "branches": [
+    { "name": "master" },
+    { "name": "chris/publish-outputs", "channel": "test", "prerelease": "t1" }
+  ],
+  "plugins": [
+    ["@semantic-release/commit-analyzer", {
+      "preset": "angular",
+      "releaseRules": [
+        {"type": "feat", "scope":"ethereum/deployments/outputs/1-production.json", "release": "minor"},
+        {"type": "feat", "scope":"ethereum/deployments/outputs/1-staging.json", "release": "minor"},
+        {"type": "feat", "scope":"optimism/deployments/outputs/10-production.json", "release": "minor"},
+        {"type": "feat", "scope":"optimism/deployments/outputs/10-staging.json", "release": "minor"},
+        {"type": "feat", "scope":"polygon/deployments/outputs/137-production.json", "release": "minor"},
+        {"type": "feat", "scope":"polygon/deployments/outputs/137-staging.json", "release": "minor"}
+      ]
+    }],
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
+    "@semantic-release/github"
+  ]
+}
