@@ -155,7 +155,7 @@ jobs:
 
   release:
     <<: *default_docker_image
-    working_directory: ~/set-v2-deployments
+    working_directory: ~/set-v2-strategies-deployments
     steps:
       - setup_job
       - publish
