@@ -165,36 +165,36 @@ workflows:
   build-and-test:
     jobs:
       - checkout_and_compile
-      # - ethereum_test:
-      #     requires:
-      #       - checkout_and_compile
-      # - ethereum_deployment:
-      #     requires:
-      #       - checkout_and_compile
-      # - polygon_test:
-      #     requires:
-      #       - checkout_and_compile
-      # - polygon_deployment:
-      #     requires:
-      #       - checkout_and_compile
-      # - arbitrum_test:
-      #     requires:
-      #       - checkout_and_compile
-      # - arbitrum_deployment:
-      #     requires:
-      #       - checkout_and_compile
-      # - avalanche_test:
-      #     requires:
-      #       - checkout_and_compile
-      # - avalanche_deployment:
-      #     requires:
-      #       - checkout_and_compile
-      # - optimism_test:
-      #     requires:
-      #       - checkout_and_compile
-      # - optimism_deployment:
-      #     requires:
-      #       - checkout_and_compile
+      - ethereum_test:
+          requires:
+            - checkout_and_compile
+      - ethereum_deployment:
+          requires:
+            - checkout_and_compile
+      - polygon_test:
+          requires:
+            - checkout_and_compile
+      - polygon_deployment:
+          requires:
+            - checkout_and_compile
+      - arbitrum_test:
+          requires:
+            - checkout_and_compile
+      - arbitrum_deployment:
+          requires:
+            - checkout_and_compile
+      - avalanche_test:
+          requires:
+            - checkout_and_compile
+      - avalanche_deployment:
+          requires:
+            - checkout_and_compile
+      - optimism_test:
+          requires:
+            - checkout_and_compile
+      - optimism_deployment:
+          requires:
+            - checkout_and_compile
       - release:
           requires:
             - checkout_and_compile
