@@ -15,7 +15,7 @@
     "StreamingFeeSplitExtension": "0x06Ed895C81d252FFe693f4A15ce7292b4cAb5612",
     "TradeExtension": "0xC4300E01c37020bcF471aefA16Ca8eFE1618E939",
     "PerpV2BaseManager": "0x1687eF971F48620bBbD098cBB9D3E32B60D5b1e7",
-    "DeltaNeutralBasisTradingStrategyExtension": "0xEBC56f18000BeB0a1f3E8DED86ABf383515694CB"
+    "DeltaNeutralBasisTradingStrategyExtension": "0xD9a63615f5159f7Abd743E82BCc31c033a595C2E"
   },
   "transactions": {
     "0": {
@@ -327,6 +327,337 @@
       "id": "0x84dc0bbce07374b2f5fda66e676fce092c3674c6fd102a6842c2a74a6501af3a",
       "timestamp": 1649935343595,
       "description": "Set PerpV2BaseManager contract as TEST_BASIS_TOKEN Manager"
+    },
+    "15": {
+      "id": "0x261a0f539b24aa33ca4cd5dd75a9230950279673db9d52ac47695e28e581a4e0",
+      "name": "DeltaNeutralBasisTradingStrategyExtension",
+      "timestamp": 1650020865274,
+      "verified": false,
+      "description": "Deployed DeltaNeutralBasisTradingStrategyExtension",
+      "contractAddress": "0x635ebeB1149B8b9C7266C5d288FFD5FE1d824ACb",
+      "constructorArgs": [
+        "0x1687eF971F48620bBbD098cBB9D3E32B60D5b1e7",
+        {
+          "setToken": "0x93910D1D112AEA86E20c998948897b0cd37B3Ed9",
+          "basisTradingModule": "0x5aAd2270a04976e66aA6C4F4d3d9E95e06f45542",
+          "tradeModule": "0x0a18Ad43a9dc991dB9401ee7aC5AAD0A3b219159",
+          "quoter": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+          "perpV2AccountBalance": "0xB35669c4F64faBBF71dc2e4307485Ad74d46f4E8",
+          "baseUSDPriceOracle": "0xfAb3Bc6674a38cA766083838E0eba7bB3Ef96177",
+          "twapInterval": {
+            "type": "BigNumber",
+            "hex": "0x00"
+          },
+          "basePriceDecimalAdjustment": {
+            "type": "BigNumber",
+            "hex": "0x0a"
+          },
+          "virtualBaseAddress": "0x099FaDE6D13401c4f9742db09ae827E434FB4C30",
+          "virtualQuoteAddress": "0xd52d4175f937b965de49e6c24e081eee6dae5645",
+          "spotAssetAddress": "0x4200000000000000000000000000000000000006"
+        },
+        {
+          "targetLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0de0b6b3a7640000"
+          },
+          "minLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0c7d713b49da0000"
+          },
+          "maxLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0f43fc2c04ee0000"
+          },
+          "recenteringSpeed": {
+            "type": "BigNumber",
+            "hex": "0x016345785d8a0000"
+          },
+          "rebalanceInterval": {
+            "type": "BigNumber",
+            "hex": "0x1c20"
+          },
+          "reinvestInterval": {
+            "type": "BigNumber",
+            "hex": "0x0e10"
+          }
+        },
+        {
+          "twapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x1e"
+          },
+          "slippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0x470de4df820000"
+          }
+        },
+        {
+          "incentivizedTwapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x01"
+          },
+          "incentivizedSlippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0xb1a2bc2ec50000"
+          },
+          "etherReward": {
+            "type": "BigNumber",
+            "hex": "0x0de0b6b3a7640000"
+          },
+          "incentivizedLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x18fae27693b40000"
+          }
+        },
+        {
+          "exchangeName": "UniswapV3ExchangeAdapterV2",
+          "buyExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb83e22e37cb472c872b5de121134cfd1b57ef0656000",
+          "sellExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb83e22e37cb472c872b5de121134cfd1b57ef0656001",
+          "buySpotQuoteExactInputPath": "0x3e22e37cb472c872b5de121134cfd1b57ef06560000bb84200000000000000000000000000000000000006",
+          "twapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x8ac7230489e80000"
+          },
+          "incentivizedTwapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x01158e460913d00000"
+          }
+        }
+      ],
+      "libraries": {}
+    },
+    "16": {
+      "id": "0x20950620fe3591dac2b2f0df49d8c8b82b305025a83dd7f57ae8954a72c6f758",
+      "timestamp": 1650020876250,
+      "description": "Add DeltaNeutralBasisTradingStrategyExtension on PerpV2BaseManager"
+    },
+    "17": {
+      "id": "0x751092345244a3dd74e536918fb678e22ef0234b1b5916502c5e400b7f648415",
+      "timestamp": 1650020884683,
+      "description": "Set PerpV2BaseManager contract as TEST_BASIS_TOKEN Manager"
+    },
+    "18": {
+      "id": "0xc13b51bb2deed56ff46a63a2a00fe060be212f1b3dd388c9827fe10aa7056e43",
+      "name": "DeltaNeutralBasisTradingStrategyExtension",
+      "timestamp": 1650022302868,
+      "verified": false,
+      "description": "Deployed DeltaNeutralBasisTradingStrategyExtension",
+      "contractAddress": "0xdC69Cb4f4DAE7A9bBC3BDfE49013411A94e5736F",
+      "constructorArgs": [
+        "0x1687eF971F48620bBbD098cBB9D3E32B60D5b1e7",
+        {
+          "setToken": "0x93910D1D112AEA86E20c998948897b0cd37B3Ed9",
+          "basisTradingModule": "0x5aAd2270a04976e66aA6C4F4d3d9E95e06f45542",
+          "tradeModule": "0x0a18Ad43a9dc991dB9401ee7aC5AAD0A3b219159",
+          "quoter": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+          "perpV2AccountBalance": "0xB35669c4F64faBBF71dc2e4307485Ad74d46f4E8",
+          "baseUSDPriceOracle": "0xF3C3a94E8e4F3A0c86A950cd619bF09A1E41eBE9",
+          "twapInterval": {
+            "type": "BigNumber",
+            "hex": "0x00"
+          },
+          "basePriceDecimalAdjustment": {
+            "type": "BigNumber",
+            "hex": "0x0a"
+          },
+          "virtualBaseAddress": "0x099FaDE6D13401c4f9742db09ae827E434FB4C30",
+          "virtualQuoteAddress": "0xd52d4175f937b965de49e6c24e081eee6dae5645",
+          "spotAssetAddress": "0x4200000000000000000000000000000000000006"
+        },
+        {
+          "targetLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0de0b6b3a7640000"
+          },
+          "minLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0c7d713b49da0000"
+          },
+          "maxLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0f43fc2c04ee0000"
+          },
+          "recenteringSpeed": {
+            "type": "BigNumber",
+            "hex": "0x016345785d8a0000"
+          },
+          "rebalanceInterval": {
+            "type": "BigNumber",
+            "hex": "0x1c20"
+          },
+          "reinvestInterval": {
+            "type": "BigNumber",
+            "hex": "0x0e10"
+          }
+        },
+        {
+          "twapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x1e"
+          },
+          "slippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0xb1a2bc2ec50000"
+          }
+        },
+        {
+          "incentivizedTwapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x01"
+          },
+          "incentivizedSlippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0x016345785d8a0000"
+          },
+          "etherReward": {
+            "type": "BigNumber",
+            "hex": "0x0de0b6b3a7640000"
+          },
+          "incentivizedLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x18fae27693b40000"
+          }
+        },
+        {
+          "exchangeName": "UniswapV3ExchangeAdapterV2",
+          "buyExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb83e22e37cb472c872b5de121134cfd1b57ef0656000",
+          "sellExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb83e22e37cb472c872b5de121134cfd1b57ef0656001",
+          "buySpotQuoteExactInputPath": "0x3e22e37cb472c872b5de121134cfd1b57ef06560000bb84200000000000000000000000000000000000006",
+          "twapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x8ac7230489e80000"
+          },
+          "incentivizedTwapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x01158e460913d00000"
+          }
+        }
+      ],
+      "libraries": {}
+    },
+    "19": {
+      "id": "0x2bdcbab128699f4f286b9d2704684964e5315e43bcca1f4734644f38c872aabb",
+      "timestamp": 1650022309915,
+      "description": "Add DeltaNeutralBasisTradingStrategyExtension on PerpV2BaseManager"
+    },
+    "20": {
+      "id": null,
+      "timestamp": null,
+      "data": "0xd0ebdbe70000000000000000000000001687ef971f48620bbbd098cbb9d3e32b60d5b1e7",
+      "description": "Set PerpV2BaseManager contract as TEST_BASIS_TOKEN Manager",
+      "contractName": "TEST_BASIS_TOKEN"
+    },
+    "21": {
+      "id": "0x887cd5028985e13f057ab7e2deefe3edb7b78816a572765dec9fa76f7985f5d4",
+      "name": "DeltaNeutralBasisTradingStrategyExtension",
+      "timestamp": 1650027302423,
+      "verified": false,
+      "description": "Deployed DeltaNeutralBasisTradingStrategyExtension",
+      "contractAddress": "0xD9a63615f5159f7Abd743E82BCc31c033a595C2E",
+      "constructorArgs": [
+        "0x1687eF971F48620bBbD098cBB9D3E32B60D5b1e7",
+        {
+          "setToken": "0x93910D1D112AEA86E20c998948897b0cd37B3Ed9",
+          "basisTradingModule": "0x5aAd2270a04976e66aA6C4F4d3d9E95e06f45542",
+          "tradeModule": "0x0a18Ad43a9dc991dB9401ee7aC5AAD0A3b219159",
+          "quoter": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+          "perpV2AccountBalance": "0x594ADf28b465612DB033C1aEF4bd19972343934D",
+          "baseUSDPriceOracle": "0xF3C3a94E8e4F3A0c86A950cd619bF09A1E41eBE9",
+          "twapInterval": {
+            "type": "BigNumber",
+            "hex": "0x00"
+          },
+          "basePriceDecimalAdjustment": {
+            "type": "BigNumber",
+            "hex": "0x0a"
+          },
+          "virtualBaseAddress": "0x099FaDE6D13401c4f9742db09ae827E434FB4C30",
+          "virtualQuoteAddress": "0xd52d4175f937b965de49e6c24e081eee6dae5645",
+          "spotAssetAddress": "0x4200000000000000000000000000000000000006"
+        },
+        {
+          "targetLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0de0b6b3a7640000"
+          },
+          "minLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0c7d713b49da0000"
+          },
+          "maxLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0f43fc2c04ee0000"
+          },
+          "recenteringSpeed": {
+            "type": "BigNumber",
+            "hex": "0x016345785d8a0000"
+          },
+          "rebalanceInterval": {
+            "type": "BigNumber",
+            "hex": "0x1c20"
+          },
+          "reinvestInterval": {
+            "type": "BigNumber",
+            "hex": "0x0e10"
+          }
+        },
+        {
+          "twapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x1e"
+          },
+          "slippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0xb1a2bc2ec50000"
+          }
+        },
+        {
+          "incentivizedTwapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x01"
+          },
+          "incentivizedSlippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0x016345785d8a0000"
+          },
+          "etherReward": {
+            "type": "BigNumber",
+            "hex": "0x0de0b6b3a7640000"
+          },
+          "incentivizedLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x18fae27693b40000"
+          }
+        },
+        {
+          "exchangeName": "UniswapV3ExchangeAdapterV2",
+          "buyExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb83e22e37cb472c872b5de121134cfd1b57ef0656000",
+          "sellExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb83e22e37cb472c872b5de121134cfd1b57ef0656001",
+          "buySpotQuoteExactInputPath": "0x3e22e37cb472c872b5de121134cfd1b57ef06560000bb84200000000000000000000000000000000000006",
+          "twapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x8ac7230489e80000"
+          },
+          "incentivizedTwapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x01158e460913d00000"
+          }
+        }
+      ],
+      "libraries": {}
+    },
+    "22": {
+      "id": "0xf9065602b4c4c19d0bedcfb76efad6936e79837eed98be66d0eebec86040590f",
+      "timestamp": 1650027310012,
+      "description": "Add DeltaNeutralBasisTradingStrategyExtension on PerpV2BaseManager"
+    },
+    "23": {
+      "id": null,
+      "timestamp": null,
+      "data": "0xd0ebdbe70000000000000000000000001687ef971f48620bbbd098cbb9d3e32b60d5b1e7",
+      "description": "Set PerpV2BaseManager contract as TEST_BASIS_TOKEN Manager",
+      "contractName": "TEST_BASIS_TOKEN"
     }
   }
 }
