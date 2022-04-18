@@ -1247,10 +1247,10 @@
     "@sentry/types" "5.29.2"
     tslib "^1.9.3"
 
-"@setprotocol/set-protocol-v2@^0.1.11-hardhat.0":
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.1.12.tgz#4ff67d0d2935148908ddada79bc51fda17c97afa"
-  integrity sha512-0zHRCTgASXR4P8ya0lafF4WSjnVsc6N7QMLiOGymVfuoSJDpDD+jGOn57FnVmgeknmt60frxJYMxxn5XQN9lyw==
+"@setprotocol/set-protocol-v2@0.10.0-hhat.1":
+  version "0.10.0-hhat.1"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.10.0-hhat.1.tgz#933dc1ad9599ddf39796ce5785e0cd4ec0e7ba5d"
+  integrity sha512-wjTIHUzsAmL8u01XsOALJp62ceznVPK420zfpNK6Kv/mK56UKZWq3ptzHbnhjujU1vDfiNylH+enEHjUYiBogQ==
   dependencies:
     "@uniswap/v3-sdk" "^3.5.1"
     ethers "^5.5.2"
@@ -1259,10 +1259,10 @@
     module-alias "^2.2.2"
     replace-in-file "^6.1.0"
 
-"@setprotocol/set-protocol-v2@^0.1.14":
-  version "0.1.15"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.1.15.tgz#d4c4ce5fe35ba136d045919635ea6abdf95489ba"
-  integrity sha512-XZxHXgGqKSk1SMlSeT7lA14nrfvjQ24xc+D+RpiZ/Qj6OAvuceFJ1rDGH234cTg3j3c7gUdAAe2XZ7hgVUenFA==
+"@setprotocol/set-protocol-v2@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.10.1.tgz#329e39a2c8aa188ef0bd2a8549eb683a26c6390e"
+  integrity sha512-M0qlKOhcht2aHXQ1rBDFPohPaXmXGvPyrazgcjPniCWlmSZx/P/X197iGvThZVuXyurjk/v6ErhOEPp4Bq9h9A==
   dependencies:
     "@uniswap/v3-sdk" "^3.5.1"
     ethers "^5.5.2"
@@ -1271,12 +1271,12 @@
     module-alias "^2.2.2"
     replace-in-file "^6.1.0"
 
-"@setprotocol/set-v2-strategies@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.7.tgz#dca84f40c31b7118b6ff527f372d7fe2906f53ad"
-  integrity sha512-YfA1obWvj2v/lsNnwrCHf2wRud+mdUZutHJggZyziqMokFi6dsej9StczSt8ftWUsWQqQnnGshVcBAjSL0T1sQ==
+"@setprotocol/set-v2-strategies@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.8.tgz#5db0cae3c2a06fc040d53aeda3bc24f32ce955e4"
+  integrity sha512-y/6I8TlvJx7KFjEJbvmyySxDlkpe3k7o88mqnhxeFAXxHXlOe7O3i4BLd/Sf9zppLe5PsX0EQrgiJcC9q4rPHQ==
   dependencies:
-    "@setprotocol/set-protocol-v2" "^0.1.11-hardhat.0"
+    "@setprotocol/set-protocol-v2" "0.10.0-hhat.1"
     "@uniswap/v3-sdk" "^3.5.1"
     ethers "5.5.2"
     fs-extra "^5.0.0"
