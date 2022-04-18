@@ -4,7 +4,7 @@ version: 2.1
 
 default_docker_image: &default_docker_image
   docker:
-    - image: circleci/node:12.21.0
+    - image: circleci/node:14.18
 
 commands:
   setup_job:
@@ -38,6 +38,14 @@ commands:
       - run:
           name: Hardhat Test
           command: yarn test
+  publish:
+    steps:
+      - run:
+          name: setup
+          command: ./scripts/prepublish.sh
+      - run:
+          name: release
+          command: yarn semantic-release --debug
 
 jobs:
   checkout_and_compile:
@@ -53,10 +61,10 @@ jobs:
           command: cp .env.default .env
       - run:
           name: Test npm token
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_READ_TOKEN"
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN"
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_READ_TOKEN" > ~/set-v2-strategies-deployments/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/set-v2-strategies-deployments/.npmrc
       - run:
           name: Fetch Dependencies
           command: yarn install
@@ -145,6 +153,13 @@ jobs:
       - setup_job
       - test
 
+  release:
+    <<: *default_docker_image
+    working_directory: ~/set-v2-strategies-deployments
+    steps:
+      - setup_job
+      - publish
+
 workflows:
   version: 2
   build-and-test:
@@ -178,5 +193,8 @@ workflows:
           requires:
             - checkout_and_compile
       - optimism_deployment:
+          requires:
+            - checkout_and_compile
+      - release:
           requires:
             - checkout_and_compile

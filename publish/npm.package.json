@@ -1,0 +1,22 @@
+{
+  "name": "@setprotocol/set-v2-strategies-deployments",
+  "version": "0.0.1",
+  "description": "Contract addresses for all SetProtocol Strategies (V2) staging and production deployments",
+  "files": [
+    "deployments"
+  ],
+  "scripts": {
+    "postpublish": "./scripts/postpublish.sh",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SetProtocol/set-v2-strategies-deployments.git"
+  },
+  "author": "felix2feng",
+  "license": "MIT",
+  "homepage": "https://github.com/SetProtocol/set-v2-strategies-deployments",
+  "devDependencies": {
+    "semantic-release": "^19.0.2"
+  }
+}

@@ -139,6 +139,19 @@ similar to that used in [deployUtils#addIntegrationToRegistry][28].
 [31]: https://github.com/SetProtocol/set-v2-strategies-deployments/blob/master/deployments/utils/deployUtils.ts
 [32]: https://github.com/SetProtocol/set-v2-strategies-deployments/blob/master/deployments/utils/dependencies.ts
 
+## Semantic Release
+
+This repository uses [semantic-release][201] to automatically publish in CI on merge to master. We
+only publish metadata about staging and production deployments and releases are only necessary
+when there are changes to the `network/deployments/outputs` production or staging files.
+
+Use the following naming convention in your PR descriptions
+
++ chore: no release: `chore(scripts): description`
+  + example: `chore(scripts): DelegatedBaseManager Optimism deploy scripts`
++ feature release (e.g 1.1.0 -> 1.2.0): `feat(deploy): description`
+  + example: `feat(deploy): Deploy DelegatedBaseManager to Optimism production`
+
 ## Chain resources
 
 #### Ethereum
@@ -219,3 +232,4 @@ New deployment files at:
 ```
 
 [200]: https://www.alchemy.com/
+[201]: https://semantic-release.gitbook.io/semantic-release/v/beta/

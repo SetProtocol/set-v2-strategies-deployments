@@ -1,18 +1,9 @@
 {
-  "name": "set-v2-strategies-deployments",
+  "name": "@setprotocol/set-v2-strategies-deployments",
   "version": "0.0.1",
-  "description": "",
-  "main": "dist",
-  "types": "dist/types",
+  "description": "Contract addresses for all SetProtocol Strategies (V2) staging and production deployments",
   "files": [
-    "artifacts",
-    "dist",
-    "contracts",
-    "utils",
-    "scripts",
-    "tasks",
-    "typechain",
-    "tsconfig.json"
+    "deployments"
   ],
   "scripts": {
     "build": "./scripts/build.sh",
@@ -23,13 +14,16 @@
     "lint-ts": "eslint -c .eslintrc.js --ext .ts",
     "lint-json": "./scripts/jsonlint.sh",
     "precommit": "lint-staged",
-    "prepare": "yarn build",
+    "postinstall": "yarn build",
+    "prepublishOnly": "./scripts/prepublish.sh",
+    "postpublish": "./scripts/postpublish.sh",
     "transpile": "tsc",
     "transpile:ethereum": "cd ethereum && yarn transpile",
     "transpile:polygon": "cd polygon && yarn transpile",
     "transpile:arbitrum": "cd arbitrum && yarn transpile",
     "transpile:optimism": "cd optimism && yarn transpile",
-    "transpile:avalanche": "cd avalanche && yarn transpile"
+    "transpile:avalanche": "cd avalanche && yarn transpile",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -77,6 +71,7 @@
     "jsonlint": "^1.6.3",
     "lint-staged": "^10.2.11",
     "lodash": "^4.17.4",
+    "semantic-release": "^19.0.2",
     "solc": "^0.6.10",
     "solhint": "^3.1.0",
     "ts-generator": "^0.1.1",
