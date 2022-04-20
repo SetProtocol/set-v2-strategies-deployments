@@ -36,7 +36,7 @@ export function trackFinishedStage(
 }
 /* eslint-enable */
 
-export function stageAlreadyFinished(currentStage: number): () => Promise <boolean> {
+export function stageAlreadyFinished(currentStage: number): () => Promise<boolean> {
   return async () => {
     const lastStage = await getLastDeploymentStage();
 
@@ -550,20 +550,18 @@ export async function updateFeeRecipient(
   const description = `${newFeeRecipient} set as fee recipient on ${feeSplitExtensionName}`;
 
   if (currentOperator != deployer) {
-    if (currentOperator != deployer) {
-      await saveDeferredTransactionData({
-        data: updateFeeRecipientData,
-        description,
-        contractName: feeSplitExtensionName,
-      });
-    } else {
-      const setOperatorTransaction: any = await rawTx({
-        from: deployer,
-        to: extensionInstance.address,
-        data: updateFeeRecipientData,
-        log: true,
-      });
-      await writeTransactionToOutputs(setOperatorTransaction.transactionHash, description);
-    }
+    await saveDeferredTransactionData({
+      data: updateFeeRecipientData,
+      description,
+      contractName: feeSplitExtensionName,
+    });
+  } else {
+    const setOperatorTransaction: any = await rawTx({
+      from: deployer,
+      to: extensionInstance.address,
+      data: updateFeeRecipientData,
+      log: true,
+    });
+    await writeTransactionToOutputs(setOperatorTransaction.transactionHash, description);
   }
 }
