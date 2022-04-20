@@ -11,7 +11,7 @@ export const CONTRACT_NAMES = {
 
 export const METHODOLOGY_SETTINGS = {
   targetLeverageRatio: ether(-1),
-  minLeverageRatio: ether(-0.9),
+  minLeverageRatio: ether(-0.95),
   maxLeverageRatio: ether(-1.1),
   recenteringSpeed: ether(0.1),
   rebalanceInterval: ONE_HOUR_IN_SECONDS.mul(2),
