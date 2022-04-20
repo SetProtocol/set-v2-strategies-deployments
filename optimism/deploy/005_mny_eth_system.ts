@@ -27,7 +27,7 @@ import {
   updateSetManager,
   deployFeeExtension,
   setOperator,
-  updateFeeRecipient,
+  // updateFeeRecipient,
   addApprovedCaller
 } from "@utils/deploys/deployUtils";
 
@@ -112,8 +112,8 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
 
   // Udpate fee recipient on streaming and issuance module to the fee split extension contract
   // using the fee split extension contract
-  const feeSplitExtensionAddress = await getContractAddress(CONTRACT_NAMES.FEE_SPLIT_EXTENSION);
-  await updateFeeRecipient(hre, CONTRACT_NAMES.FEE_SPLIT_EXTENSION, feeSplitExtensionAddress);
+  // const feeSplitExtensionAddress = await getContractAddress(CONTRACT_NAMES.FEE_SPLIT_EXTENSION);
+  // await updateFeeRecipient(hre, CONTRACT_NAMES.FEE_SPLIT_EXTENSION, feeSplitExtensionAddress);
 
   // Add approved caller to strategy extension
   await addApprovedCaller(hre, CONTRACT_NAMES.STRATEGY_EXTENSION, [ALLOWED_CALLER], [true]);
