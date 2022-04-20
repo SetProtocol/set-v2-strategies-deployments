@@ -79,19 +79,9 @@ describe("Delegated Manager System", () => {
       expect(isInitialized).to.eq(true);
     });
 
-    it("should have one enabled factory", async () => {
-      const factories = await managerCoreInstance.getFactories();
-      expect(factories.length).to.eq(1);
-    });
-
-    it("should have a valid factory", async () => {
+    it("should have DelegatedManagerFactory as valid factory", async () => {
       const validFactory = await managerCoreInstance.isFactory(delegatedManagerFactoryInstance.address);
       expect(validFactory).to.eq(true);
-    });
-
-    it("should have three enabled extensions", async () => {
-      const extensions = await managerCoreInstance.getExtensions();
-      expect(extensions.length).to.eq(3);
     });
 
     it("should have IssuanceExtension as valid extension", async () => {
