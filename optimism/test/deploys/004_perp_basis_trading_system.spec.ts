@@ -1,6 +1,6 @@
 import "module-alias/register";
 import { deployments } from "hardhat";
-import { ONE_HOUR_IN_SECONDS, ZERO } from "@utils/constants";
+import { ONE_HOUR_IN_SECONDS, ZERO, TWO } from "@utils/constants";
 import { solidityPack } from "ethers/lib/utils";
 
 import { Account } from "@utils/types";
@@ -107,6 +107,7 @@ describe("PerpV2 Basis Trading System", () => {
       expect(methodology.recenteringSpeed).to.eq(ether(0.1));
       expect(methodology.rebalanceInterval).to.eq(ONE_HOUR_IN_SECONDS.mul(2));
       expect(methodology.reinvestInterval).to.eq(ONE_HOUR_IN_SECONDS);
+      expect(methodology.minReinvestUnits).to.eq(TWO);
     });
 
     it("should set the correct execution parameters", async () => {

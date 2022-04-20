@@ -1,7 +1,7 @@
 import { BigNumber } from "@ethersproject/bignumber";
 import { ether } from "@utils/index";
 
-import { ONE_HOUR_IN_SECONDS } from "@utils/constants";
+import { ONE_HOUR_IN_SECONDS, TWO } from "@utils/constants";
 
 export const CONTRACT_NAMES = {
   BASE_MANAGER: "PerpV2BaseManager",
@@ -15,7 +15,8 @@ export const METHODOLOGY_SETTINGS = {
   maxLeverageRatio: ether(-1.1),
   recenteringSpeed: ether(0.1),
   rebalanceInterval: ONE_HOUR_IN_SECONDS.mul(2),
-  reinvestInterval: ONE_HOUR_IN_SECONDS
+  reinvestInterval: ONE_HOUR_IN_SECONDS,
+  minReinvestUnits: TWO
 };
 
 export const EXECUTION_SETTINGS = {
