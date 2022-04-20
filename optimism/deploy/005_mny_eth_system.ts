@@ -25,7 +25,8 @@ import {
   stageAlreadyFinished,
   trackFinishedStage,
   updateSetManager,
-  deployFeeExtension
+  deployFeeExtension,
+  setOperator
 } from "@utils/deploys/deployUtils";
 
 import {
@@ -74,7 +75,7 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
     hre,
     CONTRACT_NAMES.BASE_MANAGER,
     MNY_ETH_TOKEN,
-    IC_OPERATOR_MULTISIG,                   // operator
+    deployer,                               // operator
     IC_OPERATOR_MULTISIG                    // methodologist
   );
   const networkId = getNetworkId();
@@ -106,10 +107,16 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
   await addExtension(hre, CONTRACT_NAMES.BASE_MANAGER, CONTRACT_NAMES.STRATEGY_EXTENSION);
   await addExtension(hre, CONTRACT_NAMES.BASE_MANAGER, CONTRACT_NAMES.FEE_SPLIT_EXTENSION);
 
+  // Udpate fee recipients on extensions
+  // <todo>
+
   // Set manager to BaseManager
   if (networkConstant !== "development") {
     await updateSetManager(hre, MNY_ETH_TOKEN, CONTRACT_NAMES.BASE_MANAGER);
   }
+
+  // Set operator to IC Operator multisig
+  await setOperator(hre, CONTRACT_NAMES.BASE_MANAGER, IC_OPERATOR_MULTISIG);
 
   async function deployBasisTradingStrategyExtension(): Promise<void> {
     const checkStrategyExtensionAddress = await getContractAddress(CONTRACT_NAMES.STRATEGY_EXTENSION);

@@ -7,14 +7,11 @@ import { Account } from "@utils/types";
 import {
   BaseManager,
   BaseManager__factory,
+  FeeSplitExtension,
   DeltaNeutralBasisTradingStrategyExtension,
   DeltaNeutralBasisTradingStrategyExtension__factory,
-} from "@set/typechain/index";
-
-import {
-  FeeSplitExtension,
   FeeSplitExtension__factory
-} from "@indexcoop/index-coop-smart-contracts/typechain";
+} from "@set/typechain/index";
 
 import {
   IC_OPERATOR_MULTISIG,
@@ -36,7 +33,7 @@ import {
 
 const expect = getWaffleExpect();
 
-describe("PerpV2 Basis Trading System", () => {
+describe("MNYe Basis Trading System", () => {
   let deployer: Account;
 
   let baseManagerInstance: BaseManager;
@@ -50,13 +47,13 @@ describe("PerpV2 Basis Trading System", () => {
 
     await deployments.fixture();
 
-    const deployedBaseManagerContract = await getContractAddress("PerpV2BaseManager");
+    const deployedBaseManagerContract = await getContractAddress("MNYeBaseManager");
     baseManagerInstance = new BaseManager__factory(deployer.wallet).attach(deployedBaseManagerContract);
 
-    const deployedFeeSplitAdapter = await getContractAddress("FeeSplitExtension");
+    const deployedFeeSplitAdapter = await getContractAddress("MNYeFeeSplitExtension");
     feeSplitExtensionInstance = new FeeSplitExtension__factory(deployer.wallet).attach(deployedFeeSplitAdapter);
 
-    const deployedStrategyAdapterContract = await getContractAddress("MNYeFeeSplitExtension");
+    const deployedStrategyAdapterContract = await getContractAddress("MNYeBasisTradingStrategyExtension");
     strategyExtensionInstance = new
     DeltaNeutralBasisTradingStrategyExtension__factory(deployer.wallet).attach(deployedStrategyAdapterContract);
   });
@@ -71,17 +68,18 @@ describe("PerpV2 Basis Trading System", () => {
 
     it("should have the correct operator address", async () => {
       const operator = await baseManagerInstance.operator();
-      expect(operator).to.eq(deployer.address);
+      expect(operator).to.eq(IC_OPERATOR_MULTISIG);
     });
 
     it("should have the correct methodologist address", async () => {
       const methodologist = await baseManagerInstance.methodologist();
-      expect(methodologist).to.eq(deployer.address);
+      expect(methodologist).to.eq(IC_OPERATOR_MULTISIG);
     });
 
     it("should have the correct adapters", async () => {
       const adapters = await baseManagerInstance.getAdapters();
       expect(adapters[0]).to.eq(strategyExtensionInstance.address);
+      expect(adapters[1]).to.eq(feeSplitExtensionInstance.address);
     });
   });
 
@@ -131,7 +129,7 @@ describe("PerpV2 Basis Trading System", () => {
       expect(methodology.targetLeverageRatio).to.eq(ether(-1));
       expect(methodology.minLeverageRatio).to.eq(ether(-0.95));
       expect(methodology.maxLeverageRatio).to.eq(ether(-2));
-      expect(methodology.recenteringSpeed).to.eq(ether(0));
+      expect(methodology.recenteringSpeed).to.eq(ether(1));
       expect(methodology.rebalanceInterval).to.eq(MAX_UINT_256);
       expect(methodology.reinvestInterval).to.eq(ONE_DAY_IN_SECONDS.mul(7));
       expect(methodology.minReinvestUnits).to.eq(BigNumber.from(10));
