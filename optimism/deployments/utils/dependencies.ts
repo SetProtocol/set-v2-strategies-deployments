@@ -34,6 +34,15 @@ export default {
     69: "0x93910D1D112AEA86E20c998948897b0cd37B3Ed9"
   },
 
+  // Prod SetTokens
+  MNY_ETH_TOKEN: {
+    10: {
+      staging: "0x93910D1D112AEA86E20c998948897b0cd37B3Ed9",    // dummy address
+      production: ""
+    },
+    69: ""
+  },
+
   // PerpV2 virtual tokens
   V_ETH: {
     10: "0x8C835DFaA34e2AE61775e80EE29E2c724c6AE2BB",
@@ -277,6 +286,9 @@ export const DEPENDENCY = {
   // SetTokens
   TEST_PERP_TOKEN: "TEST_PERP_TOKEN",
   TEST_BASIS_TOKEN: "TEST_BASIS_TOKEN",
+
+  // Prod SetTokens
+  MNY_ETH_TOKEN: "MNY_ETH_TOKEN",
 
   // PerpV2 virtual tokens
   V_ETH: "V_ETH",
