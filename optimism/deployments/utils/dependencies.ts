@@ -28,7 +28,7 @@ export default {
   },
   TEST_BASIS_TOKEN: {
     10: {
-      staging: "0xC1c1b1FDacd0c4fAf4d823E965402166126E3E79",
+      staging: "0x127B97587Df93BcbDF66b30A53654D6B9a5E183B",
       production: ""
     },
     69: "0x93910D1D112AEA86E20c998948897b0cd37B3Ed9"
@@ -250,7 +250,7 @@ export default {
   },
   PERPV2_BASIS_TRADING_MODULE: {
     10: {
-      staging: "0x3b37A1612F36b72EA5c621c2Db82CB979F008F78",
+      staging: "0x02318dd7821a8B9395D616071c1d3573C5886c02",
       production: ""
     },
     69: "0x5aAd2270a04976e66aA6C4F4d3d9E95e06f45542"

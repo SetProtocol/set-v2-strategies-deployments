@@ -3,7 +3,7 @@
     "network_key": "10-staging",
     "human_friendly_name": "optimism-mainnet-staging",
     "network_id": 10,
-    "last_deployment_stage": 5
+    "last_deployment_stage": 4
   },
   "addresses": {
     "ExchangeIssuanceZeroEx - DEPRECATED": "0xb56DEb6aBC9AB381ACa33ddb7BAa9fCb4C2Db8f5",
@@ -13,9 +13,9 @@
     "IssuanceExtension": "0xD59D7CcCdcAacb4c283bA6FeC950eDf7D087dAd5",
     "StreamingFeeSplitExtension": "0xFfA0B13283B76e1278Fa5072b2da04cb9534b937",
     "TradeExtension": "0x9a7671DB5d28DD85f05D67ac18ba38F4B3862904",
-    "PerpV2BaseManager": "0xc210E31Fb7210c39b12511A3733Dc0855A8dB833",
+    "PerpV2BaseManager-DEPRECATED": "0xc210E31Fb7210c39b12511A3733Dc0855A8dB833",
     "DeltaNeutralBasisTradingStrategyExtension-DEPRECATED": "0xdBBD0295eF049515A5eD1803995bA7296B866565",
-    "DeltaNeutralBasisTradingStrategyExtension": "0x9EC0f9187e579b0142Bd0ED2968dc3A720e3F9f2"
+    "DeltaNeutralBasisTradingStrategyExtension-DEPRECATED-2": "0x9EC0f9187e579b0142Bd0ED2968dc3A720e3F9f2"
   },
   "transactions": {
     "0": {
