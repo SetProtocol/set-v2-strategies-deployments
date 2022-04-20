@@ -2,7 +2,6 @@ import "module-alias/register";
 import { deployments } from "hardhat";
 import { MAX_UINT_256, ONE_DAY_IN_SECONDS, ZERO } from "@utils/constants";
 import { solidityPack } from "ethers/lib/utils";
-import { usdc } from "@utils/common/unitsUtils";
 
 import { Account } from "@utils/types";
 import {
@@ -134,7 +133,7 @@ describe("MNYe Basis Trading System", () => {
       expect(methodology.recenteringSpeed).to.eq(ether(1));
       expect(methodology.rebalanceInterval).to.eq(MAX_UINT_256);
       expect(methodology.reinvestInterval).to.eq(ONE_DAY_IN_SECONDS.mul(7));
-      expect(methodology.minReinvestUnits).to.eq(usdc(0.01));
+      expect(methodology.minReinvestUnits).to.eq(BigNumber.from(10000));
     });
 
     it("should set the correct execution parameters", async () => {

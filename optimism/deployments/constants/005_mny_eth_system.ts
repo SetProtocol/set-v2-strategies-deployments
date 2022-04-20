@@ -2,7 +2,6 @@ import { BigNumber } from "@ethersproject/bignumber";
 import { ether } from "@utils/index";
 
 import { ONE_DAY_IN_SECONDS ,MAX_UINT_256 } from "@utils/constants";
-import { usdc } from "@utils/common/unitsUtils";
 
 export const CONTRACT_NAMES = {
   BASE_MANAGER: "MNYeBaseManager",
@@ -24,7 +23,7 @@ export const METHODOLOGY_SETTINGS = {
   recenteringSpeed: ether(1),                           // N/A; Unused value; Can't be set to 0; So set to 1
   rebalanceInterval: MAX_UINT_256,                      // Rebalance only when out of bounds
   reinvestInterval: ONE_DAY_IN_SECONDS.mul(7),          // 7 days
-  minReinvestUnits: usdc(0.01)                          // 1 cent per Set; 1 bps at 100$ per Set
+  minReinvestUnits: BigNumber.from(10000)               // 1 cent per Set; 1 bps at 100$ per Set
 };
 
 export const EXECUTION_SETTINGS = {
