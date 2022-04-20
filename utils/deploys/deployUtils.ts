@@ -23,6 +23,27 @@ import { BigNumber } from "ethers";
 import { ether, ProtocolUtils } from "@utils/common";
 import { JsonRpcProvider } from "@ethersproject/providers";
 
+import { CONTRACT_NAMES } from "../../ethereum/deployments/constants/002_delegated_manager_system";
+
+const {
+  MANAGER_CORE
+} = CONTRACT_NAMES;
+
+async function getEnvironment(hre: HardhatRuntimeEnvironment) {
+  const [owner] = await getAccounts();
+  const instanceGetter = new InstanceGetter(owner.wallet);
+  const { rawTx } = hre.deployments;
+  const { deployer } = await hre.getNamedAccounts();
+  const networkConstant = await getNetworkConstant();
+
+  return {
+    instanceGetter,
+    rawTx,
+    deployer,
+    networkConstant,
+  };
+}
+
 /* eslint-disable */
 export function trackFinishedStage(
   currentStage: number,
@@ -524,5 +545,46 @@ export async function updateSetManager(
       log: true,
     });
     await writeTransactionToOutputs(setManagerTransaction.transactionHash, description);
+  }
+}
+
+export async function addExtensionToManagerCore(
+  extensionName: string,
+  hre: HardhatRuntimeEnvironment,
+  skipProductionCheck: boolean = false,
+): Promise<void> {
+  const {
+    instanceGetter,
+    rawTx,
+    deployer,
+    networkConstant,
+  } = await getEnvironment(hre);
+
+  const extensionAddress = await getContractAddress(extensionName);
+  const managerCoreAddress = await getContractAddress(MANAGER_CORE);
+  const managerCoreInstance = await instanceGetter.getManagerCore(managerCoreAddress);
+
+  if (!await managerCoreInstance.isExtension(extensionAddress)) {
+    const data = managerCoreInstance.interface.encodeFunctionData(
+      "addExtension",
+      [extensionAddress]
+    );
+    const description = `Add ${extensionName} to ManagerCore`;
+
+    if ((networkConstant === "production" || process.env.TESTING_PRODUCTION) && !skipProductionCheck) {
+      await saveDeferredTransactionData({
+        data,
+        description,
+        contractName: MANAGER_CORE,
+      });
+    } else {
+      const addExtensionTransaction: any = await rawTx({
+        from: deployer,
+        to: managerCoreAddress,
+        data,
+        log: true,
+      });
+      await writeTransactionToOutputs(addExtensionTransaction.transactionHash, description);
+    }
   }
 }
