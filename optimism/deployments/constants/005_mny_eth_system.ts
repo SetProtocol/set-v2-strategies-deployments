@@ -12,6 +12,8 @@ export const CONTRACT_NAMES = {
 
 export const IC_OPERATOR_MULTISIG = "0xA047F6900FeE0b6195088a49009eA65365f7DD68";
 
+export const ALLOWED_CALLER = "0x17d3FdB23128F8e376ffA444B8A84A30573864a6";
+
 export const OPERATOR_FEE_SPLIT = ether(1);            // 100%
 
 export const METHODOLOGY_SETTINGS = {

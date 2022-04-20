@@ -14,6 +14,7 @@ import {
 } from "@set/typechain/index";
 
 import {
+  ALLOWED_CALLER,
   IC_OPERATOR_MULTISIG,
   KOVAN_TESTNET_ID
 } from "../../deployments/constants/005_mny_eth_system";
@@ -178,6 +179,11 @@ describe("MNYe Basis Trading System", () => {
       expect(exchange.buySpotQuoteExactInputPath).to.eq(buySpotQuoteExactInputPath);
       expect(exchange.twapMaxTradeSize).to.eq(ether(30));
       expect(exchange.incentivizedTwapMaxTradeSize).to.eq(ether(60));
+    });
+
+    it("should have caller added to list of allowed callers", async () => {
+      const isCallerAllowed = await strategyExtensionInstance.callAllowList(ALLOWED_CALLER);
+      expect(isCallerAllowed).to.eq(true);
     });
   });
 });

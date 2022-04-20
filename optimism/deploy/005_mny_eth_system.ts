@@ -26,7 +26,9 @@ import {
   trackFinishedStage,
   updateSetManager,
   deployFeeExtension,
-  setOperator
+  setOperator,
+  updateFeeRecipient,
+  addApprovedCaller
 } from "@utils/deploys/deployUtils";
 
 import {
@@ -44,6 +46,7 @@ import {
   KOVAN_TESTNET_ID,
   PERP_TEST_USDC,
   IC_OPERATOR_MULTISIG,
+  ALLOWED_CALLER,
   OPERATOR_FEE_SPLIT
 } from "../deployments/constants/005_mny_eth_system";
 
@@ -107,15 +110,20 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
   await addExtension(hre, CONTRACT_NAMES.BASE_MANAGER, CONTRACT_NAMES.STRATEGY_EXTENSION);
   await addExtension(hre, CONTRACT_NAMES.BASE_MANAGER, CONTRACT_NAMES.FEE_SPLIT_EXTENSION);
 
-  // Udpate fee recipients on extensions
-  // <todo>
+  // Udpate fee recipient on streaming and issuance module to the fee split extension contract
+  // using the fee split extension contract
+  const feeSplitExtensionAddress = await getContractAddress(CONTRACT_NAMES.FEE_SPLIT_EXTENSION);
+  await updateFeeRecipient(hre, CONTRACT_NAMES.FEE_SPLIT_EXTENSION, feeSplitExtensionAddress);
+
+  // Add approved caller to strategy extension
+  await addApprovedCaller(hre, CONTRACT_NAMES.STRATEGY_EXTENSION, [ALLOWED_CALLER], [true]);
 
   // Set manager to BaseManager
   if (networkConstant !== "development") {
     await updateSetManager(hre, MNY_ETH_TOKEN, CONTRACT_NAMES.BASE_MANAGER);
   }
 
-  // Set operator to IC Operator multisig
+  // Finally set operator to IC Operator multisig
   await setOperator(hre, CONTRACT_NAMES.BASE_MANAGER, IC_OPERATOR_MULTISIG);
 
   async function deployBasisTradingStrategyExtension(): Promise<void> {
