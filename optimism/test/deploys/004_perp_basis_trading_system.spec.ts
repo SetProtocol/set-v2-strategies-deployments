@@ -102,7 +102,7 @@ describe("PerpV2 Basis Trading System", () => {
       const methodology = await strategyExtensionInstance.getMethodology();
 
       expect(methodology.targetLeverageRatio).to.eq(ether(-1));
-      expect(methodology.minLeverageRatio).to.eq(ether(-0.9));
+      expect(methodology.minLeverageRatio).to.eq(ether(-0.95));
       expect(methodology.maxLeverageRatio).to.eq(ether(-1.1));
       expect(methodology.recenteringSpeed).to.eq(ether(0.1));
       expect(methodology.rebalanceInterval).to.eq(ONE_HOUR_IN_SECONDS.mul(2));
