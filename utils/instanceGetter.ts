@@ -5,6 +5,8 @@ import {
   BaseExtension__factory,
   BaseManager,
   BaseManager__factory,
+  FeeSplitExtension,
+  FeeSplitExtension__factory,
   ManagerCore,
   ManagerCore__factory,
 } from "@set/typechain/index";
@@ -58,6 +60,10 @@ export class InstanceGetter {
 
   public async getExtension(extension: Address): Promise<BaseExtension> {
     return await BaseExtension__factory.connect(extension, this._deployerSigner);
+  }
+
+  public async getFeeSplitExtension(extension: Address): Promise<FeeSplitExtension> {
+    return await FeeSplitExtension__factory.connect(extension, this._deployerSigner);
   }
 
   public async getGeneralIndexModule(gimAddr: Address): Promise<GeneralIndexModule> {

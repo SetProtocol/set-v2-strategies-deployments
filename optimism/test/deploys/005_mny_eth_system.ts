@@ -1,19 +1,23 @@
 import "module-alias/register";
 import { deployments } from "hardhat";
-import { ONE_HOUR_IN_SECONDS, ZERO, TWO } from "@utils/constants";
+import { MAX_UINT_256, ONE_DAY_IN_SECONDS, ZERO } from "@utils/constants";
 import { solidityPack } from "ethers/lib/utils";
 
 import { Account } from "@utils/types";
 import {
   BaseManager,
   BaseManager__factory,
+  FeeSplitExtension,
   DeltaNeutralBasisTradingStrategyExtension,
-  DeltaNeutralBasisTradingStrategyExtension__factory
+  DeltaNeutralBasisTradingStrategyExtension__factory,
+  FeeSplitExtension__factory
 } from "@set/typechain/index";
 
 import {
+  ALLOWED_CALLER,
+  IC_OPERATOR_MULTISIG,
   KOVAN_TESTNET_ID
-} from "../../deployments/constants/004_perp_basis_trading_system";
+} from "../../deployments/constants/005_mny_eth_system";
 
 import { BigNumber } from "@ethersproject/bignumber";
 import {
@@ -30,11 +34,12 @@ import {
 
 const expect = getWaffleExpect();
 
-describe("PerpV2 Basis Trading System", () => {
+describe("MNYe Basis Trading System", () => {
   let deployer: Account;
 
   let baseManagerInstance: BaseManager;
   let strategyExtensionInstance: DeltaNeutralBasisTradingStrategyExtension;
+  let feeSplitExtensionInstance: FeeSplitExtension;
 
   before(async () => {
     [
@@ -43,39 +48,60 @@ describe("PerpV2 Basis Trading System", () => {
 
     await deployments.fixture();
 
-    const deployedBaseManagerContract = await getContractAddress("PerpV2BaseManager");
+    const deployedBaseManagerContract = await getContractAddress("MNYeBaseManager");
     baseManagerInstance = new BaseManager__factory(deployer.wallet).attach(deployedBaseManagerContract);
 
-    const deployedStrategyAdapterContract = await getContractAddress("DeltaNeutralBasisTradingStrategyExtension");
+    const deployedFeeSplitAdapter = await getContractAddress("MNYeFeeSplitExtension");
+    feeSplitExtensionInstance = new FeeSplitExtension__factory(deployer.wallet).attach(deployedFeeSplitAdapter);
+
+    const deployedStrategyAdapterContract = await getContractAddress("MNYeBasisTradingStrategyExtension");
     strategyExtensionInstance = new
     DeltaNeutralBasisTradingStrategyExtension__factory(deployer.wallet).attach(deployedStrategyAdapterContract);
   });
 
   addSnapshotBeforeRestoreAfterEach();
 
-  describe("PerpV2BaseManager", async () => {
+  describe("MNYeBaseManager", async () => {
     it("should have the correct SetToken address", async () => {
       const setToken = await baseManagerInstance.setToken();
-      expect(setToken).to.eq(await findDependency("TEST_BASIS_TOKEN"));
+      expect(setToken).to.eq(await findDependency("MNY_ETH_TOKEN"));
     });
 
     it("should have the correct operator address", async () => {
       const operator = await baseManagerInstance.operator();
-      expect(operator).to.eq(deployer.address);
+      expect(operator).to.eq(IC_OPERATOR_MULTISIG);
     });
 
     it("should have the correct methodologist address", async () => {
       const methodologist = await baseManagerInstance.methodologist();
-      expect(methodologist).to.eq(deployer.address);
+      expect(methodologist).to.eq(IC_OPERATOR_MULTISIG);
     });
 
     it("should have the correct adapters", async () => {
       const adapters = await baseManagerInstance.getAdapters();
       expect(adapters[0]).to.eq(strategyExtensionInstance.address);
+      expect(adapters[1]).to.eq(feeSplitExtensionInstance.address);
     });
   });
 
-  describe("DeltaNeutralBasisTradingStrategyExtension", async () => {
+  describe("MNYeFeeSplitExtension", async () => {
+    it("should set the manager", async () => {
+      const manager = await feeSplitExtensionInstance.manager();
+      expect(manager).to.eq(baseManagerInstance.address);
+    });
+
+    it("should set the correct operator fee recipient", async () => {
+      const operatorFeeRecipient = await feeSplitExtensionInstance.operatorFeeRecipient();
+      expect(operatorFeeRecipient).to.eq(IC_OPERATOR_MULTISIG);
+    });
+
+    it("should set the correct operator fee split", async () => {
+      const operatorFeeSplit = await feeSplitExtensionInstance.operatorFeeSplit();
+      expect(operatorFeeSplit).to.eq(ether(1));
+    });
+  });
+
+  describe("MNYeBasisTradingStrategyExtension", async () => {
     it("should set the manager", async () => {
       const manager = await strategyExtensionInstance.manager();
 
@@ -85,7 +111,7 @@ describe("PerpV2 Basis Trading System", () => {
     it("should set the contract addresses", async () => {
       const strategy = await strategyExtensionInstance.getStrategy();
 
-      expect(strategy.setToken).to.eq(await findDependency("TEST_BASIS_TOKEN"));
+      expect(strategy.setToken).to.eq(await findDependency("MNY_ETH_TOKEN"));
       expect(strategy.basisTradingModule).to.eq(await findDependency("PERPV2_BASIS_TRADING_MODULE"));
       expect(strategy.tradeModule).to.eq(await findDependency("TRADE_MODULE"));
       expect(strategy.quoter).to.eq((await findDependency("UNISWAP_V3_QUOTER")));
@@ -103,11 +129,11 @@ describe("PerpV2 Basis Trading System", () => {
 
       expect(methodology.targetLeverageRatio).to.eq(ether(-1));
       expect(methodology.minLeverageRatio).to.eq(ether(-0.95));
-      expect(methodology.maxLeverageRatio).to.eq(ether(-1.1));
-      expect(methodology.recenteringSpeed).to.eq(ether(0.1));
-      expect(methodology.rebalanceInterval).to.eq(ONE_HOUR_IN_SECONDS.mul(2));
-      expect(methodology.reinvestInterval).to.eq(ONE_HOUR_IN_SECONDS);
-      expect(methodology.minReinvestUnits).to.eq(TWO);
+      expect(methodology.maxLeverageRatio).to.eq(ether(-2));
+      expect(methodology.recenteringSpeed).to.eq(ether(1));
+      expect(methodology.rebalanceInterval).to.eq(MAX_UINT_256);
+      expect(methodology.reinvestInterval).to.eq(ONE_DAY_IN_SECONDS.mul(7));
+      expect(methodology.minReinvestUnits).to.eq(BigNumber.from(10000));
     });
 
     it("should set the correct execution parameters", async () => {
@@ -123,7 +149,7 @@ describe("PerpV2 Basis Trading System", () => {
       expect(incentive.incentivizedTwapCooldownPeriod).to.eq(BigNumber.from(1));
       expect(incentive.incentivizedSlippageTolerance).to.eq(ether(0.05));
       expect(incentive.etherReward).to.eq(ether(1));
-      expect(incentive.incentivizedLeverageRatio).to.eq(ether(-1.8));
+      expect(incentive.incentivizedLeverageRatio).to.eq(ether(-3));
     });
 
     it("should set the correct exchange settings", async () => {
@@ -151,8 +177,13 @@ describe("PerpV2 Basis Trading System", () => {
       expect(exchange.buyExactSpotTradeData).to.eq(buyExactSpotTradeData);
       expect(exchange.sellExactSpotTradeData).to.eq(sellExactSpotTradeData);
       expect(exchange.buySpotQuoteExactInputPath).to.eq(buySpotQuoteExactInputPath);
-      expect(exchange.twapMaxTradeSize).to.eq(ether(10));
-      expect(exchange.incentivizedTwapMaxTradeSize).to.eq(ether(20));
+      expect(exchange.twapMaxTradeSize).to.eq(ether(30));
+      expect(exchange.incentivizedTwapMaxTradeSize).to.eq(ether(60));
+    });
+
+    it("should have caller added to list of allowed callers", async () => {
+      const isCallerAllowed = await strategyExtensionInstance.callAllowList(ALLOWED_CALLER);
+      expect(isCallerAllowed).to.eq(true);
     });
   });
 });

@@ -1626,10 +1626,10 @@
     module-alias "^2.2.2"
     replace-in-file "^6.1.0"
 
-"@setprotocol/set-v2-strategies@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.8.tgz#5db0cae3c2a06fc040d53aeda3bc24f32ce955e4"
-  integrity sha512-y/6I8TlvJx7KFjEJbvmyySxDlkpe3k7o88mqnhxeFAXxHXlOe7O3i4BLd/Sf9zppLe5PsX0EQrgiJcC9q4rPHQ==
+"@setprotocol/set-v2-strategies@0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.10.tgz#eab1bc4001c7a0d5dac61b82ff991d413daf5fde"
+  integrity sha512-Jca6tLOadDSF0hRw65ML6Sf69Z3lwUJFYta4jn08iaKnGZMgRlDiRo8KvpWolmyznnCLTdFOPtz/woJKqkc09w==
   dependencies:
     "@setprotocol/set-protocol-v2" "0.10.0-hhat.1"
     "@uniswap/v3-sdk" "^3.5.1"
