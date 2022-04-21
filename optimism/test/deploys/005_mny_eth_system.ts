@@ -69,7 +69,7 @@ describe("MNYe Basis Trading System", () => {
 
     it("should have the correct operator address", async () => {
       const operator = await baseManagerInstance.operator();
-      expect(operator).to.eq(deployer);
+      expect(operator).to.eq(deployer.wallet.address);
     });
 
     it("should have the correct methodologist address", async () => {
