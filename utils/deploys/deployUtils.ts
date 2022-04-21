@@ -57,7 +57,7 @@ export function trackFinishedStage(
 }
 /* eslint-enable */
 
-export function stageAlreadyFinished(currentStage: number): () => Promise <boolean> {
+export function stageAlreadyFinished(currentStage: number): () => Promise<boolean> {
   return async () => {
     const lastStage = await getLastDeploymentStage();
 
@@ -170,7 +170,7 @@ export async function deployStreamingFeeExtension(
   hre: HardhatRuntimeEnvironment,
   feeExtensionName: string,
   managerName: string,
-  feeSplit: BigNumber,
+  operatorFeeSplit: BigNumber,
   operatorFeeRecipient: Address
 ): Promise<void> {
   const {
@@ -186,7 +186,7 @@ export async function deployStreamingFeeExtension(
     const constructorArgs = [
       manager,
       streamingFeeModule,
-      feeSplit,
+      operatorFeeSplit,
       operatorFeeRecipient,
     ];
 
@@ -210,11 +210,10 @@ export async function deployFeeExtension(
   hre: HardhatRuntimeEnvironment,
   feeExtensionName: string,
   managerName: string,
-  feeSplit: BigNumber,
+  operatorFeeSplit: BigNumber,
   operatorFeeRecipient: Address,
   streamingFeeModule: Address,
   debtIssuanceModule: Address,
-
 ): Promise<void> {
   const {
     deploy,
@@ -230,7 +229,7 @@ export async function deployFeeExtension(
       manager,
       streamingFeeModule,
       debtIssuanceModule,
-      feeSplit,
+      operatorFeeSplit,
       operatorFeeRecipient,
     ];
 

@@ -18,7 +18,7 @@ import {
   getContractAddress,
 } from "@utils/index";
 import { DEPENDENCY } from "../../deployments/utils/dependencies";
-import { CONTRACT_NAMES } from "../../deployments/constants/005_batch_trade_extension";
+import { CONTRACT_NAMES } from "../../deployments/constants/006_batch_trade_extension";
 
 const {
   TRADE_MODULE
