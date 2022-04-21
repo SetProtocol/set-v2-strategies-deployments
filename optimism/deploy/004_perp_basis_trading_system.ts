@@ -59,11 +59,17 @@ const CURRENT_STAGE = getCurrentStage(__filename);
 
 
 const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (hre: HRE) {
+  const contexts = ["development", "staging"];
+
   const {
     deploy,
     deployer,
     networkConstant
   } = await prepareDeployment(hre);
+
+  // Configure: Script is skipped by default except for testing
+  const SHOULD_SKIP = true;
+  if (SHOULD_SKIP && !contexts.includes(networkConstant)) return;
 
   // Deploy BaseManager
   await deployBaseManager(
@@ -78,8 +84,8 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
   // Perpetual Protocol has a fully deployed system on Optimistic Kovan. You can get the
   // kovan test USDC it uses from faucet at: https://kovan.optifaucet.com/
   const usdcTokenAddress = (networkId === KOVAN_TESTNET_ID)
-  ? await findDependency(PERP_TEST_USDC)
-  : await findDependency(USDC);
+    ? await findDependency(PERP_TEST_USDC)
+    : await findDependency(USDC);
 
   // Deploy strategy extension
   await deployBasisTradingStrategyExtension();
