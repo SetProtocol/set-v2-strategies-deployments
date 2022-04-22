@@ -3,7 +3,7 @@
     "network_key": "10-production",
     "human_friendly_name": "optimism-mainnet-production",
     "network_id": 10,
-    "last_deployment_stage": 4
+    "last_deployment_stage": 6
   },
   "addresses": {
     "ExchangeIssuanceZeroEx": "0x01ecc782531ADCfB8C5a58A2C7FD544Ada946b81",
@@ -11,7 +11,10 @@
     "DelegatedManagerFactory": "0x6A2B2fCC2bF5c1C1c0c96036bd11337ec5fFA16a",
     "IssuanceExtension": "0x32C993A42a654C63d296EeF15c5AcD3FFd272165",
     "StreamingFeeSplitExtension": "0x8F14b50d5e56422b2759C4fdD8D148Bb28a6599D",
-    "TradeExtension": "0x5fdbEb52Adfc6FbA26ef0E4b5e9464C63A15467b"
+    "TradeExtension": "0x5fdbEb52Adfc6FbA26ef0E4b5e9464C63A15467b",
+    "MNYeBaseManager": "0xB0051e20A2eD91AF525A2eDc54AEd6735e7fe892",
+    "MNYeBasisTradingStrategyExtension": "0x3138293423c06D81Cc9Ae78FbCD3F7DB6323B83a",
+    "MNYeFeeSplitExtension": "0x61A307cbfa9b88f2bE019915bD597C99D9690D96"
   },
   "transactions": {
     "0": {
@@ -100,6 +103,162 @@
       "id": "0x10cdd964906e50492e746f6902da124a9a68050b5d3cfc26f4fd37c363cad0b9",
       "timestamp": 1648700574747,
       "description": "Transfer ManagerCore ownership to Multisig"
+    },
+    "8": {
+      "id": "0xac715ea6bb5bf6373e37d1965dc1e7ce8a95c6db28e5e92378e30249d6064e62",
+      "name": "MNYeBaseManager",
+      "timestamp": 1650563242452,
+      "verified": true,
+      "description": "Deployed MNYeBaseManager",
+      "contractAddress": "0xB0051e20A2eD91AF525A2eDc54AEd6735e7fe892",
+      "constructorArgs": [
+        "0x0Be27c140f9Bdad3474bEaFf0A413EC7e19e9B93",
+        "0x69Bdb276A17Dd90F9D3A545944CCB20E593ae8E3",
+        "0xA047F6900FeE0b6195088a49009eA65365f7DD68"
+      ],
+      "libraries": {}
+    },
+    "9": {
+      "id": "0xa11c92052c1720ee70fec723454791721a3e71faeb0cd1b8c8c89c544f5b55aa",
+      "name": "MNYeBasisTradingStrategyExtension",
+      "timestamp": 1650563248288,
+      "verified": true,
+      "description": "Deployed MNYeBasisTradingStrategyExtension",
+      "contractAddress": "0x3138293423c06D81Cc9Ae78FbCD3F7DB6323B83a",
+      "constructorArgs": [
+        "0xB0051e20A2eD91AF525A2eDc54AEd6735e7fe892",
+        {
+          "setToken": "0x0Be27c140f9Bdad3474bEaFf0A413EC7e19e9B93",
+          "basisTradingModule": "0x2C229EE3aD3fdC0e581d51BaA6b6f45CC9A6Ca39",
+          "tradeModule": "0x7215f38011C3e4058Ca3cF7d2b99033016EeFBD8",
+          "quoter": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+          "perpV2AccountBalance": "0xA7f3FC32043757039d5e13d790EE43edBcBa8b7c",
+          "baseUSDPriceOracle": "0xA36fAF16f31c12285467b1973ee8Fa144ED4d846",
+          "twapInterval": {
+            "type": "BigNumber",
+            "hex": "0x00"
+          },
+          "basePriceDecimalAdjustment": {
+            "type": "BigNumber",
+            "hex": "0x0a"
+          },
+          "virtualBaseAddress": "0x8C835DFaA34e2AE61775e80EE29E2c724c6AE2BB",
+          "virtualQuoteAddress": "0xC84Da6c8ec7A57cD10B939E79eaF9d2D17834E04",
+          "spotAssetAddress": "0x4200000000000000000000000000000000000006"
+        },
+        {
+          "targetLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0de0b6b3a7640000"
+          },
+          "minLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0d2f13f7789f0000"
+          },
+          "maxLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x1bc16d674ec80000"
+          },
+          "recenteringSpeed": {
+            "type": "BigNumber",
+            "hex": "0x0de0b6b3a7640000"
+          },
+          "rebalanceInterval": {
+            "type": "BigNumber",
+            "hex": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+          },
+          "reinvestInterval": {
+            "type": "BigNumber",
+            "hex": "0x093a80"
+          },
+          "minReinvestUnits": {
+            "type": "BigNumber",
+            "hex": "0x2710"
+          }
+        },
+        {
+          "twapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x1e"
+          },
+          "slippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0x470de4df820000"
+          }
+        },
+        {
+          "incentivizedTwapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x01"
+          },
+          "incentivizedSlippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0xb1a2bc2ec50000"
+          },
+          "etherReward": {
+            "type": "BigNumber",
+            "hex": "0x0de0b6b3a7640000"
+          },
+          "incentivizedLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x29a2241af62c0000"
+          }
+        },
+        {
+          "exchangeName": "UniswapV3ExchangeAdapterV2",
+          "buyExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb87f5c764cbc14f9669b88837ca1490cca17c3160700",
+          "sellExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb87f5c764cbc14f9669b88837ca1490cca17c3160701",
+          "buySpotQuoteExactInputPath": "0x7f5c764cbc14f9669b88837ca1490cca17c31607000bb84200000000000000000000000000000000000006",
+          "twapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x01a055690d9db80000"
+          },
+          "incentivizedTwapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x0340aad21b3b700000"
+          }
+        }
+      ],
+      "libraries": {}
+    },
+    "10": {
+      "id": "0x22c2e6f4bce498b92c0b4869b036dab697669291d803f895669180bfde14ff3a",
+      "name": "MNYeFeeSplitExtension",
+      "timestamp": 1650563254847,
+      "verified": true,
+      "description": "Deployed MNYeFeeSplitExtension",
+      "contractAddress": "0x61A307cbfa9b88f2bE019915bD597C99D9690D96",
+      "constructorArgs": [
+        "0xB0051e20A2eD91AF525A2eDc54AEd6735e7fe892",
+        "0x6a7aE5124677314dc32C5ba3004CbFC9c7Febff0",
+        "0x1db929398958082d2080AA1B501e460503f60467",
+        {
+          "type": "BigNumber",
+          "hex": "0x0de0b6b3a7640000"
+        },
+        "0xA047F6900FeE0b6195088a49009eA65365f7DD68"
+      ],
+      "libraries": {}
+    },
+    "11": {
+      "id": "0x5a234dae2c22f221372006398c197e0d3f3b62a22c15aedfe70b9114a0c610fc",
+      "timestamp": 1650563260731,
+      "description": "Add MNYeBasisTradingStrategyExtension on MNYeBaseManager"
+    },
+    "12": {
+      "id": "0x1bf0f3ee2491b156897dcd4c27b64f1bf3381b7205e4f1ad6e7fb1beda04709b",
+      "timestamp": 1650563267629,
+      "description": "Add MNYeFeeSplitExtension on MNYeBaseManager"
+    },
+    "13": {
+      "id": "0xab31c3c758a995aa300841cec47e6ddcd75c64b61904b3a9765d5bec2e534a29",
+      "timestamp": 1650563275307,
+      "description": "MNYeBasisTradingStrategyExtension caller statuses updated."
+    },
+    "14": {
+      "id": "0xab4934e5f313f4072861113c6ff36c972da7a08530797285991d2769b3a04e31",
+      "timestamp": 1650563282977,
+      "description": "Set MNYeBaseManager contract as MNY_ETH_TOKEN Manager"
     }
   }
 }

@@ -26,7 +26,6 @@ import {
   trackFinishedStage,
   updateSetManager,
   deployFeeExtension,
-  setOperator,
   addApprovedCaller
 } from "@utils/deploys/deployUtils";
 
@@ -116,9 +115,6 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (h
   if (networkConstant !== "development") {
     await updateSetManager(hre, MNY_ETH_TOKEN, CONTRACT_NAMES.BASE_MANAGER);
   }
-
-  // Finally set operator to IC Operator multisig
-  await setOperator(hre, CONTRACT_NAMES.BASE_MANAGER, IC_OPERATOR_MULTISIG);
 
   async function deployBasisTradingStrategyExtension(): Promise<void> {
     const checkStrategyExtensionAddress = await getContractAddress(CONTRACT_NAMES.STRATEGY_EXTENSION);

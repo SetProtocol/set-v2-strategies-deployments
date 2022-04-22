@@ -38,7 +38,7 @@ export default {
   MNY_ETH_TOKEN: {
     10: {
       staging: "0x93910D1D112AEA86E20c998948897b0cd37B3Ed9",    // dummy address
-      production: ""
+      production: "0x0Be27c140f9Bdad3474bEaFf0A413EC7e19e9B93"
     },
     69: ""
   },
@@ -251,7 +251,7 @@ export default {
   PERPV2_BASIS_TRADING_MODULE: {
     10: {
       staging: "0x02318dd7821a8B9395D616071c1d3573C5886c02",
-      production: ""
+      production: "0x2C229EE3aD3fdC0e581d51BaA6b6f45CC9A6Ca39"
     },
     69: "0x5aAd2270a04976e66aA6C4F4d3d9E95e06f45542"
   },
