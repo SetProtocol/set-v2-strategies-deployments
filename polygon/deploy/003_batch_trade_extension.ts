@@ -41,7 +41,7 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
   async function deployBatchTradeExtension(): Promise<void> {
     const checkBatchTradeExtensionAddress = await getContractAddress(CONTRACT_NAMES.BATCH_TRADE_EXTENSION);
     if (checkBatchTradeExtensionAddress === "") {
-      const constructorArgs = [managerCoreAddress, tradeModuleAddress];
+      const constructorArgs = [managerCoreAddress, tradeModuleAddress, ["ZeroExApiAdapterV5"]];
       const batchTradeExtensionDeploy = await deploy(
         CONTRACT_NAMES.BATCH_TRADE_EXTENSION,
         { from: deployer, args: constructorArgs, log: true }

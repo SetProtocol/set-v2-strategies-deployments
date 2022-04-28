@@ -61,5 +61,15 @@ describe("Batch Trade Extension", () => {
       const validBatchTradeExtension = await managerCoreInstance.isExtension(batchTradeExtensionInstance.address);
       expect(validBatchTradeExtension).to.eq(true);
     });
+
+    it("should have set the correct integrations length of 1", async () => {
+      const integrations = await batchTradeExtensionInstance.getIntegrations();
+      expect(integrations.length).to.eq(1);
+    });
+
+    it("should have ZeroExApiAdapterV5 as a valid integration", async () => {
+      const validZeroExApiAdapterV5 = await batchTradeExtensionInstance.isIntegration("ZeroExApiAdapterV5");
+      expect(validZeroExApiAdapterV5).to.eq(true);
+    });
   });
 });
