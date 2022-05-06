@@ -137,6 +137,132 @@ export default {
     1: "0x18aAA7115705e8be94bfFEBDE57Af9BFc265B998",
   },
 
+  // SetTokens
+  BED: {
+    1: {
+      staging: "0x68aD048fA2e1bcaFa690Ce257b69A13f5A79a514",
+      production: "0x2aF1dF3AB0ab157e1E2Ad8F88A7D04fbea0c7dc6"
+    },
+  },
+  GMI: {
+    1: {
+      staging: "0x9a6D7B340F7035d97feaAf27e6cC9C9D084eBe2F",
+      production: "0x47110d43175f7f2C2425E7d15792acC5817EB44f"
+    },
+  },
+  DATA: {
+    1: {
+      staging: "0x78468eAB2753AE5A9af9bD08ef5ABaCE767286F3",
+      production: "0x33d63Ba1E57E54779F7dDAeaA7109349344cf5F1"
+    },
+  },
+
+  // Source: etherscan via SetToken.manager()
+  BED_MANAGER_V1: {
+    1: {
+      staging: "0xe337794481879179838413b581ffaba8356a9c8b",
+      production: "0x5e6898ee65edd36f76571db4171b4ebdeab5262c"
+    },
+  },
+  GMI_MANAGER_V1: {
+    1: {
+      staging: "0x59fedba373c52dc06501bcbea4948d58955b6364",
+      production: "0x4039703deb28748dbf155f8567fb5f0ca2ddd742"
+    },
+  },
+  DATA_MANAGER_V1: {
+    1: {
+      staging: "0xb0a058e8d82d56b6a169a30993d171214051ef6e",
+      production: "0xa420cf4e06cf28dafbdb436ac444920634f1c766"
+    },
+  },
+
+  // Source: etherscan via ManagerContractV1.methodologist()
+  BED_METHODOLOGIST: {
+    1: {
+      staging: "0x69bdb276a17dd90f9d3a545944ccb20e593ae8e3",
+      production: "0xf26d1bb347a59f6c283c53156519cc1b1abaca51"
+    },
+  },
+  GMI_METHODOLOGIST: {
+    1: {
+      staging: "0x37e6365d4f6ae378467b0e24c9065ce5f06d70bf",
+      production: "0xf26d1bb347a59f6c283c53156519cc1b1abaca51"
+    }
+  },
+  DATA_METHODOLOGIST: {
+    1: {
+      staging: "0x37e6365d4f6ae378467b0e24c9065ce5f06d70bf",
+      production: "0xe4665d12bab964955011fb8270c99bf2f8b49979"
+    }
+  },
+
+  // Source: etherscan via ManagerContractV1.operator()
+  BED_OPERATOR_V1: {
+    1: {
+      staging: "0x68170278804fc18481aecfb497d63a9b11dc692f",
+      production: "0x186b0a2b5028916fa237bb5b11a9841dbd8567b5"
+    }
+  },
+  GMI_OPERATOR_V1: {
+    1: {
+      staging: "0x68170278804fc18481aecfb497d63a9b11dc692f",
+      production: "0x186b0a2b5028916fa237bb5b11a9841dbd8567b5"
+    }
+  },
+  DATA_OPERATOR_V1: {
+    1: {
+      staging: "0x68170278804fc18481aecfb497d63a9b11dc692f",
+      production: "0x186b0a2b5028916fa237bb5b11a9841dbd8567b5"
+    }
+  },
+
+  // Source: index-coop-deployments
+  BED_FEE_EXTENSION_V1: {
+    1: {
+      staging: "0x16C2143ebbE391403CFe755CC968184244B810C2",
+      production: "0xF5090c139703cF49eEfeF6E2A8E62ef150062B17"
+    }
+  },
+  GMI_FEE_EXTENSION_V1: {
+    1: {
+      staging: "0xF8aF89c1285cdeBE63413449Ce982b9ce185dbAe",
+      production: "0x48CF49701028CfBbCe18a963C9134F7A86E71A22"
+    }
+  },
+  DATA_FEE_EXTENSION_V1: {
+    1: {
+      staging: "0xB9d08e14C4AfC1F9113E440EAE42028e1377A869",
+      production: "0x0104a6FA30540DC1d9F45D2797F05eEa79304525"
+    }
+  },
+
+  // These are used in the SetToken manager migration forked scripts
+  DELEGATED_MANAGER_FACTORY: {
+    1: {
+      staging: "0x55cC794247Ec45db9A1D5B0F26055B7B729F19D2",
+      production: "0x5132044c71b98315bDD5D8E6900bcf93EB2EbeC0"
+    }
+  },
+  TRADE_EXTENSION: {
+    1: {
+      staging: "0xEa2F360529dFB5A3423ec84D44482673C28960e5",
+      production: "0x00DD1D0A8acF768700c009CB5E54BBb5b6920071"
+    }
+  },
+  ISSUANCE_EXTENSION: {
+    1: {
+      staging: "0xFc4E27bDb739A6e2AAdA6c8764860bec6F4288Ee",
+      production: "0x05C5c57E5E75FC8EaD83FE06ebe4aCc471Fb2948"
+    }
+  },
+  FEE_EXTENSION: {
+    1: {
+      staging: "0x946735c0B0C47dd74a38eAe96E75E0eFF5BFB93E",
+      production: "0x1F52bA34eb80cBD48b9f3Dad43FFB4Cb6D0FCCF5"
+    }
+  },
+
   // UNISWAP
 
   UNISWAP_FACTORY: {
@@ -484,6 +610,30 @@ export const DEPENDENCY = {
   C_DAI: "C_DAI",
   C_USDT: "C_USDT",
   ETH: "ETH",
+  BED: "BED",
+  GMI: "GMI",
+  DATA: "DATA",
+
+  BED_MANAGER_V1: "BED_MANAGER_V1",
+  GMI_MANAGER_V1: "GMI_MANAGER_V1",
+  DATA_MANAGER_V1: "DATA_MANAGER_V1",
+
+  BED_METHODOLOGIST: "BED_METHODOLOGIST",
+  GMI_METHODOLOGIST: "GMI_METHODOLOGIST",
+  DATA_METHODOLOGIST: "DATA_METHODOLOGIST",
+
+  BED_OPERATOR_V1: "BED_OPERATOR_V1",
+  GMI_OPERATOR_V1: "GMI_OPERATOR_V1",
+  DATA_OPERATOR_V1: "DATA_OPERATOR_V1",
+
+  BED_FEE_EXTENSION_V1: "BED_FEE_EXTENSION_V1",
+  GMI_FEE_EXTENSION_V1: "GMI_FEE_EXTENSION_V1",
+  DATA_FEE_EXTENSION_V1: "DATA_FEE_EXTENSION_V1",
+
+  DELEGATED_MANAGER_FACTORY: "DELEGATED_MANAGER_FACTORY",
+  TRADE_EXTENSION: "TRADE_EXTENSION",
+  ISSUANCE_EXTENSION: "ISSUANCE_EXTENSION",
+  FEE_EXTENSION: "FEE_EXTENSION",
 
   // External Protocols
   UNISWAP_FACTORY: "UNISWAP_FACTORY",
