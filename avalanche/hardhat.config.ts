@@ -1,7 +1,5 @@
 require("dotenv").config({ path: "../.env"});
 
-let changedFiles; // tslint:disable-line
-
 import { HardhatUserConfig } from "hardhat/config";
 import { privateKeys } from "../utils/wallets";
 import { validateEnvVars } from "../utils/validateEnvVars";
@@ -27,7 +25,9 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      hardfork: "istanbul",
+      forking: {
+        url: "https://api.avax.network/ext/bc/C/rpc",
+      },
       accounts: getHardhatPrivateKeys(),
     },
     localhost: {
