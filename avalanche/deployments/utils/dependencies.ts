@@ -102,7 +102,7 @@ export default {
   },
   DEBT_ISSUANCE_MODULE_V2: {
     43114: {
-      staging: "0x683A3F97Baf396d3111415267D2A02df8503D0e1", // Needs to be replaced
+      staging: "0x1eAF9C71AaDD5339D088eF36bF383f909a0c9780",
       production: ""
     },
   },
