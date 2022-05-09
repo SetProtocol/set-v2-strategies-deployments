@@ -87,6 +87,38 @@ export default {
     43114: "",
   },
 
+  // Set Protocol System
+  CONTROLLER: {
+    43114: {
+      staging: "0x14099863F0B6490759f9D8bC5653CF52b7eF38eb",
+      production: ""
+    },
+  },
+  SET_TOKEN_CREATOR: {
+    43114: {
+      staging: "0xE99447aBbD5A7730b26D2D16fCcB2086319e4bC3",
+      production: ""
+    },
+  },
+  DEBT_ISSUANCE_MODULE_V2: {
+    43114: {
+      staging: "0x1eAF9C71AaDD5339D088eF36bF383f909a0c9780",
+      production: ""
+    },
+  },
+  STREAMING_FEE_MODULE: {
+    43114: {
+      staging: "0x4F70287526ea9Ba7e799D616ea86635CdAf0de4F",
+      production: ""
+    },
+  },
+  TRADE_MODULE: {
+    43114: {
+      staging: "0x44279c2cbFaa14D354144895B0c7771c597d6944",
+      production: ""
+    },
+  },
+
   HUMAN_FRIENDLY_NAMES: {
     50: "test-rpc",
     43114: "avalanche-mainnet",
@@ -121,8 +153,11 @@ export const DEPENDENCY = {
   MULTI_SIG_OWNER: "MULTI_SIG_OWNER",
 
   // System Contracts
-  CONTROLLER: "Controller",
-  BASIC_ISSUANCE_MODULE: "BasicIssuanceModule",
-  NAV_ISSUANCE_MODULE: "NavIssuanceModule",
-  SET_TOKEN_CREATOR: "SetTokenCreator",
+  CONTROLLER: "CONTROLLER",
+  BASIC_ISSUANCE_MODULE: "BASIC_ISSUANCE_MODULE",
+  NAV_ISSUANCE_MODULE: "NAV_ISSUANCE_MODULE",
+  SET_TOKEN_CREATOR: "SET_TOKEN_CREATOR",
+  DEBT_ISSUANCE_MODULE_V2:"DEBT_ISSUANCE_MODULE_V2",
+  STREAMING_FEE_MODULE: "STREAMING_FEE_MODULE",
+  TRADE_MODULE: "TRADE_MODULE",
 };
