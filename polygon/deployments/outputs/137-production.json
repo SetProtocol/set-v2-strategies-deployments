@@ -3,7 +3,7 @@
     "network_key": "137-production",
     "human_friendly_name": "polygon-mainnet-production",
     "network_id": 137,
-    "last_deployment_stage": 3
+    "last_deployment_stage": 4
   },
   "addresses": {
     "ExchangeIssuanceZeroEx": "0x1c0c05a2aA31692e5dc9511b04F651db9E4d8320",
@@ -11,7 +11,8 @@
     "DelegatedManagerFactory": "0xBDae9e6897E08f7ceEc538c4cb0B7f413EEc3497",
     "IssuanceExtension": "0xdBBD0295eF049515A5eD1803995bA7296B866565",
     "StreamingFeeSplitExtension": "0x2E60b48DFc8d995BDbAb52AC353E115b939Dcb9e",
-    "TradeExtension": "0x963EA50D6A06278A57F08BC5a056F840F59f7634"
+    "TradeExtension": "0x963EA50D6A06278A57F08BC5a056F840F59f7634",
+    "BatchTradeExtension": "0xd71689B98F526Aa679EfBC9eeeF98F7f99AEC31C"
   },
   "transactions": {
     "0": {
@@ -100,6 +101,29 @@
       "id": "0xb56b1acc5d92284cb961216f58bff048ce8d53d4124159ebb14e5267014bfab5",
       "timestamp": 1648680391807,
       "description": "Transfer ManagerCore ownership to Multisig"
+    },
+    "8": {
+      "id": "0x20434e75891291c4b78483f2cb164803999e4c0e3662d5f386ff8bc7f881414f",
+      "name": "BatchTradeExtension",
+      "timestamp": 1652209469053,
+      "verified": true,
+      "description": "Deployed BatchTradeExtension",
+      "contractAddress": "0xd71689B98F526Aa679EfBC9eeeF98F7f99AEC31C",
+      "constructorArgs": [
+        "0x0df58926e1c8A236B3b41f07a94Df77C90c6638F",
+        "0xd04AabadEd11e92Fefcd92eEdbBC81b184CdAc82",
+        [
+          "ZeroExApiAdapterV5"
+        ]
+      ],
+      "libraries": {}
+    },
+    "9": {
+      "id": null,
+      "timestamp": null,
+      "data": "0x170ff3e1000000000000000000000000d71689b98f526aa679efbc9eeef98f7f99aec31c",
+      "description": "Add BatchTradeExtension to ManagerCore",
+      "contractName": "ManagerCore"
     }
   }
 }
