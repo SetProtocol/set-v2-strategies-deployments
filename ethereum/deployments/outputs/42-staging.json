@@ -3,7 +3,7 @@
     "network_key": "42-staging",
     "human_friendly_name": "kovan-staging",
     "network_id": 42,
-    "last_deployment_stage": 3
+    "last_deployment_stage": 4
   },
   "addresses": {
     "ExchangeIssuanceZeroEx": "0x30BA25b354Cf1A23Ead0Ad84aa81d3E3eD494234",
@@ -11,7 +11,8 @@
     "DelegatedManagerFactory": "0x3156C917357022b037f13FdFeF3bA1908Bb9dFDD",
     "IssuanceExtension": "0x12D003f2a1B3bFC036B67eBd7ac400D3D1c9dE9D",
     "StreamingFeeSplitExtension": "0xe55C26E1caa46755660F89A636D763795927eDA1",
-    "TradeExtension": "0x4425d972674BBDeB94CCc9873dfA854A87977058"
+    "TradeExtension": "0x4425d972674BBDeB94CCc9873dfA854A87977058",
+    "BatchTradeExtension": "0x7Ec7BbE8129f773c9c34AD3Fc2970c00784c90b6"
   },
   "transactions": {
     "0": {
@@ -95,6 +96,27 @@
       "id": "0x5fa75174498db2e716d6a649c0eaeb4299afe1183c45b9f924c0e2ce22fc8fde",
       "timestamp": 1648691241371,
       "description": "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension"
+    },
+    "7": {
+      "id": "0xa5b94fd839601360949e7f756b23d64c86ba10bdcf99a8ccd122331205930d1d",
+      "name": "BatchTradeExtension",
+      "timestamp": 1652210500911,
+      "verified": true,
+      "description": "Deployed BatchTradeExtension",
+      "contractAddress": "0x7Ec7BbE8129f773c9c34AD3Fc2970c00784c90b6",
+      "constructorArgs": [
+        "0xF03481D07933e11763551958e6A5415c6c9261B5",
+        "0xC93c8CDE0eDf4963ea1eea156099B285A945210a",
+        [
+          "ZeroExApiAdapterV5"
+        ]
+      ],
+      "libraries": {}
+    },
+    "8": {
+      "id": "0xf33a885512472d4eeb3781fd8aefa95b817978f560e45f36a13119175f7eb17a",
+      "timestamp": 1652210512827,
+      "description": "Add BatchTradeExtension to ManagerCore"
     }
   }
 }
