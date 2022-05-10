@@ -1,0 +1,31 @@
+{
+  "state": {
+    "network_key": "43114-staging",
+    "human_friendly_name": "avalanche-mainnet-staging",
+    "network_id": 43114,
+    "last_deployment_stage": 3
+  },
+  "addresses": {
+    "DelegatedManager": "0xDd6Bb8614360019f0890d8D12F040608B538A5Ea"
+  },
+  "transactions": {
+    "0": {
+      "id": "0x5b3bac678ac5d9b4d415ea4b96b3aa6a5d7b2bb64cd96954645c31e14d12241f",
+      "name": "DelegatedManager",
+      "timestamp": 1652207005619,
+      "verified": true,
+      "description": "Deployed DelegatedManager",
+      "contractAddress": "0xDd6Bb8614360019f0890d8D12F040608B538A5Ea",
+      "constructorArgs": [
+        "0xb57182C804Ed9db3FB7d23c7897aaa1F9B7AFca0",
+        "0xA1B7019E35c464d3283A252788FBC55A5f844618",
+        "0x91a5b90FaeeC0d3fb4d3befaa77dFF258416EebA",
+        [],
+        [],
+        [],
+        false
+      ],
+      "libraries": {}
+    }
+  }
+}

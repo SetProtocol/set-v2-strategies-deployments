@@ -36,6 +36,8 @@ let instanceGetter: InstanceGetter;
 const CURRENT_STAGE = getCurrentStage(__filename);
 
 const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (bre: HRE) {
+  return;
+
   const {
     deploy,
     deployer,

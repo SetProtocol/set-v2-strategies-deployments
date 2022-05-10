@@ -1,35 +1,38 @@
 {
-    "scripts": {
-      "create:deployment": "yarn hardhat set:utils:create:deployment",
-      "chain": "yarn hardhat node --no-deploy",
-      "clean": "../scripts/clean.sh",
-      "clean-artifacts": "rm -rf ../contracts ../artifacts ../external",
-      "clean-dev-deployment": "rm -rf deployments/outputs/43114-development* deployments/localhost*",
-      "compile": "yarn hardhat compile",
-      "compile:one": "yarn hardhat set:compile:one",
-      "console": ". ./env/production.sh; yarn hardhat console --no-compile",
-      "deploy:fuji": ". ./env/staging_fuji.sh; yarn hardhat --network fuji deploy",
-      "deploy:staging_mainnet": ". ./env/staging_main.sh; yarn hardhat --network staging_mainnet deploy",
-      "deploy:production": ". ./env/production.sh; yarn hardhat --network production deploy",
-      "deploy:local": ". ./env/local.sh; yarn hardhat deploy",
-      "deploy:tools:testing:production": "yarn clean-dev-deployment && TESTING_PRODUCTION=true . ./env/local.sh; yarn hardhat deploy --no-compile",
-      "etherscan:fuji": ". ./env/staging_fuji.sh; yarn hardhat set:etherscan:verify --network fuji",
-      "etherscan:staging_mainnet": ". ./env/staging_main.sh; yarn hardhat set:etherscan:verify --network staging_mainnet",
-      "etherscan:production": ". ./env/production.sh; yarn hardhat set:etherscan:verify --network production",
-      "flatten": "yarn hardhat flatten",
-      "hardhat": "../node_modules/.bin/hardhat",
-      "lint": "cd .. && yarn lint",
-      "lint:nofix": "cd .. && yarn lint:nofix",
-      "test": ". ./env/local.sh; yarn clean-dev-deployment && yarn hardhat test",
-      "transpile": "../node_modules/.bin/tsc",
-      "tx": ". ./env/production.sh; yarn hardhat set:utils:tx",
-      "tx-dev": "TESTING_PRODUCTION=true yarn hardhat set:utils:tx",
-      "typechain": "yarn hardhat typechain"
-    },
-    "license": "MIT",
-    "_moduleAliases": {
-      "@utils": "../utils",
-      "@set/typechain": "../typechain",
-      "@deployments": "deployments"
-    }
+  "scripts": {
+    "create:deployment": "yarn hardhat set:utils:create:deployment",
+    "chain": "yarn hardhat node --no-deploy",
+    "clean": "../scripts/clean.sh",
+    "clean-artifacts": "rm -rf ../contracts ../artifacts ../external",
+    "clean-dev-deployment": "rm -rf deployments/outputs/43114-development* deployments/localhost*",
+    "compile": "yarn hardhat compile",
+    "compile:one": "yarn hardhat set:compile:one",
+    "console": ". ./env/production.sh; yarn hardhat console --no-compile",
+    "deploy:fuji": ". ./env/staging_fuji.sh; yarn hardhat --network fuji deploy",
+    "deploy:staging_mainnet": ". ./env/staging_main.sh; yarn hardhat --network staging_mainnet deploy",
+    "deploy:production": ". ./env/production.sh; yarn hardhat --network production deploy",
+    "deploy:local": ". ./env/local.sh; yarn hardhat deploy",
+    "deploy:tools:testing:production": "yarn clean-dev-deployment && TESTING_PRODUCTION=true . ./env/local.sh; yarn hardhat deploy --no-compile",
+    "etherscan:fuji": ". ./env/staging_fuji.sh; yarn hardhat set:etherscan:verify --network fuji",
+    "etherscan:staging_mainnet": ". ./env/staging_main.sh; yarn hardhat set:etherscan:verify --network staging_mainnet",
+    "etherscan:production": ". ./env/production.sh; yarn hardhat set:etherscan:verify --network production",
+    "flatten": "yarn hardhat flatten",
+    "hardhat": "../node_modules/.bin/hardhat",
+    "lint": "cd .. && yarn lint",
+    "lint:nofix": "cd .. && yarn lint:nofix",
+    "test": ". ./env/local.sh; yarn clean-dev-deployment && yarn hardhat test",
+    "transpile": "../node_modules/.bin/tsc",
+    "tx": ". ./env/production.sh; yarn hardhat set:utils:tx",
+    "tx-dev": "TESTING_PRODUCTION=true yarn hardhat set:utils:tx",
+    "typechain": "yarn hardhat typechain"
+  },
+  "license": "MIT",
+  "_moduleAliases": {
+    "@utils": "../utils",
+    "@set/typechain": "../typechain",
+    "@deployments": "deployments"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-etherscan": "^3.0.3"
   }
+}
