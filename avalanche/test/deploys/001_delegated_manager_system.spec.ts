@@ -8,6 +8,8 @@ import {
   ManagerCore__factory,
   DelegatedManagerFactory,
   DelegatedManagerFactory__factory,
+  BatchTradeExtension,
+  BatchTradeExtension__factory,
   IssuanceExtension,
   IssuanceExtension__factory,
   StreamingFeeSplitExtension,
@@ -44,6 +46,7 @@ describe("Delegated Manager System", () => {
   let issuanceExtensionInstance: IssuanceExtension;
   let streamingFeeSplitExtensionInstance: StreamingFeeSplitExtension;
   let tradeExtensionInstance: TradeExtension;
+  let batchTradeExtensionInstance: BatchTradeExtension;
 
   before(async () => {
     [deployer] = await getAccounts();
@@ -64,6 +67,9 @@ describe("Delegated Manager System", () => {
 
     const deployedTradeExtensionContract = await getContractAddress(CONTRACT_NAMES.TRADE_EXTENSION);
     tradeExtensionInstance = new TradeExtension__factory(deployer.wallet).attach(deployedTradeExtensionContract);
+
+    const deployedBatchTradeExtensionContract = await getContractAddress(CONTRACT_NAMES.BATCH_TRADE_EXTENSION);
+    batchTradeExtensionInstance = new BatchTradeExtension__factory(deployer.wallet).attach(deployedBatchTradeExtensionContract);
   });
 
   addSnapshotBeforeRestoreAfterEach();
@@ -97,6 +103,11 @@ describe("Delegated Manager System", () => {
     it("should have TradeExtension as valid extension", async () => {
       const validTradeExtension = await managerCoreInstance.isExtension(tradeExtensionInstance.address);
       expect(validTradeExtension).to.eq(true);
+    });
+
+    it("should have BatchTradeExtension as valid extension", async () => {
+      const validBatchTradeExtension = await managerCoreInstance.isExtension(batchTradeExtensionInstance.address);
+      expect(validBatchTradeExtension).to.eq(true);
     });
   });
 
@@ -150,6 +161,28 @@ describe("Delegated Manager System", () => {
     it("should have the correct TradeModule address", async () => {
       const tradeModule = await tradeExtensionInstance.tradeModule();
       expect(tradeModule).to.eq(await findDependency(TRADE_MODULE));
+    });
+  });
+
+  describe("BatchTradeExtension", async () => {
+    it("should have the correct ManagerCore address", async () => {
+      const managerCore = await batchTradeExtensionInstance.managerCore();
+      expect(managerCore).to.eq(managerCoreInstance.address);
+    });
+
+    it("should have the correct TradeModule address", async () => {
+      const tradeModule = await batchTradeExtensionInstance.tradeModule();
+      expect(tradeModule).to.eq(await findDependency(TRADE_MODULE));
+    });
+
+    it("should have set the correct integrations length of 1", async () => {
+      const integrations = await batchTradeExtensionInstance.getIntegrations();
+      expect(integrations.length).to.eq(1);
+    });
+
+    it("should have ZeroExApiAdapterV5 as a valid integration", async () => {
+      const validZeroExApiAdapterV5 = await batchTradeExtensionInstance.isIntegration("ZeroExApiAdapterV5");
+      expect(validZeroExApiAdapterV5).to.eq(true);
     });
   });
 });

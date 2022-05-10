@@ -3,14 +3,15 @@
     "network_key": "43114-staging",
     "human_friendly_name": "avalanche-mainnet-staging",
     "network_id": 43114,
-    "last_deployment_stage": 3
+    "last_deployment_stage": 2
   },
   "addresses": {
     "ManagerCore": "0x94b8C3B9F32E9E4617536D8888B6026708BD9C75",
     "DelegatedManagerFactory": "0xb2812842C176bAf83EcD8e4534A9F4A93e93017E",
     "IssuanceExtension": "0xe42464Cbc4C077D1534b5323636C77E829161Ef0",
     "StreamingFeeSplitExtension": "0x1116eAAc4FF21606F78218f187c3D2027bbfaf59",
-    "TradeExtension": "0x2A2Aa751D5Ac7899f66AC8408C64437Efd0671b7"
+    "TradeExtension": "0x2A2Aa751D5Ac7899f66AC8408C64437Efd0671b7",
+    "BatchTradeExtension": "0x80FFCA5591d271aD19CC2e25Eb45cfAEEA26efAE"
   },
   "transactions": {
     "0": {
@@ -80,6 +81,27 @@
       "id": "0x05b9a1755cdd0cabb532c103b9b86419f3140427f8b1d645bff1ca40daeb25ec",
       "timestamp": 1652114958219,
       "description": "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension"
+    },
+    "6": {
+      "id": "0xfe4bd050a2567ce6b4ea5cf3b98cbcedb20a2a678514105f2e78e4e264cc85e1",
+      "name": "BatchTradeExtension",
+      "timestamp": 1652213424366,
+      "verified": true,
+      "description": "Deployed BatchTradeExtension",
+      "contractAddress": "0x80FFCA5591d271aD19CC2e25Eb45cfAEEA26efAE",
+      "constructorArgs": [
+        "0x94b8C3B9F32E9E4617536D8888B6026708BD9C75",
+        "0x44279c2cbFaa14D354144895B0c7771c597d6944",
+        [
+          "ZeroExApiAdapterV5"
+        ]
+      ],
+      "libraries": {}
+    },
+    "7": {
+      "id": "0x3beeaf9daa4d44e46d944b62f62296a276ab198f19ce46a998e71c6c92cc9e1c",
+      "timestamp": 1652213433594,
+      "description": "Add BatchTradeExtension to ManagerCore"
     }
   }
 }
