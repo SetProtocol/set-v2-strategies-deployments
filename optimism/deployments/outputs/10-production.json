@@ -3,7 +3,7 @@
     "network_key": "10-production",
     "human_friendly_name": "optimism-mainnet-production",
     "network_id": 10,
-    "last_deployment_stage": 6
+    "last_deployment_stage": 7
   },
   "addresses": {
     "ExchangeIssuanceZeroEx": "0x01ecc782531ADCfB8C5a58A2C7FD544Ada946b81",
@@ -14,7 +14,8 @@
     "TradeExtension": "0x5fdbEb52Adfc6FbA26ef0E4b5e9464C63A15467b",
     "MNYeBaseManager": "0xB0051e20A2eD91AF525A2eDc54AEd6735e7fe892",
     "MNYeBasisTradingStrategyExtension": "0x3138293423c06D81Cc9Ae78FbCD3F7DB6323B83a",
-    "MNYeFeeSplitExtension": "0x61A307cbfa9b88f2bE019915bD597C99D9690D96"
+    "MNYeFeeSplitExtension": "0x61A307cbfa9b88f2bE019915bD597C99D9690D96",
+    "BatchTradeExtension": "0x797136fB4dd214FEF0A510B2946ce58CaB390218"
   },
   "transactions": {
     "0": {
@@ -259,6 +260,29 @@
       "id": "0xab4934e5f313f4072861113c6ff36c972da7a08530797285991d2769b3a04e31",
       "timestamp": 1650563282977,
       "description": "Set MNYeBaseManager contract as MNY_ETH_TOKEN Manager"
+    },
+    "15": {
+      "id": "0x7db184a3e5775b23e019c088c39e3ae6786a7536e27b6647a9d7ff06380c1476",
+      "name": "BatchTradeExtension",
+      "timestamp": 1652210271599,
+      "verified": true,
+      "description": "Deployed BatchTradeExtension",
+      "contractAddress": "0x797136fB4dd214FEF0A510B2946ce58CaB390218",
+      "constructorArgs": [
+        "0x71ceB3F645dCBD7549CaaF85A224Db987Ae92630",
+        "0x7215f38011C3e4058Ca3cF7d2b99033016EeFBD8",
+        [
+          "ZeroExApiAdapterV5"
+        ]
+      ],
+      "libraries": {}
+    },
+    "16": {
+      "id": null,
+      "timestamp": null,
+      "data": "0x170ff3e1000000000000000000000000797136fb4dd214fef0a510b2946ce58cab390218",
+      "description": "Add BatchTradeExtension to ManagerCore",
+      "contractName": "ManagerCore"
     }
   }
 }
