@@ -3,7 +3,7 @@
     "network_key": "69-kovan",
     "human_friendly_name": "optimism-kovan",
     "network_id": 69,
-    "last_deployment_stage": 5
+    "last_deployment_stage": 7
   },
   "addresses": {
     "BaseManager": "0x25337C2cD1147acd3EE99871f2087Af6095B6aF4",
@@ -15,7 +15,8 @@
     "StreamingFeeSplitExtension": "0x06Ed895C81d252FFe693f4A15ce7292b4cAb5612",
     "TradeExtension": "0xC4300E01c37020bcF471aefA16Ca8eFE1618E939",
     "PerpV2BaseManager": "0x1687eF971F48620bBbD098cBB9D3E32B60D5b1e7",
-    "DeltaNeutralBasisTradingStrategyExtension": "0xD9a63615f5159f7Abd743E82BCc31c033a595C2E"
+    "DeltaNeutralBasisTradingStrategyExtension": "0xD9a63615f5159f7Abd743E82BCc31c033a595C2E",
+    "BatchTradeExtension": "0x391D7b72C97c1bE8378fB10cF3f5CcC85f6760Bc"
   },
   "transactions": {
     "0": {
@@ -658,6 +659,27 @@
       "data": "0xd0ebdbe70000000000000000000000001687ef971f48620bbbd098cbb9d3e32b60d5b1e7",
       "description": "Set PerpV2BaseManager contract as TEST_BASIS_TOKEN Manager",
       "contractName": "TEST_BASIS_TOKEN"
+    },
+    "24": {
+      "id": "0xea89e29785ad3207601d475d8ae9de82d33bd3f6266d1b1af4ebdaabafd399e9",
+      "name": "BatchTradeExtension",
+      "timestamp": 1652209952103,
+      "verified": true,
+      "description": "Deployed BatchTradeExtension",
+      "contractAddress": "0x391D7b72C97c1bE8378fB10cF3f5CcC85f6760Bc",
+      "constructorArgs": [
+        "0x13C5A1444CC7cF0bCae366ed5BDe13d46dba3311",
+        "0x0a18Ad43a9dc991dB9401ee7aC5AAD0A3b219159",
+        [
+          "ZeroExApiAdapterV5"
+        ]
+      ],
+      "libraries": {}
+    },
+    "25": {
+      "id": "0x0329e9debb0db31168901173050a477b40f15248b8f5bb8c088151b77f222c2b",
+      "timestamp": 1652209958828,
+      "description": "Add BatchTradeExtension to ManagerCore"
     }
   }
 }

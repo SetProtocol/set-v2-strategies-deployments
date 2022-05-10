@@ -3,7 +3,7 @@
     "network_key": "137-staging",
     "human_friendly_name": "polygon-mainnet-staging",
     "network_id": 137,
-    "last_deployment_stage": 3
+    "last_deployment_stage": 4
   },
   "addresses": {
     "ExchangeIssuanceZeroEx": "0xF22075FFEB9bCFa7e54d68Cd2f0FbFA17D1bCE35",
@@ -16,7 +16,8 @@
     "DelegatedManagerFactory": "0xa5351d5F6fE586A7A2eE0A5B7f797F5Fb686082B",
     "IssuanceExtension": "0x802569a5AC139650956f79bB0129C767cC491DE4",
     "StreamingFeeSplitExtension": "0x171Bf119b7Da5E24Ea1f41c81e0DAD41E57FeE48",
-    "TradeExtension": "0x34548881b83dC247Ca11ed4cfbe2cbeB5a2Bf0D1"
+    "TradeExtension": "0x34548881b83dC247Ca11ed4cfbe2cbeB5a2Bf0D1",
+    "BatchTradeExtension": "0x6462fF37B2ddcD66309d5374a09f254F3bd962a0"
   },
   "transactions": {
     "0": {
@@ -100,6 +101,27 @@
       "id": "0x793fc731ab030e1c4a333061fe13cc29ba907bc37ee65efb41c319de3243eb43",
       "timestamp": 1648492713859,
       "description": "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension"
+    },
+    "7": {
+      "id": "0x34d6b2abdbb988b2c02dc9dc87c202de22d33ec4c8004295d3723533a6f8de85",
+      "name": "BatchTradeExtension",
+      "timestamp": 1651165177888,
+      "verified": true,
+      "description": "Deployed BatchTradeExtension",
+      "contractAddress": "0x6462fF37B2ddcD66309d5374a09f254F3bd962a0",
+      "constructorArgs": [
+        "0x6443E67CbCF1C527B040b8b4a90F9e9229d790e4",
+        "0x4F70287526ea9Ba7e799D616ea86635CdAf0de4F",
+        [
+          "ZeroExApiAdapterV5"
+        ]
+      ],
+      "libraries": {}
+    },
+    "8": {
+      "id": "0xb38e663452162269cf557cad448e17a3e703724fe5e6201241ef8742b398083f",
+      "timestamp": 1651165184594,
+      "description": "Add BatchTradeExtension to ManagerCore"
     }
   }
 }

@@ -3,7 +3,7 @@
     "network_key": "10-staging",
     "human_friendly_name": "optimism-mainnet-staging",
     "network_id": 10,
-    "last_deployment_stage": 5
+    "last_deployment_stage": 7
   },
   "addresses": {
     "ExchangeIssuanceZeroEx - DEPRECATED": "0xb56DEb6aBC9AB381ACa33ddb7BAa9fCb4C2Db8f5",
@@ -17,7 +17,8 @@
     "DeltaNeutralBasisTradingStrategyExtension-DEPRECATED": "0xdBBD0295eF049515A5eD1803995bA7296B866565",
     "DeltaNeutralBasisTradingStrategyExtension-DEPRECATED-2": "0x9EC0f9187e579b0142Bd0ED2968dc3A720e3F9f2",
     "PerpV2BaseManager": "0xddA86C5Ab04F8d671E3EC0e79F396b3f745bA2Ae",
-    "DeltaNeutralBasisTradingStrategyExtension": "0x2ab4Ae1EaE439BF2a3320eE337d72Fc067b326E5"
+    "DeltaNeutralBasisTradingStrategyExtension": "0x2ab4Ae1EaE439BF2a3320eE337d72Fc067b326E5",
+    "BatchTradeExtension": "0x46A79cd173abC6060eCcC26076b15cf6D9CFb49F"
   },
   "transactions": {
     "0": {
@@ -460,6 +461,27 @@
       "id": "0xad2c0407fe34c64487a3635494083cf1fc74b1ec9346eca592430e39acea032b",
       "timestamp": 1650452564570,
       "description": "Set PerpV2BaseManager contract as TEST_BASIS_TOKEN Manager"
+    },
+    "18": {
+      "id": "0x82be3d9866b1f7d67df0b0aded0a3efc434985f8158afd7d091b3ca136cddf40",
+      "name": "BatchTradeExtension",
+      "timestamp": 1652210178599,
+      "verified": true,
+      "description": "Deployed BatchTradeExtension",
+      "contractAddress": "0x46A79cd173abC6060eCcC26076b15cf6D9CFb49F",
+      "constructorArgs": [
+        "0xe3Ebf3788Fab3de919da7332e7b72899414d3E80",
+        "0x4F70287526ea9Ba7e799D616ea86635CdAf0de4F",
+        [
+          "ZeroExApiAdapterV5"
+        ]
+      ],
+      "libraries": {}
+    },
+    "19": {
+      "id": "0x1850292a1f5929191bd168ccf50b3f9d2324a896c6f37d72239325691f1af0cf",
+      "timestamp": 1652210185588,
+      "description": "Add BatchTradeExtension to ManagerCore"
     }
   }
 }
