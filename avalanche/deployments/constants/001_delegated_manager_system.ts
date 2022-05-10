@@ -4,4 +4,5 @@ export const CONTRACT_NAMES = {
   ISSUANCE_EXTENSION:"IssuanceExtension",
   STREAMING_FEE_SPLIT_EXTENSION:"StreamingFeeSplitExtension",
   TRADE_EXTENSION:"TradeExtension",
+  BATCH_TRADE_EXTENSION:"BatchTradeExtension",
 };

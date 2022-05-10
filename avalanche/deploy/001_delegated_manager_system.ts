@@ -13,6 +13,7 @@ import {
   trackFinishedStage,
   writeTransactionToOutputs,
   getAccounts,
+  addExtensionToManagerCore,
 } from "@utils/index";
 
 import { Account } from "@utils/types";
@@ -67,6 +68,10 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
   const tradeExtensionAddress = await getContractAddress(CONTRACT_NAMES.TRADE_EXTENSION);
 
   await initializeManagerCore();
+
+  await deployBatchTradeExtension();
+
+  await addExtensionToManagerCore(CONTRACT_NAMES.BATCH_TRADE_EXTENSION, bre);
 
   await transferManagerCoreOwnershipToMultisig();
 
@@ -157,6 +162,24 @@ const func: DeployFunction = trackFinishedStage(CURRENT_STAGE, async function (b
         contractAddress: tradeExtensionDeploy.address,
         id: tradeExtensionDeploy.receipt.transactionHash,
         description: `Deployed ${CONTRACT_NAMES.TRADE_EXTENSION}`,
+        constructorArgs,
+      });
+    }
+  }
+
+  async function deployBatchTradeExtension(): Promise<void> {
+    const checkBatchTradeExtensionAddress = await getContractAddress(CONTRACT_NAMES.BATCH_TRADE_EXTENSION);
+    if (checkBatchTradeExtensionAddress === "") {
+      const constructorArgs = [managerCoreAddress, tradeModuleAddress, ["ZeroExApiAdapterV5"]];
+      const batchTradeExtensionDeploy = await deploy(
+        CONTRACT_NAMES.BATCH_TRADE_EXTENSION,
+        { from: deployer, args: constructorArgs, log: true }
+      );
+      batchTradeExtensionDeploy.receipt && await saveContractDeployment({
+        name: CONTRACT_NAMES.BATCH_TRADE_EXTENSION,
+        contractAddress: batchTradeExtensionDeploy.address,
+        id: batchTradeExtensionDeploy.receipt.transactionHash,
+        description: `Deployed ${CONTRACT_NAMES.BATCH_TRADE_EXTENSION}`,
         constructorArgs,
       });
     }
