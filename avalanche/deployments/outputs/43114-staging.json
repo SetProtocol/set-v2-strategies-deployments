@@ -108,7 +108,7 @@
       "id": "0x55927fed8e834b161c1110f34d7d47d903986a10cbc115c73d7f38dabb6d22ca",
       "name": "ExchangeIssuanceZeroEx",
       "timestamp": 1652374908974,
-      "verified": false,
+      "verified": true,
       "description": "Deployed ExchangeIssuanceZeroEx",
       "contractAddress": "0x5374E7a0F9E0Ad299e094825A220354B6ca6c787",
       "constructorArgs": [
