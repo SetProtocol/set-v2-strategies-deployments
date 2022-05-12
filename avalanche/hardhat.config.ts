@@ -76,7 +76,7 @@ const config: HardhatUserConfig = {
         artifacts: "./node_modules/set-protocol-oracles/dist/artifacts/ts/",
       },
       {
-        artifacts: "./node_modules/@setprotocol/index-coop-contracts/artifacts",
+        artifacts: "./node_modules/@indexcoop/index-coop-smart-contracts/artifacts",
       },
     ],
   },
