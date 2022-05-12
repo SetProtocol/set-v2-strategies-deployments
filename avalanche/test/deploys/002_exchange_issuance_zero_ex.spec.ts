@@ -47,13 +47,13 @@ describe("ExchangeIssuanceZeroEx", () => {
 
   it("has correct wAVAX address", async () => {
     const wAvaxAddress = await findDependency(WAVAX);
-    const exchangeIssuanceWETH = (await exchangeIssuanceInstance.WETH()).toLowerCase();
+    const exchangeIssuanceWETH = await exchangeIssuanceInstance.WETH();
     expect(exchangeIssuanceWETH).to.equal(wAvaxAddress);
   });
 
   it("has correct zero ex exchange", async () => {
     const exchangeProxyAddress = await findDependency(ZERO_EX_EXCHANGE);
-    expect(await exchangeIssuanceInstance.swapTarget()).to.equal(exchangeProxyAddress);
+    expect((await exchangeIssuanceInstance.swapTarget()).toLowerCase()).to.equal(exchangeProxyAddress);
   });
 
   it("has correct set controller", async () => {
