@@ -3,7 +3,7 @@
     "network_key": "43114-staging",
     "human_friendly_name": "avalanche-mainnet-staging",
     "network_id": 43114,
-    "last_deployment_stage": 2
+    "last_deployment_stage": 3
   },
   "addresses": {
     "ManagerCore": "0x94b8C3B9F32E9E4617536D8888B6026708BD9C75",
@@ -11,7 +11,8 @@
     "IssuanceExtension": "0xe42464Cbc4C077D1534b5323636C77E829161Ef0",
     "StreamingFeeSplitExtension": "0x1116eAAc4FF21606F78218f187c3D2027bbfaf59",
     "TradeExtension": "0x2A2Aa751D5Ac7899f66AC8408C64437Efd0671b7",
-    "BatchTradeExtension": "0x80FFCA5591d271aD19CC2e25Eb45cfAEEA26efAE"
+    "BatchTradeExtension": "0x80FFCA5591d271aD19CC2e25Eb45cfAEEA26efAE",
+    "ExchangeIssuanceZeroEx": "0x5374E7a0F9E0Ad299e094825A220354B6ca6c787"
   },
   "transactions": {
     "0": {
@@ -102,6 +103,20 @@
       "id": "0x3beeaf9daa4d44e46d944b62f62296a276ab198f19ce46a998e71c6c92cc9e1c",
       "timestamp": 1652213433594,
       "description": "Add BatchTradeExtension to ManagerCore"
+    },
+    "8": {
+      "id": "0x55927fed8e834b161c1110f34d7d47d903986a10cbc115c73d7f38dabb6d22ca",
+      "name": "ExchangeIssuanceZeroEx",
+      "timestamp": 1652374908974,
+      "verified": true,
+      "description": "Deployed ExchangeIssuanceZeroEx",
+      "contractAddress": "0x5374E7a0F9E0Ad299e094825A220354B6ca6c787",
+      "constructorArgs": [
+        "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "0x14099863F0B6490759f9D8bC5653CF52b7eF38eb",
+        "0xdef1c0ded9bec7f1a1670819833240f027b25eff"
+      ],
+      "libraries": {}
     }
   }
 }
