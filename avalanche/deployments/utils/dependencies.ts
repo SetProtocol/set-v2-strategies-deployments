@@ -84,38 +84,38 @@ export default {
   // Admin
 
   MULTI_SIG_OWNER: {
-    43114: "",
+    43114: "0xFbB731aE790d8aefB276dDb151684dC642657A77",
   },
 
   // Set Protocol System
   CONTROLLER: {
     43114: {
       staging: "0x14099863F0B6490759f9D8bC5653CF52b7eF38eb",
-      production: ""
+      production: "0xC59E05a299b2FBD418DA8E67CB51DA05c67bDB79"
     },
   },
   SET_TOKEN_CREATOR: {
     43114: {
       staging: "0xE99447aBbD5A7730b26D2D16fCcB2086319e4bC3",
-      production: ""
+      production: "0xbaae6346DE5915886B1759c7e68272352b524161"
     },
   },
   DEBT_ISSUANCE_MODULE_V2: {
     43114: {
       staging: "0x1eAF9C71AaDD5339D088eF36bF383f909a0c9780",
-      production: ""
+      production: "0x6808f8D7DF3295BdA11998dd675C1fd2CedCbF5f"
     },
   },
   STREAMING_FEE_MODULE: {
     43114: {
       staging: "0x4F70287526ea9Ba7e799D616ea86635CdAf0de4F",
-      production: ""
+      production: "0x0c9184c1190b73dFFCEea44aE196E11CD2eC4a6C"
     },
   },
   TRADE_MODULE: {
     43114: {
       staging: "0x44279c2cbFaa14D354144895B0c7771c597d6944",
-      production: ""
+      production: "0xD9ABfa88beacC41FA1119210e39fCd49b58D5ef8"
     },
   },
 
