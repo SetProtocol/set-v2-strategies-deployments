@@ -1,0 +1,129 @@
+{
+  "state": {
+    "network_key": "43114-production",
+    "human_friendly_name": "avalanche-mainnet-production",
+    "network_id": 43114,
+    "last_deployment_stage": 3
+  },
+  "addresses": {
+    "ManagerCore": "0x659641F71525b02bFe7203F3e5113c48E6736540",
+    "DelegatedManagerFactory": "0xaF31F117439bDEfa52B4e2fa47C0B800a6D10c70",
+    "IssuanceExtension": "0xea1bD0ae3Ec45e32a6090eDb445dACFc083A8db6",
+    "StreamingFeeSplitExtension": "0x5018AC1223CebdE29bE41b07b858F3846390B052",
+    "TradeExtension": "0xd33042aa2d9aEd46d741F2ff063de6516DBbFdE5",
+    "BatchTradeExtension": "0xa415bcFD9d8B70DaFEe7d53cDDB636e1395683C7",
+    "ExchangeIssuanceZeroEx": "0xB546672E0743A1225D24bAeA9A9D08e6601bd20f"
+  },
+  "transactions": {
+    "0": {
+      "id": "0x59c81fd1ebf94f7907e06eafa2086324d2a7e56d3868faa2ea89efaf1a94a18b",
+      "name": "ManagerCore",
+      "timestamp": 1652890654794,
+      "verified": true,
+      "description": "Deployed ManagerCore",
+      "contractAddress": "0x659641F71525b02bFe7203F3e5113c48E6736540",
+      "constructorArgs": [],
+      "libraries": {}
+    },
+    "1": {
+      "id": "0x2e506effce8b4a8b69bd7c35fbce3bbdb8ec2a1fc8bc5fbd9e066e0142b7d7bf",
+      "name": "DelegatedManagerFactory",
+      "timestamp": 1652890661664,
+      "verified": true,
+      "description": "Deployed DelegatedManagerFactory",
+      "contractAddress": "0xaF31F117439bDEfa52B4e2fa47C0B800a6D10c70",
+      "constructorArgs": [
+        "0x659641F71525b02bFe7203F3e5113c48E6736540",
+        "0xC59E05a299b2FBD418DA8E67CB51DA05c67bDB79",
+        "0xbaae6346DE5915886B1759c7e68272352b524161"
+      ],
+      "libraries": {}
+    },
+    "2": {
+      "id": "0x03334c96df387f7352e6c0030a100a25172e63781a7993c2ef9cd3dbda9e0595",
+      "name": "IssuanceExtension",
+      "timestamp": 1652890668135,
+      "verified": true,
+      "description": "Deployed IssuanceExtension",
+      "contractAddress": "0xea1bD0ae3Ec45e32a6090eDb445dACFc083A8db6",
+      "constructorArgs": [
+        "0x659641F71525b02bFe7203F3e5113c48E6736540",
+        "0x6808f8D7DF3295BdA11998dd675C1fd2CedCbF5f"
+      ],
+      "libraries": {}
+    },
+    "3": {
+      "id": "0x42f87f38d263c0f3a54b9b822cfcc3d5c96cb1e47045e8e037f87d257361bd06",
+      "name": "StreamingFeeSplitExtension",
+      "timestamp": 1652890674478,
+      "verified": true,
+      "description": "Deployed StreamingFeeSplitExtension",
+      "contractAddress": "0x5018AC1223CebdE29bE41b07b858F3846390B052",
+      "constructorArgs": [
+        "0x659641F71525b02bFe7203F3e5113c48E6736540",
+        "0x0c9184c1190b73dFFCEea44aE196E11CD2eC4a6C"
+      ],
+      "libraries": {}
+    },
+    "4": {
+      "id": "0x0a86ae33a2d07ee6748d9d4b12020f62789ac2c8cc63f5f1ba259b90b409483a",
+      "name": "TradeExtension",
+      "timestamp": 1652890681380,
+      "verified": true,
+      "description": "Deployed TradeExtension",
+      "contractAddress": "0xd33042aa2d9aEd46d741F2ff063de6516DBbFdE5",
+      "constructorArgs": [
+        "0x659641F71525b02bFe7203F3e5113c48E6736540",
+        "0xD9ABfa88beacC41FA1119210e39fCd49b58D5ef8"
+      ],
+      "libraries": {}
+    },
+    "5": {
+      "id": "0x30d702d8d8bca5cb33222e5fbc4217f2d79c506522c64042c867f3c624740851",
+      "timestamp": 1652890692607,
+      "description": "Initialized ManagerCore with DelegatedManagerFactory, IssuanceExtension, StreamingFeeSplitExtension, and TradeExtension"
+    },
+    "6": {
+      "id": "0x226f6f9af6d97b33ec6c7d4d6ca1b0bf59eaae66f0ccc7dba1aaa82e7b54ac83",
+      "name": "BatchTradeExtension",
+      "timestamp": 1652890698919,
+      "verified": true,
+      "description": "Deployed BatchTradeExtension",
+      "contractAddress": "0xa415bcFD9d8B70DaFEe7d53cDDB636e1395683C7",
+      "constructorArgs": [
+        "0x659641F71525b02bFe7203F3e5113c48E6736540",
+        "0xD9ABfa88beacC41FA1119210e39fCd49b58D5ef8",
+        [
+          "ZeroExApiAdapterV5"
+        ]
+      ],
+      "libraries": {}
+    },
+    "7": {
+      "id": null,
+      "timestamp": null,
+      "data": "0x170ff3e1000000000000000000000000a415bcfd9d8b70dafee7d53cddb636e1395683c7",
+      "description": "Add BatchTradeExtension to ManagerCore",
+      "contractName": "ManagerCore"
+    },
+    "8": {
+      "id": "0xd8707f99377728e9d9773f9502680c6805a9be9bc20fe1496e801194bbcbf449",
+      "timestamp": 1652890706106,
+      "description": "Transfer ManagerCore ownership to Multisig"
+    },
+    "9": {
+      "id": "0x9c3698e3777e72024440b5c59e4935281e7996fbc4bfd06832f77e4056406ae5",
+      "name": "ExchangeIssuanceZeroEx",
+      "timestamp": 1652890712208,
+      "verified": true,
+      "description": "Deployed ExchangeIssuanceZeroEx",
+      "contractAddress": "0xB546672E0743A1225D24bAeA9A9D08e6601bd20f",
+      "constructorArgs": [
+        "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "0xC59E05a299b2FBD418DA8E67CB51DA05c67bDB79",
+        "0xdef1c0ded9bec7f1a1670819833240f027b25eff"
+      ],
+      "libraries": {}
+    }
+  }
+}
