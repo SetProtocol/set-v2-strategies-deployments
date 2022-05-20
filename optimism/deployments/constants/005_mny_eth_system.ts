@@ -20,7 +20,7 @@ export const METHODOLOGY_SETTINGS = {
   targetLeverageRatio: ether(-1),                       // -1x
   minLeverageRatio: ether(-0.95),                       // -0.95x
   maxLeverageRatio: ether(-2),                          // -2x
-  recenteringSpeed: ether(1),                           // N/A; Unused value; Can't be set to 0; So set to 1
+  recenteringSpeed: ether(0.05),                        // N/A; Unused value; Can't be set to 0; Set to 0.05 to match FLI's speed
   rebalanceInterval: MAX_UINT_256,                      // Rebalance only when out of bounds
   reinvestInterval: ONE_DAY_IN_SECONDS.mul(7),          // 7 days
   minReinvestUnits: BigNumber.from(10000)               // 1 cent per Set; 1 bps at 100$ per Set

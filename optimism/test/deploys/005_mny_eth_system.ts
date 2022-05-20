@@ -130,7 +130,7 @@ describe("MNYe Basis Trading System", () => {
       expect(methodology.targetLeverageRatio).to.eq(ether(-1));
       expect(methodology.minLeverageRatio).to.eq(ether(-0.95));
       expect(methodology.maxLeverageRatio).to.eq(ether(-2));
-      expect(methodology.recenteringSpeed).to.eq(ether(1));
+      expect(methodology.recenteringSpeed).to.eq(ether(0.05));
       expect(methodology.rebalanceInterval).to.eq(MAX_UINT_256);
       expect(methodology.reinvestInterval).to.eq(ONE_DAY_IN_SECONDS.mul(7));
       expect(methodology.minReinvestUnits).to.eq(BigNumber.from(10000));
