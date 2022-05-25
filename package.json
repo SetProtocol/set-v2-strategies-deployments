@@ -86,7 +86,7 @@
     "@indexcoop/index-coop-smart-contracts": "^0.2.0",
     "@perp/curie-contract": "^0.14.0-staging",
     "@setprotocol/set-protocol-v2": "^0.10.1",
-    "@setprotocol/set-v2-strategies": "0.0.12",
+    "@setprotocol/set-v2-strategies": "0.0.13",
     "ethers": "5.5.2",
     "fs-extra": "^5.0.0",
     "module-alias": "^2.2.2",
