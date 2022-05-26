@@ -3,7 +3,7 @@
     "network_key": "10-staging",
     "human_friendly_name": "optimism-mainnet-staging",
     "network_id": 10,
-    "last_deployment_stage": 6
+    "last_deployment_stage": 7
   },
   "addresses": {
     "ExchangeIssuanceZeroEx - DEPRECATED": "0xb56DEb6aBC9AB381ACa33ddb7BAa9fCb4C2Db8f5",
@@ -488,7 +488,7 @@
       "id": "0xccf45b4904ae090715a2a746fbc8011287d9725428fc18db18ff22263d7dd178",
       "name": "DeltaNeutralBasisTradingStrategyExtension",
       "timestamp": 1653572249760,
-      "verified": false,
+      "verified": true,
       "description": "Deployed DeltaNeutralBasisTradingStrategyExtension",
       "contractAddress": "0x5501Cf014E6d72701e6D1447E12adb16aF37af26",
       "constructorArgs": [
