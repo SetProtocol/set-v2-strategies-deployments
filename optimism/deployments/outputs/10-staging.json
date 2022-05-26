@@ -3,7 +3,7 @@
     "network_key": "10-staging",
     "human_friendly_name": "optimism-mainnet-staging",
     "network_id": 10,
-    "last_deployment_stage": 7
+    "last_deployment_stage": 6
   },
   "addresses": {
     "ExchangeIssuanceZeroEx - DEPRECATED": "0xb56DEb6aBC9AB381ACa33ddb7BAa9fCb4C2Db8f5",
@@ -19,7 +19,7 @@
     "PerpV2BaseManager": "0xddA86C5Ab04F8d671E3EC0e79F396b3f745bA2Ae",
     "DeltaNeutralBasisTradingStrategyExtension-DEPRECATED-3": "0x2ab4Ae1EaE439BF2a3320eE337d72Fc067b326E5",
     "BatchTradeExtension": "0x46A79cd173abC6060eCcC26076b15cf6D9CFb49F",
-    "DeltaNeutralBasisTradingStrategyExtension": "0x3D0ac6837De9ACB4d69e7cC1686d2C151B55359D"
+    "DeltaNeutralBasisTradingStrategyExtension": "0x5501Cf014E6d72701e6D1447E12adb16aF37af26"
   },
   "transactions": {
     "0": {
@@ -485,12 +485,12 @@
       "description": "Add BatchTradeExtension to ManagerCore"
     },
     "20": {
-      "id": "0xf0b22eb1667cfee235cd24794c4a5edbfcf7ff7e71369e4b58c490065b7b337f",
+      "id": "0xccf45b4904ae090715a2a746fbc8011287d9725428fc18db18ff22263d7dd178",
       "name": "DeltaNeutralBasisTradingStrategyExtension",
-      "timestamp": 1653477026782,
-      "verified": true,
+      "timestamp": 1653572249760,
+      "verified": false,
       "description": "Deployed DeltaNeutralBasisTradingStrategyExtension",
-      "contractAddress": "0x3D0ac6837De9ACB4d69e7cC1686d2C151B55359D",
+      "contractAddress": "0x5501Cf014E6d72701e6D1447E12adb16aF37af26",
       "constructorArgs": [
         "0xddA86C5Ab04F8d671E3EC0e79F396b3f745bA2Ae",
         {
@@ -588,8 +588,8 @@
       "libraries": {}
     },
     "21": {
-      "id": "0x45f4604e1124a32cbb96ed6e746de55b2704d6c56176d594d9b2d30f8b0529f6",
-      "timestamp": 1653477034631,
+      "id": "0x2f48d2f3eabbfdd5811b30c0b4331015d4f79839fb994d2ec34aa6cd72adc04f",
+      "timestamp": 1653572256216,
       "description": "Add DeltaNeutralBasisTradingStrategyExtension on PerpV2BaseManager"
     }
   }
