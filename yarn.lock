@@ -1602,10 +1602,10 @@
     "@sentry/types" "5.29.2"
     tslib "^1.9.3"
 
-"@setprotocol/set-protocol-v2@0.10.0-hhat.1":
-  version "0.10.0-hhat.1"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.10.0-hhat.1.tgz#933dc1ad9599ddf39796ce5785e0cd4ec0e7ba5d"
-  integrity sha512-wjTIHUzsAmL8u01XsOALJp62ceznVPK420zfpNK6Kv/mK56UKZWq3ptzHbnhjujU1vDfiNylH+enEHjUYiBogQ==
+"@setprotocol/set-protocol-v2@^0.10.3", "@setprotocol/set-protocol-v2@^0.10.3-hhat.1":
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.10.4.tgz#0999c24fb07a1dc35bd9cea619e2492c8271f073"
+  integrity sha512-FRXT6rwB5uKLHOOMDxEsT4mt2wdDo3BMLFhn3DI3gIhiizOyjD4KorrJDjTW7XyTQnj1+xC1kMJqp0FvdYkpLA==
   dependencies:
     "@uniswap/v3-sdk" "^3.5.1"
     ethers "^5.5.2"
@@ -1614,24 +1614,12 @@
     module-alias "^2.2.2"
     replace-in-file "^6.1.0"
 
-"@setprotocol/set-protocol-v2@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.10.1.tgz#329e39a2c8aa188ef0bd2a8549eb683a26c6390e"
-  integrity sha512-M0qlKOhcht2aHXQ1rBDFPohPaXmXGvPyrazgcjPniCWlmSZx/P/X197iGvThZVuXyurjk/v6ErhOEPp4Bq9h9A==
+"@setprotocol/set-v2-strategies@0.0.13-basis.0":
+  version "0.0.13-basis.0"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.13-basis.0.tgz#54308a34cf0f924612f981261487d4462e775597"
+  integrity sha512-+mLchnwZfICeRBKEaQG4A3KzaWlTYdPiES1NL0lfv7PWp3N4v/fUSu55e8xkyTFiyykUoJERf2P/jqIqVlCvCA==
   dependencies:
-    "@uniswap/v3-sdk" "^3.5.1"
-    ethers "^5.5.2"
-    fs-extra "^5.0.0"
-    jsbi "^3.2.5"
-    module-alias "^2.2.2"
-    replace-in-file "^6.1.0"
-
-"@setprotocol/set-v2-strategies@0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.13.tgz#8ef831f6f9551f74d2717ff44def447acbfac517"
-  integrity sha512-L/3FbjFiASDFniGCEVdlILGaFtk46o0w/9rJ2cEDlGLa88V+5aJ2jpfShgQz4l7qph9eBmOTh+vgvxeNqFpIUg==
-  dependencies:
-    "@setprotocol/set-protocol-v2" "0.10.0-hhat.1"
+    "@setprotocol/set-protocol-v2" "^0.10.3-hhat.1"
     "@uniswap/v3-sdk" "^3.5.1"
     ethers "5.5.2"
     fs-extra "^5.0.0"
