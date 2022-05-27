@@ -3,7 +3,7 @@
     "network_key": "10-production",
     "human_friendly_name": "optimism-mainnet-production",
     "network_id": 10,
-    "last_deployment_stage": 5
+    "last_deployment_stage": 7
   },
   "addresses": {
     "ExchangeIssuanceZeroEx": "0x01ecc782531ADCfB8C5a58A2C7FD544Ada946b81",
