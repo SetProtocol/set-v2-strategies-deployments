@@ -37,7 +37,7 @@ export default {
   // Prod SetTokens
   MNY_ETH_TOKEN: {
     10: {
-      staging: "0x93910D1D112AEA86E20c998948897b0cd37B3Ed9",    // dummy address
+      staging: "0x127B97587Df93BcbDF66b30A53654D6B9a5E183B",    // test basis set
       production: "0x0Be27c140f9Bdad3474bEaFf0A413EC7e19e9B93"
     },
     69: ""

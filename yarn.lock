@@ -1602,10 +1602,10 @@
     "@sentry/types" "5.29.2"
     tslib "^1.9.3"
 
-"@setprotocol/set-protocol-v2@0.10.0-hhat.1":
-  version "0.10.0-hhat.1"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.10.0-hhat.1.tgz#933dc1ad9599ddf39796ce5785e0cd4ec0e7ba5d"
-  integrity sha512-wjTIHUzsAmL8u01XsOALJp62ceznVPK420zfpNK6Kv/mK56UKZWq3ptzHbnhjujU1vDfiNylH+enEHjUYiBogQ==
+"@setprotocol/set-protocol-v2@^0.10.3", "@setprotocol/set-protocol-v2@^0.10.3-hhat.1":
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.10.4.tgz#0999c24fb07a1dc35bd9cea619e2492c8271f073"
+  integrity sha512-FRXT6rwB5uKLHOOMDxEsT4mt2wdDo3BMLFhn3DI3gIhiizOyjD4KorrJDjTW7XyTQnj1+xC1kMJqp0FvdYkpLA==
   dependencies:
     "@uniswap/v3-sdk" "^3.5.1"
     ethers "^5.5.2"
@@ -1614,24 +1614,12 @@
     module-alias "^2.2.2"
     replace-in-file "^6.1.0"
 
-"@setprotocol/set-protocol-v2@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-protocol-v2/-/set-protocol-v2-0.10.1.tgz#329e39a2c8aa188ef0bd2a8549eb683a26c6390e"
-  integrity sha512-M0qlKOhcht2aHXQ1rBDFPohPaXmXGvPyrazgcjPniCWlmSZx/P/X197iGvThZVuXyurjk/v6ErhOEPp4Bq9h9A==
+"@setprotocol/set-v2-strategies@0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.14.tgz#898830f14063f0cbc103bfe1d2e8635220cfa92d"
+  integrity sha512-rKez4+ZJpE60gyRaF+e1ONesGnMfTVKfYreRtMc+h8WeCkhbCVrQFtRWmVbIo4zHlPwBlvY7r4U75x95Y5V66w==
   dependencies:
-    "@uniswap/v3-sdk" "^3.5.1"
-    ethers "^5.5.2"
-    fs-extra "^5.0.0"
-    jsbi "^3.2.5"
-    module-alias "^2.2.2"
-    replace-in-file "^6.1.0"
-
-"@setprotocol/set-v2-strategies@0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@setprotocol/set-v2-strategies/-/set-v2-strategies-0.0.12.tgz#89922d058a9eb47e997663ebfb5f87004b6735ba"
-  integrity sha512-La3LWq+Wg/++q5Mlv9Lev05czfiM6SS3BjfDuIEREV3LVK8sVgshNHrQ4wxPjEMITkPrK9CmHDZ9YWmhMF9Utg==
-  dependencies:
-    "@setprotocol/set-protocol-v2" "0.10.0-hhat.1"
+    "@setprotocol/set-protocol-v2" "^0.10.3-hhat.1"
     "@uniswap/v3-sdk" "^3.5.1"
     ethers "5.5.2"
     fs-extra "^5.0.0"
