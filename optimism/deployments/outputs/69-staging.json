@@ -16,7 +16,10 @@
     "TradeExtension": "0xC4300E01c37020bcF471aefA16Ca8eFE1618E939",
     "PerpV2BaseManager": "0x1687eF971F48620bBbD098cBB9D3E32B60D5b1e7",
     "DeltaNeutralBasisTradingStrategyExtension": "0xD9a63615f5159f7Abd743E82BCc31c033a595C2E",
-    "BatchTradeExtension": "0x391D7b72C97c1bE8378fB10cF3f5CcC85f6760Bc"
+    "BatchTradeExtension": "0x391D7b72C97c1bE8378fB10cF3f5CcC85f6760Bc",
+    "MNYeBaseManager": "0x8B5F199248a63416d72fdE285F8B35a0dbA747f2",
+    "MNYeBasisTradingStrategyExtension": "0x3D0ac6837De9ACB4d69e7cC1686d2C151B55359D",
+    "MNYeFeeSplitExtension": "0xDeAa76Ac532a190a70e7419F8043Df9FDd0bbF67"
   },
   "transactions": {
     "0": {
@@ -333,7 +336,7 @@
       "id": "0x261a0f539b24aa33ca4cd5dd75a9230950279673db9d52ac47695e28e581a4e0",
       "name": "DeltaNeutralBasisTradingStrategyExtension",
       "timestamp": 1650020865274,
-      "verified": false,
+      "verified": true,
       "description": "Deployed DeltaNeutralBasisTradingStrategyExtension",
       "contractAddress": "0x635ebeB1149B8b9C7266C5d288FFD5FE1d824ACb",
       "constructorArgs": [
@@ -442,7 +445,7 @@
       "id": "0xc13b51bb2deed56ff46a63a2a00fe060be212f1b3dd388c9827fe10aa7056e43",
       "name": "DeltaNeutralBasisTradingStrategyExtension",
       "timestamp": 1650022302868,
-      "verified": false,
+      "verified": true,
       "description": "Deployed DeltaNeutralBasisTradingStrategyExtension",
       "contractAddress": "0xdC69Cb4f4DAE7A9bBC3BDfE49013411A94e5736F",
       "constructorArgs": [
@@ -553,7 +556,7 @@
       "id": "0x887cd5028985e13f057ab7e2deefe3edb7b78816a572765dec9fa76f7985f5d4",
       "name": "DeltaNeutralBasisTradingStrategyExtension",
       "timestamp": 1650027302423,
-      "verified": false,
+      "verified": true,
       "description": "Deployed DeltaNeutralBasisTradingStrategyExtension",
       "contractAddress": "0xD9a63615f5159f7Abd743E82BCc31c033a595C2E",
       "constructorArgs": [
@@ -680,6 +683,162 @@
       "id": "0x0329e9debb0db31168901173050a477b40f15248b8f5bb8c088151b77f222c2b",
       "timestamp": 1652209958828,
       "description": "Add BatchTradeExtension to ManagerCore"
+    },
+    "26": {
+      "id": "0xf473c4d6da581b7a0af2cd5670b30385a8ad6d6730399fe192f0dd97a5c57dc4",
+      "name": "MNYeBaseManager",
+      "timestamp": 1653990701292,
+      "verified": true,
+      "description": "Deployed MNYeBaseManager",
+      "contractAddress": "0x8B5F199248a63416d72fdE285F8B35a0dbA747f2",
+      "constructorArgs": [
+        "0x6d31E9B9f1e8CBfb8C3C1C7167Ecb8DaFbcb1c92",
+        "0x69Bdb276A17Dd90F9D3A545944CCB20E593ae8E3",
+        "0xA047F6900FeE0b6195088a49009eA65365f7DD68"
+      ],
+      "libraries": {}
+    },
+    "27": {
+      "id": "0xfc7f87c8beb27e1f52c93adff663749b1777236b9fa0abe507803912f2dcb339",
+      "name": "MNYeBasisTradingStrategyExtension",
+      "timestamp": 1653990708661,
+      "verified": true,
+      "description": "Deployed MNYeBasisTradingStrategyExtension",
+      "contractAddress": "0x3D0ac6837De9ACB4d69e7cC1686d2C151B55359D",
+      "constructorArgs": [
+        "0x8B5F199248a63416d72fdE285F8B35a0dbA747f2",
+        {
+          "setToken": "0x6d31E9B9f1e8CBfb8C3C1C7167Ecb8DaFbcb1c92",
+          "basisTradingModule": "0x5aAd2270a04976e66aA6C4F4d3d9E95e06f45542",
+          "tradeModule": "0x0a18Ad43a9dc991dB9401ee7aC5AAD0A3b219159",
+          "quoter": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+          "perpV2AccountBalance": "0x594ADf28b465612DB033C1aEF4bd19972343934D",
+          "baseUSDPriceOracle": "0xF3C3a94E8e4F3A0c86A950cd619bF09A1E41eBE9",
+          "twapInterval": {
+            "type": "BigNumber",
+            "hex": "0x00"
+          },
+          "basePriceDecimalAdjustment": {
+            "type": "BigNumber",
+            "hex": "0x0a"
+          },
+          "virtualBaseAddress": "0x099FaDE6D13401c4f9742db09ae827E434FB4C30",
+          "virtualQuoteAddress": "0xd52d4175f937b965de49e6c24e081eee6dae5645",
+          "spotAssetAddress": "0x4200000000000000000000000000000000000006"
+        },
+        {
+          "targetLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0de0b6b3a7640000"
+          },
+          "minLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x0d2f13f7789f0000"
+          },
+          "maxLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x1bc16d674ec80000"
+          },
+          "recenteringSpeed": {
+            "type": "BigNumber",
+            "hex": "0xb1a2bc2ec50000"
+          },
+          "rebalanceInterval": {
+            "type": "BigNumber",
+            "hex": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+          },
+          "reinvestInterval": {
+            "type": "BigNumber",
+            "hex": "0x093a80"
+          },
+          "minReinvestUnits": {
+            "type": "BigNumber",
+            "hex": "0x2710"
+          }
+        },
+        {
+          "twapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x1e"
+          },
+          "slippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0x470de4df820000"
+          }
+        },
+        {
+          "incentivizedTwapCooldownPeriod": {
+            "type": "BigNumber",
+            "hex": "0x01"
+          },
+          "incentivizedSlippageTolerance": {
+            "type": "BigNumber",
+            "hex": "0xb1a2bc2ec50000"
+          },
+          "etherReward": {
+            "type": "BigNumber",
+            "hex": "0x0de0b6b3a7640000"
+          },
+          "incentivizedLeverageRatio": {
+            "type": "BigNumber",
+            "hex": "-0x29a2241af62c0000"
+          }
+        },
+        {
+          "exchangeName": "UniswapV3ExchangeAdapterV2",
+          "buyExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb83e22e37cb472c872b5de121134cfd1b57ef0656000",
+          "sellExactSpotTradeData": "0x4200000000000000000000000000000000000006000bb83e22e37cb472c872b5de121134cfd1b57ef0656001",
+          "buySpotQuoteExactInputPath": "0x3e22e37cb472c872b5de121134cfd1b57ef06560000bb84200000000000000000000000000000000000006",
+          "twapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x01a055690d9db80000"
+          },
+          "incentivizedTwapMaxTradeSize": {
+            "type": "BigNumber",
+            "hex": "0x0340aad21b3b700000"
+          }
+        }
+      ],
+      "libraries": {}
+    },
+    "28": {
+      "id": "0xd96634b49a07b29470d9bc249a81ff316ca561369e02fdf6b75114a8574c83e2",
+      "name": "MNYeFeeSplitExtension",
+      "timestamp": 1653990714902,
+      "verified": true,
+      "description": "Deployed MNYeFeeSplitExtension",
+      "contractAddress": "0xDeAa76Ac532a190a70e7419F8043Df9FDd0bbF67",
+      "constructorArgs": [
+        "0x8B5F199248a63416d72fdE285F8B35a0dbA747f2",
+        "0xb2812842C176bAf83EcD8e4534A9F4A93e93017E",
+        "0x12951b9Eaa200237f9080C95AD93Cc74c9d9Bd45",
+        {
+          "type": "BigNumber",
+          "hex": "0x0de0b6b3a7640000"
+        },
+        "0xA047F6900FeE0b6195088a49009eA65365f7DD68"
+      ],
+      "libraries": {}
+    },
+    "29": {
+      "id": "0xc0554ad351466b7db20e7c2eef9d61998d3895104567150a95ae08577204c9ec",
+      "timestamp": 1653990724243,
+      "description": "Add MNYeBasisTradingStrategyExtension on MNYeBaseManager"
+    },
+    "30": {
+      "id": "0x246d891fa9af87c73ed82d1d69b46b557157889620c13cb7951400f3ea1f0d9e",
+      "timestamp": 1653990734422,
+      "description": "Add MNYeFeeSplitExtension on MNYeBaseManager"
+    },
+    "31": {
+      "id": "0x1dc1ef73a6113f06b2af33eed39a4cd81b3f4f6482b989b0ae1259af8bbad179",
+      "timestamp": 1653990744277,
+      "description": "MNYeBasisTradingStrategyExtension caller statuses updated."
+    },
+    "32": {
+      "id": "0x78d2ef4f38dd9399a45e0d193341d74e335f9d417bda091a8b7bd6c5dca4234c",
+      "timestamp": 1653990752884,
+      "description": "Set MNYeBaseManager contract as MNY_ETH_TOKEN Manager"
     }
   }
 }
