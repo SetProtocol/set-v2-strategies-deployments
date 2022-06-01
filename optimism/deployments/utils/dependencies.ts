@@ -40,7 +40,7 @@ export default {
       staging: "0x127B97587Df93BcbDF66b30A53654D6B9a5E183B",    // test basis set
       production: "0x0Be27c140f9Bdad3474bEaFf0A413EC7e19e9B93"
     },
-    69: ""
+    69: "0x6d31E9B9f1e8CBfb8C3C1C7167Ecb8DaFbcb1c92"
   },
 
   // PerpV2 virtual tokens
